@@ -1,16 +1,17 @@
 import { Suspense } from "react";
 import { Link } from "react-router-dom";
 import { Route, Routes } from "react-router-dom";
-import { AboutPageAsync } from "./pages/AboutPage/AboutPage.async";
-import { HomePageAsync } from "./pages/HomePage/HomePageAsync";
+import { classNames } from "shared/lib/classNames/classNames";
+import { AboutPage } from "pages/AboutPage";
+import { HomePage } from "pages/HomePage";
+import { useTheme } from "shared/contexts";
 import "./styles/index.scss";
-import { useTheme } from "./theme/useTheme";
 
 export const App = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className={`app ${theme}`}>
+    <div className={classNames("app", { hovered: true }, [theme])}>
       <Link to={"/"}>Home</Link>
       <Link to={"/about"}>About</Link>
 
@@ -18,8 +19,8 @@ export const App = () => {
 
       <Suspense fallback={<div>loading...</div>}>
         <Routes>
-          <Route path={"/about"} element={<AboutPageAsync />} />
-          <Route path={"/"} element={<HomePageAsync />} />
+          <Route path={"/about"} element={<AboutPage />} />
+          <Route path={"/"} element={<HomePage />} />
         </Routes>
       </Suspense>
     </div>
