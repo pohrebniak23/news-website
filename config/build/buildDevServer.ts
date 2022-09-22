@@ -1,5 +1,5 @@
-import { BuildOptions } from "./types/config";
-import type { Configuration as DevServerConfigureation } from "webpack-dev-server";
+import type { Configuration as DevServerConfigureation } from 'webpack-dev-server';
+import { BuildOptions } from './types/config';
 
 export function buildDevServer(otpions: BuildOptions): DevServerConfigureation {
   return {

@@ -1,9 +1,9 @@
-import i18next from "i18next";
-import { useState } from "react";
-import { useTranslation } from "react-i18next";
-import { classNames } from "shared/lib/classNames/classNames";
-import Arrow from "../assets/icons/down-arrow.svg";
-import styles from "./LangSwitcher.module.scss";
+import i18next from 'i18next';
+import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { classNames } from 'shared/lib/classNames/classNames';
+import Arrow from '../assets/icons/down-arrow.svg';
+import styles from './LangSwitcher.module.scss';
 
 interface ILangList {
   lang: string;
@@ -16,16 +16,16 @@ interface LangSwitcherProps {
 
 const langList: ILangList[] = [
   {
-    lang: "ru",
-    text: "Русский",
+    lang: 'ru',
+    text: 'Русский',
   },
   {
-    lang: "en",
-    text: "English",
+    lang: 'en',
+    text: 'English',
   },
   {
-    lang: "ua",
-    text: "Українська",
+    lang: 'ua',
+    text: 'Українська',
   },
 ];
 
@@ -33,29 +33,29 @@ export const LangSwitcher = ({ className }: LangSwitcherProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { i18n } = useTranslation();
 
+  const toggleLangList = () => {
+    setIsOpen(!isOpen);
+  };
+
   const switchLang = (lang: string) => {
     i18next.changeLanguage(lang);
     toggleLangList();
   };
 
-  const toggleLangList = () => {
-    setIsOpen(!isOpen);
-  };
-
   const currentLangText = langList.find(
-    (item) => item.lang === i18n.language
+    (item) => item.lang === i18n.language,
   ).text;
 
   return (
     <div className={classNames(styles.langSwitcher, {}, [className])}>
-      <div className={styles.langNav} onClick={toggleLangList}>
+      <button type="submit" className={styles.langNav} onClick={toggleLangList}>
         <span className={styles.langText}>{currentLangText}</span>
         <Arrow
           className={classNames(styles.arrow, {
             [styles.arrow_rotate]: isOpen,
           })}
         />
-      </div>
+      </button>
 
       <div
         className={classNames(styles.langList, {
@@ -64,6 +64,7 @@ export const LangSwitcher = ({ className }: LangSwitcherProps) => {
       >
         {langList.map((item) => (
           <button
+            type="button"
             key={item.lang}
             className={styles.langItem}
             onClick={() => switchLang(item.lang)}
