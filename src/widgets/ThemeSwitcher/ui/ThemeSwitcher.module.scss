@@ -1,0 +1,43 @@
+.themeSwitcher {
+  background: unset;
+  border: 1px solid var(--bg-color);
+  width: 50px;
+  border-radius: 50px;
+  height: 26px;
+  padding: 0 2px;
+  position: relative;
+}
+
+.circle {
+  width: 22px;
+  height: 22px;
+  background: var(--bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(2px, -50%);
+  transition: .4s;
+  cursor: pointer;
+  svg {
+    path {
+      fill: var(--additional-bg-color);
+    }
+  }
+  &_dark {
+    left: 100%;
+    transform: translate(calc(-100% - 2px), -50%);
+    margin-left: auto;
+    transition: .4s;
+    background-color: var(--bg-color);
+    svg {
+      path {
+        fill: var(--additional-bg-color);
+      }
+    }
+  }
+}
+

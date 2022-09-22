@@ -1,0 +1,36 @@
+.navbar {
+  height: var(--navbar-height);
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background: var(--additional-bg-color);
+  justify-content: space-between;
+}
+
+.logo {
+  color: var(--additional-primary-color);
+  text-decoration: none;
+}
+
+.links {
+  display: flex;
+  margin-left: auto;
+  gap: 25px;
+}
+
+.navBarLink {
+  color: var(--additional-primary-color);
+}
+
+.rightContent {
+  display: flex;
+  align-items: center;
+}
+
+.themeSwitcher {
+  margin-left: 20px;
+}
+
+.langSwitcher {
+  margin-left: 40px;
+}

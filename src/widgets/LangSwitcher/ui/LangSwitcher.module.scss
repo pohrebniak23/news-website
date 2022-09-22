@@ -1,0 +1,46 @@
+.langSwitcher {
+  position: relative;
+}
+
+.langNav {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.langText {
+  color: var(--additional-primary-color);
+}
+
+.arrow {
+  margin-left: 10px;
+  transition: .4s;
+  width: 10px;
+  height: auto;
+  fill: var(--additional-primary-color);
+  &_rotate {
+    transform: rotate(180deg);
+  }
+}
+
+.langList {
+  position: absolute;
+  top: 34px;
+  display: none;
+  background: var(--additional-bg-color);
+  padding: 10px;
+  left: 0;
+  &_open {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 10px;
+  }
+}
+
+.langItem {
+  background: unset;
+  color: var(--additional-primary-color);
+  cursor: pointer;
+  border: none;
+  font: var(--font-s)
+}

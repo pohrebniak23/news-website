@@ -6,22 +6,26 @@ import { AboutPage } from "pages/AboutPage";
 import { HomePage } from "pages/HomePage";
 import { useTheme } from "shared/contexts";
 import "./styles/index.scss";
+import { AppRouter } from "./providers/router";
+import { Navbar } from "widgets/Navbar/ui/Navbar";
+import { ThemeSwitcher } from "widgets/ThemeSwitcher";
+import { Sidebar } from "widgets/Sidebar";
 
 export const App = () => {
-  const { theme, toggleTheme } = useTheme();
+  const { theme } = useTheme();
 
   return (
     <div className={classNames("app", { hovered: true }, [theme])}>
-      <Link to={"/"}>Home</Link>
-      <Link to={"/about"}>About</Link>
+      <Suspense fallback="">
+        <Navbar />
 
-      <button onClick={toggleTheme}>Toggle theme</button>
+        <div className="content">
+          <Sidebar />
 
-      <Suspense fallback={<div>loading...</div>}>
-        <Routes>
-          <Route path={"/about"} element={<AboutPage />} />
-          <Route path={"/"} element={<HomePage />} />
-        </Routes>
+          <div className="page-wrapper">
+            <AppRouter />
+          </div>
+        </div>
       </Suspense>
     </div>
   );
