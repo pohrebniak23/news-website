@@ -13,7 +13,7 @@ i18n
   .use(initReactI18next)
   .init({
     fallbackLng: 'ru',
-    debug: __IS_DEV__,
+    debug: IS_DEV,
 
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
