@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import styles from './Sidebar.module.scss';
 
@@ -7,6 +8,7 @@ interface SidebarProps {
 }
 
 export const Sidebar = ({ className }: SidebarProps) => {
+  const { t } = useTranslation();
   const [collapsed, setCollapsed] = useState<boolean>(false);
 
   const onToggle = () => {
@@ -20,7 +22,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
       ])}
     >
       <button type="button" onClick={onToggle}>
-        toggle
+        {t('toggle')}
       </button>
     </div>
   );

@@ -14,10 +14,11 @@
 
 .arrow {
   margin-left: 10px;
-  transition: .4s;
+  transition: 0.4s;
   width: 10px;
   height: auto;
   fill: var(--additional-primary-color);
+
   &_rotate {
     transform: rotate(180deg);
   }
@@ -30,6 +31,7 @@
   background: var(--additional-bg-color);
   padding: 10px;
   left: 0;
+
   &_open {
     display: flex;
     flex-direction: column;
@@ -42,5 +44,5 @@
   color: var(--additional-primary-color);
   cursor: pointer;
   border: none;
-  font: var(--font-s)
+  font: var(--font-s);
 }

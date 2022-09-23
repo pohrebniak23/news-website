@@ -20,19 +20,22 @@
   left: 0;
   top: 50%;
   transform: translate(2px, -50%);
-  transition: .4s;
+  transition: 0.4s;
   cursor: pointer;
+
   svg {
     path {
       fill: var(--additional-bg-color);
     }
   }
+
   &_dark {
     left: 100%;
     transform: translate(calc(-100% - 2px), -50%);
     margin-left: auto;
-    transition: .4s;
+    transition: 0.4s;
     background-color: var(--bg-color);
+
     svg {
       path {
         fill: var(--additional-bg-color);
@@ -40,4 +43,3 @@
     }
   }
 }
-

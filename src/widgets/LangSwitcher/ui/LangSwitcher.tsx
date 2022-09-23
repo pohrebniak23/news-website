@@ -2,6 +2,7 @@ import i18next from 'i18next';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Button } from 'shared/ui/Button/Button';
 import Arrow from '../assets/icons/down-arrow.svg';
 import styles from './LangSwitcher.module.scss';
 
@@ -48,14 +49,14 @@ export const LangSwitcher = ({ className }: LangSwitcherProps) => {
 
   return (
     <div className={classNames(styles.langSwitcher, {}, [className])}>
-      <button type="submit" className={styles.langNav} onClick={toggleLangList}>
+      <Button theme="clear" className={styles.langNav} onClick={toggleLangList}>
         <span className={styles.langText}>{currentLangText}</span>
         <Arrow
           className={classNames(styles.arrow, {
             [styles.arrow_rotate]: isOpen,
           })}
         />
-      </button>
+      </Button>
 
       <div
         className={classNames(styles.langList, {

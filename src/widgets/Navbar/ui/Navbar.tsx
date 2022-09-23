@@ -1,21 +1,19 @@
-import { classNames } from "shared/lib/classNames/classNames";
-import styles from "./Navbar.module.scss";
-import { AppLink } from "shared/ui/AppLink/AppLink";
-import { ThemeSwitcher } from "widgets/ThemeSwitcher";
-import { Link } from "react-router-dom";
-import { RoutePath } from "shared/config/routes/routes";
-import { LangSwitcher } from "widgets/LangSwitcher/ui/LangSwitcher";
-import { useTranslation } from "react-i18next";
+import { classNames } from 'shared/lib/classNames/classNames';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
+import { Link } from 'react-router-dom';
+import { RoutePath } from 'shared/config/routes/routes';
+import { LangSwitcher } from 'widgets/LangSwitcher/ui/LangSwitcher';
+import { useTranslation } from 'react-i18next';
+import styles from './Navbar.module.scss';
 
-interface NavbarProps {}
-
-export const Navbar = ({}: NavbarProps) => {
+export const Navbar = () => {
   const { t } = useTranslation();
 
   return (
     <nav className={classNames(styles.navbar)}>
       <Link to={RoutePath.home} className={styles.logo}>
-        Logo
+        {t('Logo')}
       </Link>
 
       <div className={styles.rightContent}>

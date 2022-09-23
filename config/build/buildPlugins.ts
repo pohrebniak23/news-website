@@ -1,6 +1,7 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import webpack from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import ESLintPlugin from 'eslint-webpack-plugin';
 import { BuildOptions } from './types/config';
 
 export function buildPlugins({
@@ -18,6 +19,9 @@ export function buildPlugins({
     }),
     new webpack.DefinePlugin({
       IS_DEV: JSON.stringify(isDev),
+    }),
+    new ESLintPlugin({
+      extensions: ['js', 'jsx', 'ts', 'tsx'],
     }),
   ];
 }
