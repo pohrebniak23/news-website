@@ -14,8 +14,7 @@ export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div
-      className={classNames(
+    <div className={classNames(
         styles.themeSwitcher,
         { [styles.themeSwitcher_dark]: theme === Theme.DARK },
         [className],
