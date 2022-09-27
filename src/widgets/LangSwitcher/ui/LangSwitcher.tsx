@@ -17,10 +17,6 @@ interface LangSwitcherProps {
 
 const langList: ILangList[] = [
   {
-    lang: 'ru',
-    text: 'Русский',
-  },
-  {
     lang: 'en',
     text: 'English',
   },
