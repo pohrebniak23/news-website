@@ -3,6 +3,10 @@
 @import "./themes/light.scss";
 @import "./themes/dark.scss";
 
+#root {
+  min-height: 100vh;
+}
+
 .app {
   font: var(--font-m);
   background: var(--bg-color);
