@@ -1,5 +1,5 @@
+import classNames from 'classnames';
 import { useTheme } from 'shared/contexts';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { Theme } from 'shared/contexts/themeContext/ThemeContext';
 import { Button } from 'shared/ui/Button/Button';
 import DarkIcon from '../assets/icons/dark-switch-icon.svg';
@@ -18,7 +18,7 @@ export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
       className={classNames(
         styles.themeSwitcher,
         { [styles.themeSwitcher_dark]: theme === Theme.DARK },
-        [className],
+        className,
       )}
     >
       <Button

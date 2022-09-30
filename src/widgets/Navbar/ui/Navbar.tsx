@@ -1,7 +1,5 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
-import { Link } from 'react-router-dom';
 import { RoutePath } from 'shared/config/routes/routes';
 import { LangSwitcher } from 'widgets/LangSwitcher/ui/LangSwitcher';
 import { useTranslation } from 'react-i18next';
@@ -11,7 +9,7 @@ export const Navbar = () => {
   const { t } = useTranslation();
 
   return (
-    <nav data-testid="navbar" className={classNames(styles.navbar)}>
+    <nav data-testid="navbar" className={styles.navbar}>
       <AppLink to={RoutePath.home} className={styles.logo}>
         {t('Logo')}
       </AppLink>
