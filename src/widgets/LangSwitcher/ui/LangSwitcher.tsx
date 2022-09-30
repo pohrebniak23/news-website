@@ -15,20 +15,20 @@ interface LangSwitcherProps {
   className?: string;
 }
 
-const langList: ILangList[] = [
-  {
-    lang: 'en',
-    text: 'English',
-  },
-  {
-    lang: 'ua',
-    text: 'Українська',
-  },
-];
-
 export const LangSwitcher = ({ className }: LangSwitcherProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { i18n } = useTranslation();
+
+  const langList: ILangList[] = [
+    {
+      lang: 'en',
+      text: 'English',
+    },
+    {
+      lang: 'ua',
+      text: 'Українська',
+    },
+  ];
 
   const toggleLangList = () => {
     setIsOpen(!isOpen);
@@ -39,37 +39,43 @@ export const LangSwitcher = ({ className }: LangSwitcherProps) => {
     toggleLangList();
   };
 
-  const currentLangText = langList.find(
-    (item) => item.lang === i18n.language,
-  ).text;
+  const currentLang =
+    langList.find((item) => item.lang === i18n.language) || null;
+  const currentLangText = currentLang ? currentLang.text : null;
 
   return (
-    <div className={classNames(styles.langSwitcher, {}, [className])}>
-      <Button theme="clear" className={styles.langNav} onClick={toggleLangList}>
-        <span className={styles.langText}>{currentLangText}</span>
-        <Arrow
-          className={classNames(styles.arrow, {
-            [styles.arrow_rotate]: isOpen,
-          })}
-        />
-      </Button>
+    currentLang && (
+      <div className={classNames(styles.langSwitcher, {}, [className])}>
+        <Button
+          theme="clear"
+          className={styles.langNav}
+          onClick={toggleLangList}
+        >
+          <span className={styles.langText}>{currentLangText}</span>
+          <Arrow
+            className={classNames(styles.arrow, {
+              [styles.arrow_rotate]: isOpen,
+            })}
+          />
+        </Button>
 
-      <div
-        className={classNames(styles.langList, {
-          [styles.langList_open]: isOpen,
-        })}
-      >
-        {langList.map((item) => (
-          <button
-            type="button"
-            key={item.lang}
-            className={styles.langItem}
-            onClick={() => switchLang(item.lang)}
-          >
-            {item.text}
-          </button>
-        ))}
+        <div
+          className={classNames(styles.langList, {
+            [styles.langList_open]: isOpen,
+          })}
+        >
+          {langList.map((item) => (
+            <button
+              type="button"
+              key={item.lang}
+              className={styles.langItem}
+              onClick={() => switchLang(item.lang)}
+            >
+              {item.text}
+            </button>
+          ))}
+        </div>
       </div>
-    </div>
+    )
   );
 };

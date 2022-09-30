@@ -10,7 +10,6 @@
     "plugin:prettier/recommended",
     "plugin:i18next/recommended"
   ],
-  "overrides": [],
   "parserOptions": {
     "project": "./tsconfig.json"
   },
@@ -32,5 +31,13 @@
   },
   "globals": {
     // IS_DEV: true,
-  }
+  },
+  "overrides": [
+    {
+      "files": ["**/src/**/*.test.{ts,tsx}"],
+      "rules": {
+        "i18next/no-literal-string": "off"
+      }
+    }
+  ]
 }

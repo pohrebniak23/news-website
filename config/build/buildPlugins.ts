@@ -2,6 +2,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import webpack from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ESLintPlugin from 'eslint-webpack-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/config';
 
 export function buildPlugins({
@@ -23,5 +24,6 @@ export function buildPlugins({
     new ESLintPlugin({
       extensions: ['js', 'jsx', 'ts', 'tsx'],
     }),
+    new BundleAnalyzerPlugin({ openAnalyzer: false }),
   ];
 }

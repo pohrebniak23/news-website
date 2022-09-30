@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { LangSwitcher } from '../../../LangSwitcher/ui/LangSwitcher';
+import { ThemeSwitcher } from '../../../ThemeSwitcher/ui/ThemeSwitcher';
 import styles from './Sidebar.module.scss';
 
 interface SidebarProps {
@@ -17,11 +19,12 @@ export const Sidebar = ({ className }: SidebarProps) => {
 
   return (
     <div
+      data-testid="sidebar"
       className={classNames(styles.sidebar, { [styles.collapsed]: collapsed }, [
         className,
       ])}
     >
-      <button type="button" onClick={onToggle}>
+      <button data-testid="sidebar-toggle" type="button" onClick={onToggle}>
         {t('toggle')}
       </button>
     </div>

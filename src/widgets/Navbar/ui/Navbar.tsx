@@ -11,10 +11,10 @@ export const Navbar = () => {
   const { t } = useTranslation();
 
   return (
-    <nav className={classNames(styles.navbar)}>
-      <Link to={RoutePath.home} className={styles.logo}>
+    <nav data-testid="navbar" className={classNames(styles.navbar)}>
+      <AppLink to={RoutePath.home} className={styles.logo}>
         {t('Logo')}
-      </Link>
+      </AppLink>
 
       <div className={styles.rightContent}>
         <div className={styles.links}>
