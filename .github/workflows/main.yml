@@ -1,7 +1,35 @@
 name: linting, testing, building
 on: [push]
 jobs:
-  pipeline:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 17.x ]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Starting Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: install node_modules
+        run: npm install
+
+      - name: build production project
+        run: npm run build:prod
+
+      - name: unit testing
+        run: npm run test:unit
+
+      - name: build storybook
+        run: npm run storybook:build
+
+      - name: screenshot testing
+        run: npm run test:ui:ci
+
+  linting:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -25,12 +53,3 @@ jobs:
 
       - name: linting scss
         run: npm run lint:scss
-
-      - name: unit testing
-        run: npm run test:unit
-
-      - name: build storybook
-        run: npm run storybook:build
-
-      - name: screenshot testing
-        run: npm run test:ui:ci
