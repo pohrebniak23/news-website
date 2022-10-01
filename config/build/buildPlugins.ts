@@ -9,7 +9,7 @@ export function buildPlugins({
   paths,
   isDev,
 }: BuildOptions): webpack.WebpackPluginInstance[] {
-  return [
+  const plugins = [
     new HtmlWebpackPlugin({
       template: paths.html,
     }),
@@ -21,9 +21,16 @@ export function buildPlugins({
     new webpack.DefinePlugin({
       IS_DEV: JSON.stringify(isDev),
     }),
-    new ESLintPlugin({
-      extensions: ['js', 'jsx', 'ts', 'tsx'],
-    }),
-    new BundleAnalyzerPlugin({ openAnalyzer: false }),
   ];
+
+  if (isDev) {
+    plugins.push(
+      new ESLintPlugin({
+        extensions: ['js', 'jsx', 'ts', 'tsx'],
+      }),
+    );
+    plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }));
+  }
+
+  return plugins;
 }
