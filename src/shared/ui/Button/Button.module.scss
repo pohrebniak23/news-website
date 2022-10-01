@@ -1,7 +1,23 @@
+.button {
+  background: var(--primary-color);
+  border: none;
+  color: var(--additional-primary-color);
+  padding: 6px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font: var(--font-m);
+}
+
 .clear {
   background: unset;
   border: unset;
-  padding: 0;
   display: block;
-  font: inherit;
+  color: var(--primary-color);
+  padding: 0;
+}
+
+.outline {
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  background: transparent;
 }

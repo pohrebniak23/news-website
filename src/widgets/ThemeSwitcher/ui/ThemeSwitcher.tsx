@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { useTheme } from 'shared/contexts';
 import { Theme } from 'shared/contexts/themeContext/ThemeContext';
-import { Button } from 'shared/ui/Button/Button';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import DarkIcon from '../assets/icons/dark-switch-icon.svg';
 import LightIcon from '../assets/icons/light-switch-icon.svg';
 import styles from './ThemeSwitcher.module.scss';
@@ -22,7 +22,7 @@ export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
       )}
     >
       <Button
-        theme="clear"
+        theme={ButtonTheme.CLEAR}
         className={classNames(styles.circle, {
           [styles.circle_dark]: theme === Theme.DARK,
         })}

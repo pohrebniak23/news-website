@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import i18next from 'i18next';
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Button } from 'shared/ui/Button/Button';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import Arrow from '../assets/icons/down-arrow.svg';
 import styles from './LangSwitcher.module.scss';
 
@@ -15,7 +15,7 @@ interface LangSwitcherProps {
   className?: string;
 }
 
-export const LangSwitcher = ({ className }: LangSwitcherProps) => {
+export const LangSwitcher: FC<LangSwitcherProps> = ({ className }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { i18n } = useTranslation();
 
@@ -47,7 +47,7 @@ export const LangSwitcher = ({ className }: LangSwitcherProps) => {
     currentLang && (
       <div className={classNames(styles.langSwitcher, className)}>
         <Button
-          theme="clear"
+          theme={ButtonTheme.CLEAR}
           className={styles.langNav}
           onClick={toggleLangList}
         >
