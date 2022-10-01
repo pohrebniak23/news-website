@@ -1,5 +1,7 @@
-/build
+build
 node_modules
+storybook-static
+
 .idea
 .DS_Store
 .vscode
