@@ -9,7 +9,7 @@
 }
 
 .langText {
-  color: var(--additional-primary-color);
+  color: var(--primary-color);
 }
 
 .arrow {
@@ -17,7 +17,7 @@
   transition: 0.4s;
   width: 10px;
   height: auto;
-  fill: var(--additional-primary-color);
+  fill: var(--primary-color);
 
   &_rotate {
     transform: rotate(180deg);
@@ -41,7 +41,7 @@
 
 .item {
   background: unset;
-  color: var(--additional-primary-color);
+  color: var(--primary-color);
   cursor: pointer;
   border: none;
   font: var(--font-s);

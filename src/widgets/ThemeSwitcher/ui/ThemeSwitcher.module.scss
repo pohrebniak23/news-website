@@ -1,6 +1,6 @@
 .themeSwitcher {
   background: unset;
-  border: 1px solid var(--bg-color);
+  border: 1px solid var(--primary-color);
   width: 50px;
   border-radius: 50px;
   height: 26px;
@@ -11,7 +11,7 @@
 .circle {
   width: 22px;
   height: 22px;
-  background: var(--bg-color);
+  background: var(--primary-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,7 +34,7 @@
     transform: translate(calc(-100% - 2px), -50%);
     margin-left: auto;
     transition: 0.4s;
-    background-color: var(--bg-color);
+    background-color: var(--primary-color);
 
     svg {
       path {

@@ -6,6 +6,19 @@
   border-radius: 6px;
   cursor: pointer;
   font: var(--font-m);
+  fill: var(--additional-primary-color);
+
+  &.small {
+    font: var(--font-s);
+  }
+
+  &.medium {
+    font: var(--font-m);
+  }
+
+  &.large {
+    font: var(--font-l);
+  }
 }
 
 .clear {
@@ -20,4 +33,26 @@
   border: 1px solid var(--primary-color);
   color: var(--primary-color);
   background: transparent;
+}
+
+.square {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+
+  &.small {
+    width: 20px;
+    height: 20px;
+  }
+
+  &.medium {
+    width: 24px;
+    height: 24px;
+  }
+
+  &.large {
+    width: 30px;
+    height: 30px;
+  }
 }

@@ -3,9 +3,49 @@
   width: var(--sidebar-width);
   background: var(--additional-bg-color);
   position: relative;
-  transition: 0.4s;
+  transition: width 0.4s;
+  padding: 20px;
+}
+
+.toggle {
+  border-radius: 50%;
+  position: absolute;
+  right: 0;
+  transform: translateX(50%);
+  top: 50px;
+
+  .rotate {
+    transform: rotate(180deg);
+  }
+}
+
+.linksList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.link {
+  color: var(--primary-color);
+  font: var(--font-m);
+  display: flex;
+  align-items: center;
+  grid-gap: 0 8px;
+}
+
+.linkText {
+  transition: opacity 0.4s, width 0.2s;
 }
 
 .collapsed {
   width: var(--sidebar-width-collapsed);
+
+  .linksList {
+    align-items: center;
+  }
+
+  .linkText {
+    opacity: 0;
+    width: 0;
+  }
 }

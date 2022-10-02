@@ -16,15 +16,6 @@ export const Navbar: FC = () => {
       </AppLink>
 
       <div className={styles.rightContent}>
-        <div className={styles.links}>
-          <AppLink to={RoutePath.home} className={styles.navBarLink}>
-            {t('Home')}
-          </AppLink>
-          <AppLink to={RoutePath.about} className={styles.navBarLink}>
-            {t('About')}
-          </AppLink>
-        </div>
-
         <LangSwitcher className={styles.langSwitcher} />
         <ThemeSwitcher className={styles.themeSwitcher} />
       </div>

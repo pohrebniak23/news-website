@@ -1,15 +1,10 @@
 import { screen } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
-import { renderWithTranslation } from 'shared/lib/test/renderWithTranslation/renderWithTranslation';
+import { renderComponent } from 'shared/lib/test/renderComponent/renderComponent';
 import { Navbar } from './Navbar';
 
 describe('Navbar', () => {
   test('Test for ', () => {
-    renderWithTranslation(
-      <BrowserRouter>
-        <Navbar />
-      </BrowserRouter>,
-    );
+    renderComponent(<Navbar />);
     expect(screen.getByTestId('navbar')).toBeInTheDocument();
   });
 });
