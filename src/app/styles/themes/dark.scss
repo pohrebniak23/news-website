@@ -1,7 +1,10 @@
-.app.dark {
+.app-dark-theme {
   --bg-color: #000;
   --primary-color: #f6f6f6;
   --secondary-color: #ef8678;
   --additional-bg-color: #191919;
   --additional-primary-color: #191919;
+  --overlay-color: rgb(0 0 0 / 60%);
+  --modal-bg-color: rgb(255 255 255);
+  --modal-text-color: #000;
 }

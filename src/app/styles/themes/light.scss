@@ -1,7 +1,10 @@
-.app.light {
+.app-light-theme {
   --bg-color: rgb(255 255 255);
   --primary-color: #303030;
   --secondary-color: #ec7160;
   --additional-bg-color: rgb(246 247 252);
   --additional-primary-color: #ededed;
+  --overlay-color: rgb(0 0 0 / 60%);
+  --modal-bg-color: rgb(255 255 255);
+  --modal-text-color: #000;
 }
