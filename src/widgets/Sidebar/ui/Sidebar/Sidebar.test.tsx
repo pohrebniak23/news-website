@@ -4,7 +4,7 @@ import { renderComponent } from 'shared/lib/test/renderComponent/renderComponent
 
 describe('Sidebar', () => {
   test('Test for ', () => {
-    render(<Sidebar />);
+    renderComponent(<Sidebar />);
     expect(screen.getByTestId('sidebar')).toBeInTheDocument();
   });
 
