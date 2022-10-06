@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { Navbar } from 'widgets/Navbar/ui/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
-import { AppRouter } from './providers/router';
+import { AppRouter } from './providers/RouterProvider';
 
 export const App = () => {
   return (
