@@ -1,0 +1,21 @@
+.loginform {
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.input {
+  margin-bottom: 14px;
+  color: var(--modal-text-color);
+  border: 1px solid var(--modal-text-color);
+  background: var(--modal-bg-color);
+}

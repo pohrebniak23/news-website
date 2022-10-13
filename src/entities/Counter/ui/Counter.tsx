@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { getCounterValue } from '../models/selectors/getCounterValue/getCounterValue';
-import { CounterActions } from '../models/slice/CounterSlice';
+import { CounterActions } from '../models/slices/CounterSlice';
 
 export const Counter = () => {
   const dispatch = useDispatch();

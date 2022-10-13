@@ -3,6 +3,7 @@ import { ButtonHTMLAttributes, FC } from 'react';
 import styles from './Button.module.scss';
 
 export enum ButtonTheme {
+  MODAL = 'modal',
   CLEAR = 'clear',
   OUTLINE = 'outline',
   SQUARE = 'square',

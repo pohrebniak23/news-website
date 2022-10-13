@@ -1,16 +1,28 @@
 import classNames from 'classnames';
-import { FC, useCallback, useEffect } from 'react';
+import { FC, useCallback, useEffect, useState } from 'react';
 import { Portal } from 'shared/ui/Portal/Portal';
 import styles from './Modal.module.scss';
 
 interface ModalProps {
+  className?: string;
   isOpen?: boolean;
   onClose?: () => void;
+  lazy?: boolean;
 }
 
-export const Modal: FC<ModalProps> = ({ isOpen, onClose, children }) => {
+export const Modal: FC<ModalProps> = ({
+  isOpen,
+  onClose,
+  className,
+  lazy,
+  children,
+}) => {
+  const [isMounted, setIsMounted] = useState<boolean>(false);
+  const [isOpening, setIsOpening] = useState<boolean>(false);
+
   const closeHandler = useCallback(() => {
     if (onClose) {
+      setIsOpening(false);
       onClose();
     }
   }, [onClose]);
@@ -29,6 +41,22 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose, children }) => {
   );
 
   useEffect(() => {
+    let timeoutId: any;
+
+    if (isOpen) {
+      setIsMounted(true);
+
+      timeoutId = setTimeout(() => {
+        setIsOpening(true);
+      }, 10);
+    }
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
     if (isOpen) {
       window.addEventListener('keydown', onKeyDown);
     }
@@ -38,12 +66,20 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose, children }) => {
     };
   }, [isOpen, onKeyDown]);
 
+  if (lazy && !isMounted) {
+    return null;
+  }
+
   return (
     <Portal>
       <div
-        className={classNames(styles.modal, {
-          [styles.open]: isOpen,
-        })}
+        className={classNames(
+          styles.modal,
+          {
+            [styles.opening]: isOpening,
+          },
+          className,
+        )}
       >
         <div className={styles.overlay} onClick={closeHandler}>
           <div

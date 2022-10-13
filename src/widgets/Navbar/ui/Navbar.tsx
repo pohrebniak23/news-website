@@ -1,20 +1,24 @@
-import { AppLink } from 'shared/ui/AppLink/AppLink';
-import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
-import { RoutePath } from 'shared/config/routes/routes';
-import { LangSwitcher } from 'widgets/LangSwitcher/ui/LangSwitcher';
-import { useTranslation } from 'react-i18next';
+import { LoginModal } from 'features/AuthByUsername';
 import { FC, useCallback, useState } from 'react';
-import { Modal } from 'shared/ui/Modal/Modal';
+import { useTranslation } from 'react-i18next';
+import { RoutePath } from 'shared/config/routes/routes';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { Button } from 'shared/ui/Button/Button';
+import { LangSwitcher } from 'widgets/LangSwitcher/ui/LangSwitcher';
+import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import styles from './Navbar.module.scss';
 
 export const Navbar: FC = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const { t } = useTranslation();
 
-  const onToggleModal = useCallback(() => {
-    setIsModalOpen(!isModalOpen);
-  }, [isModalOpen]);
+  const onCloseModal = useCallback(() => {
+    setIsModalOpen(false);
+  }, []);
+
+  const onOpenModal = useCallback(() => {
+    setIsModalOpen(true);
+  }, []);
 
   return (
     <nav data-testid="navbar" className={styles.navbar}>
@@ -25,15 +29,11 @@ export const Navbar: FC = () => {
       <div className={styles.rightContent}>
         <LangSwitcher className={styles.langSwitcher} />
         <ThemeSwitcher className={styles.themeSwitcher} />
+
+        <Button onClick={onOpenModal}>{t('Войти')}</Button>
+
+        <LoginModal isOpen={isModalOpen} onClose={onCloseModal} />
       </div>
-
-      <Button onClick={onToggleModal}>{t('Войти')}</Button>
-
-      <Modal isOpen={isModalOpen} onClose={onToggleModal}>
-        {t(
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga culpa reprehenderit nobis consequatur beatae nihil rem eveniet corrupti labore, cupiditate sed neque quisquam dicta ipsum sequi sunt odit. Consequuntur, voluptatem.',
-        )}
-      </Modal>
     </nav>
   );
 };

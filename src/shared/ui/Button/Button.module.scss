@@ -21,6 +21,11 @@
   }
 }
 
+.modal {
+  background: var(--modal-text-color);
+  color: var(--modal-bg-color);
+}
+
 .clear {
   background: unset;
   border: unset;

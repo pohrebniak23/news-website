@@ -1,4 +1,4 @@
-import { CounterSchema } from '../type/CounterSchema';
+import { CounterSchema } from '../types/CounterSchema';
 import { CounterActions, CounterSlice } from './CounterSlice';
 
 describe('counterSlice', () => {
