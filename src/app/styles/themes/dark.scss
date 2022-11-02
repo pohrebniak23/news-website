@@ -5,6 +5,10 @@
   --additional-bg-color: #191919;
   --additional-primary-color: #191919;
   --overlay-color: rgb(0 0 0 / 60%);
+
+  /* Modal */
   --modal-bg-color: rgb(255 255 255);
+  --modal-bg-color-disabled: rgb(255 255 255 / 50%);
   --modal-text-color: #000;
+  --modal-text-color-disabled: rgb(0 0 0 / 40%);
 }

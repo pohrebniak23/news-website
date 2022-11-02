@@ -47,3 +47,29 @@ OutlineDark.args = {
   theme: ButtonTheme.OUTLINE,
 };
 OutlineDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const Modal = Template.bind({});
+Modal.args = {
+  children: 'Test',
+  theme: ButtonTheme.MODAL,
+};
+
+export const ModalDisabled = Template.bind({});
+ModalDisabled.args = {
+  children: 'Test',
+  disabled: true,
+  theme: ButtonTheme.MODAL,
+};
+
+export const ModalDark = Template.bind({});
+ModalDark.args = {
+  children: 'Test',
+  theme: ButtonTheme.MODAL,
+};
+
+export const ModalDarkDisabled = Template.bind({});
+ModalDarkDisabled.args = {
+  children: 'Test',
+  disabled: true,
+  theme: ButtonTheme.MODAL,
+};

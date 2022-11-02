@@ -1,0 +1,23 @@
+.text {
+  color: var(--primary-color);
+}
+
+.small {
+  font: var(--font-s);
+}
+
+.medium {
+  font: var(--font-m);
+}
+
+.large {
+  font: var(--font-l);
+}
+
+.modal {
+  color: var(--modal-text-color);
+}
+
+.error {
+  color: var(--error-color);
+}

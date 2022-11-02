@@ -1,6 +1,8 @@
+import { getUserAuthData, UserActions } from 'entities/User';
 import { LoginModal } from 'features/AuthByUsername';
-import { FC, useCallback, useState } from 'react';
+import { FC, useCallback, useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector, useDispatch } from 'react-redux';
 import { RoutePath } from 'shared/config/routes/routes';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { Button } from 'shared/ui/Button/Button';
@@ -9,8 +11,11 @@ import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import styles from './Navbar.module.scss';
 
 export const Navbar: FC = () => {
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const dispatch = useDispatch();
   const { t } = useTranslation();
+
+  const authData = useSelector(getUserAuthData);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const onCloseModal = useCallback(() => {
     setIsModalOpen(false);
@@ -20,20 +25,49 @@ export const Navbar: FC = () => {
     setIsModalOpen(true);
   }, []);
 
-  return (
-    <nav data-testid="navbar" className={styles.navbar}>
-      <AppLink to={RoutePath.home} className={styles.logo}>
-        {t('Logo')}
-      </AppLink>
+  const onLogout = useCallback(() => {
+    dispatch(UserActions.logout());
+  }, [dispatch]);
 
-      <div className={styles.rightContent}>
-        <LangSwitcher className={styles.langSwitcher} />
-        <ThemeSwitcher className={styles.themeSwitcher} />
+  useEffect(() => {
+    if (authData) {
+      onCloseModal();
+    }
+  }, [authData, onCloseModal]);
 
-        <Button onClick={onOpenModal}>{t('Войти')}</Button>
+  const authUser = () => {
+    return (
+      <nav data-testid="navbar" className={styles.navbar}>
+        <AppLink to={RoutePath.home} className={styles.logo}>
+          {t('Logo')}
+        </AppLink>
+        <div className={styles.rightContent}>
+          <LangSwitcher className={styles.langSwitcher} />
+          <ThemeSwitcher className={styles.themeSwitcher} />
 
-        <LoginModal isOpen={isModalOpen} onClose={onCloseModal} />
-      </div>
-    </nav>
-  );
+          <Button onClick={onLogout}>{t('Выйти')}</Button>
+        </div>
+      </nav>
+    );
+  };
+
+  const notAuthUser = () => {
+    return (
+      <nav data-testid="navbar" className={styles.navbar}>
+        <AppLink to={RoutePath.home} className={styles.logo}>
+          {t('Logo')}
+        </AppLink>
+        <div className={styles.rightContent}>
+          <LangSwitcher className={styles.langSwitcher} />
+          <ThemeSwitcher className={styles.themeSwitcher} />
+
+          <Button onClick={onOpenModal}>{t('Войти')}</Button>
+
+          <LoginModal isOpen={isModalOpen} onClose={onCloseModal} />
+        </div>
+      </nav>
+    );
+  };
+
+  return authData ? authUser() : notAuthUser();
 };
