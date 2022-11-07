@@ -1,20 +1,34 @@
+import classNames from 'classnames';
 import { loginByUsername } from 'features/AuthByUsername/models/services/loginByUsername';
 import { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
+import { useDynamicReducerLoader } from 'shared/lib/hooks/useDynamicReducerLoader/useDynamicReducerLoader';
 import { Button } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { ButtonTheme } from '../../../../shared/ui/Button/Button';
-import { LoginSelector } from '../../models/selectors/LoginSelector';
-import { LoginActions } from '../../models/slices/LoginSlice';
+import { getLoginError } from '../../models/selectors/getLoginError';
+import { getLoginLoading } from '../../models/selectors/getLoginLoading';
+import { getLoginPassworrd } from '../../models/selectors/getLoginPassword';
+import { getLoginUsername } from '../../models/selectors/getLoginUsername';
+import { LoginActions, LoginReducer } from '../../models/slices/LoginSlice';
 import styles from './LoginForm.module.scss';
 
-export const LoginForm: FC = () => {
+export interface LoginFormProps {
+  className?: string;
+}
+
+const LoginForm: FC<LoginFormProps> = ({ className }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
-  const { username, password, isLoading, error } = useSelector(LoginSelector);
+  useDynamicReducerLoader('loginForm', LoginReducer);
+
+  const username = useSelector(getLoginUsername);
+  const password = useSelector(getLoginPassworrd);
+  const isLoading = useSelector(getLoginLoading);
+  const error = useSelector(getLoginError);
 
   const onChangeUsername = useCallback(
     (value) => {
@@ -35,7 +49,14 @@ export const LoginForm: FC = () => {
   }, [dispatch, username, password]);
 
   return (
-    <div className={styles.loginform}>
+    // <DynamicModuleLoader
+    //   reducerName="loginForm"
+    //   reducer={LoginReducer}
+    //   removeAfterUnmount
+    // >
+
+    // </DynamicModuleLoader>
+    <div className={classNames(className, styles.loginform)}>
       <div className={styles.fields}>
         <div className={styles.item}>
           <h2 className={styles.label}>{t('Username')}</h2>
@@ -74,3 +95,5 @@ export const LoginForm: FC = () => {
     </div>
   );
 };
+
+export default LoginForm;

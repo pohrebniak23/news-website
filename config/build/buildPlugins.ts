@@ -23,13 +23,14 @@ export function buildPlugins({
     }),
   ];
 
+  plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: true }));
+
   if (isDev) {
     plugins.push(
       new ESLintPlugin({
         extensions: ['js', 'jsx', 'ts', 'tsx'],
       }),
     );
-    plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }));
   }
 
   return plugins;

@@ -20,7 +20,7 @@ Light.args = {
 };
 Light.decorators = [
   StoreDecorator({
-    login: {
+    loginForm: {
       username: 'admin',
       password: '123',
     },
@@ -34,7 +34,7 @@ Dark.args = {
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
 Dark.decorators = [
   StoreDecorator({
-    login: {
+    loginForm: {
       username: 'admin',
       password: '123',
     },

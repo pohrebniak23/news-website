@@ -27,6 +27,9 @@
   transition: 0.4s opacity;
   opacity: 0;
   color: var(--modal-text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .opening {
