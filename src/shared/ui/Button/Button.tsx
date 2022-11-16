@@ -22,6 +22,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   square?: boolean;
   size?: ButtonSize;
   disabled?: boolean;
+  isLoading?: boolean;
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -30,6 +31,7 @@ export const Button: FC<ButtonProps> = ({
   size,
   children,
   disabled = false,
+  isLoading = false,
   ...otherProps
 }) => (
   <button
@@ -40,10 +42,13 @@ export const Button: FC<ButtonProps> = ({
       className,
       styles[theme],
       styles[size],
+      {
+        [styles.loading]: isLoading,
+      },
     )}
     disabled={disabled}
   >
-    {disabled ? (
+    {isLoading ? (
       <Loader
         className={styles.btnLoader}
         blockSize={22}

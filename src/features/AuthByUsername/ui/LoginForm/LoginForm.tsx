@@ -8,10 +8,10 @@ import { Button } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { ButtonTheme } from '../../../../shared/ui/Button/Button';
-import { getLoginError } from '../../models/selectors/getLoginError';
-import { getLoginLoading } from '../../models/selectors/getLoginLoading';
-import { getLoginPassworrd } from '../../models/selectors/getLoginPassword';
-import { getLoginUsername } from '../../models/selectors/getLoginUsername';
+import { getLoginError } from '../../models/selectors/getLoginError/getLoginError';
+import { getLoginLoading } from '../../models/selectors/getLoginLoading/getLoginLoading';
+import { getLoginPassword } from '../../models/selectors/getLoginPassword/getLoginPassword';
+import { getLoginUsername } from '../../models/selectors/getLoginUsername/getLoginUsername';
 import { LoginActions, LoginReducer } from '../../models/slices/LoginSlice';
 import styles from './LoginForm.module.scss';
 
@@ -26,7 +26,7 @@ const LoginForm: FC<LoginFormProps> = ({ className }) => {
   useDynamicReducerLoader('loginForm', LoginReducer);
 
   const username = useSelector(getLoginUsername);
-  const password = useSelector(getLoginPassworrd);
+  const password = useSelector(getLoginPassword);
   const isLoading = useSelector(getLoginLoading);
   const error = useSelector(getLoginError);
 
@@ -49,13 +49,6 @@ const LoginForm: FC<LoginFormProps> = ({ className }) => {
   }, [dispatch, username, password]);
 
   return (
-    // <DynamicModuleLoader
-    //   reducerName="loginForm"
-    //   reducer={LoginReducer}
-    //   removeAfterUnmount
-    // >
-
-    // </DynamicModuleLoader>
     <div className={classNames(className, styles.loginform)}>
       <div className={styles.fields}>
         <div className={styles.item}>
@@ -88,7 +81,7 @@ const LoginForm: FC<LoginFormProps> = ({ className }) => {
         className={styles.button}
         theme={ButtonTheme.MODAL}
         onClick={onLoginSubmit}
-        disabled={isLoading}
+        isLoading={isLoading}
       >
         {t('Войти')}
       </Button>

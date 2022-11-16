@@ -28,7 +28,7 @@
   background: var(--modal-text-color);
   color: var(--modal-bg-color);
 
-  &:disabled {
+  &.loading {
     background: var(--modal-text-color-disabled);
     color: var(--modal-bg-color-disabled);
   }
