@@ -1,5 +1,11 @@
 import classNames from 'classnames';
-import { InputHTMLAttributes, memo, useRef, useEffect } from 'react';
+import {
+  InputHTMLAttributes,
+  memo,
+  useEffect,
+  useRef,
+  useCallback,
+} from 'react';
 import styles from './Input.module.scss';
 
 type HTMLInput = Omit<
@@ -14,36 +20,39 @@ interface InputProps extends HTMLInput {
   autofocus?: boolean;
 }
 
-export const Input = memo(
-  ({
+export const Input = memo((props: InputProps) => {
+  const {
     className,
     value,
     onChange,
     type = 'text',
     autofocus,
     ...otherProps
-  }: InputProps) => {
-    const ref = useRef<HTMLInputElement>();
+  } = props;
 
-    useEffect(() => {
-      if (autofocus) {
-        ref.current.focus();
-      }
-    }, [autofocus]);
+  const ref = useRef<HTMLInputElement>();
 
-    const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+  useEffect(() => {
+    if (autofocus) {
+      ref.current.focus();
+    }
+  }, [autofocus]);
+
+  const onChangeHandler = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
       onChange?.(event.target.value);
-    };
+    },
+    [onChange],
+  );
 
-    return (
-      <input
-        ref={ref}
-        type={type}
-        value={value}
-        onChange={onChangeHandler}
-        className={classNames(styles.input, className)}
-        {...otherProps}
-      />
-    );
-  },
-);
+  return (
+    <input
+      ref={ref}
+      type={type}
+      value={value}
+      onChange={onChangeHandler}
+      className={classNames(styles.input, className)}
+      {...otherProps}
+    />
+  );
+});

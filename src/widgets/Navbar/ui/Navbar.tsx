@@ -1,8 +1,8 @@
 import { getUserAuthData, UserActions } from 'entities/User';
 import { LoginModal } from 'features/AuthByUsername';
-import { FC, useCallback, useState, useEffect } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RoutePath } from 'shared/config/routes/routes';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { Button } from 'shared/ui/Button/Button';
@@ -10,7 +10,7 @@ import { LangSwitcher } from 'widgets/LangSwitcher/ui/LangSwitcher';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import styles from './Navbar.module.scss';
 
-export const Navbar: FC = () => {
+export const Navbar = memo(() => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
@@ -28,12 +28,6 @@ export const Navbar: FC = () => {
   const onLogout = useCallback(() => {
     dispatch(UserActions.logout());
   }, [dispatch]);
-
-  useEffect(() => {
-    if (authData) {
-      onCloseModal();
-    }
-  }, [authData, onCloseModal]);
 
   const authUser = () => {
     return (
@@ -70,4 +64,4 @@ export const Navbar: FC = () => {
   };
 
   return authData ? authUser() : notAuthUser();
-};
+});

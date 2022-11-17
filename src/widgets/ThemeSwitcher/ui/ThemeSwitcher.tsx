@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import { memo } from 'react';
 import { useTheme } from 'shared/contexts';
 import { Theme } from 'shared/contexts/themeContext/ThemeContext';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
@@ -10,7 +11,7 @@ interface ThemeSwitcherProps {
   className?: string;
 }
 
-export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
+export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
   const { theme, toggleTheme } = useTheme();
 
   return (
@@ -32,4 +33,4 @@ export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
       </Button>
     </div>
   );
-};
+});

@@ -5,11 +5,20 @@
   "comments": [
     { "id": "1", "body": "some comment", "postId": 1 }
   ],
-  "profile": { "name": "typicode" },
+  "profile": {
+    "first": "Oleksander",
+    "lastname": "Pohrebniak",
+    "age": 22,
+    "currency": "UAH",
+    "country": "Ukraine",
+    "city": "Kherson",
+    "username": "admin",
+    "avatar": ""
+  },
   "users": [
     {
       "id": "1",
-      "name": "Alex",
+      "name": "Oleksander",
       "username": "admin",
       "password": "123"
     }

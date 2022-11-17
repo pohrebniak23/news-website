@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { FC } from 'react';
+import { memo, ReactNode } from 'react';
 import styles from './Text.module.scss';
 
 export enum TextTheme {
@@ -18,14 +18,17 @@ interface TextProps {
   className?: string;
   theme?: TextTheme;
   size?: TextSize;
+  children: ReactNode;
 }
 
-export const Text: FC<TextProps> = ({
-  className,
-  theme = TextTheme.DEFAULT,
-  size = TextSize.MEDIUM,
-  children,
-}) => {
+export const Text = memo((props: TextProps) => {
+  const {
+    className,
+    theme = TextTheme.DEFAULT,
+    size = TextSize.MEDIUM,
+    children,
+  } = props;
+
   return (
     <p
       className={classNames(
@@ -38,4 +41,4 @@ export const Text: FC<TextProps> = ({
       {children}
     </p>
   );
-};
+});

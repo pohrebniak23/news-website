@@ -1,42 +1,37 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { profileReducer } from 'entities/Profile';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'shared/contexts/themeContext/ThemeContext';
-import { LoginModal } from './LoginModal';
+import ProfilePage from './ProfilePage';
 
 export default {
-  title: 'features/LoginModal',
-  component: LoginModal,
+  title: 'pages/ProfilePage',
+  component: ProfilePage,
   argTypes: {},
-} as ComponentMeta<typeof LoginModal>;
+} as ComponentMeta<typeof ProfilePage>;
 
-const Template: ComponentStory<typeof LoginModal> = (args) => (
-  <LoginModal {...args} />
-);
+const Template: ComponentStory<typeof ProfilePage> = () => <ProfilePage />;
 
 export const Light = Template.bind({});
-Light.args = {
-  isOpen: true,
-};
+Light.args = {};
 Light.decorators = [
-  StoreDecorator({
-    loginForm: {
-      username: 'admin',
-      password: '123',
+  StoreDecorator(
+    {},
+    {
+      profile: profileReducer,
     },
-  }),
+  ),
 ];
 
 export const Dark = Template.bind({});
-Dark.args = {
-  isOpen: true,
-};
+Dark.args = {};
 Dark.decorators = [
   ThemeDecorator(Theme.DARK),
-  StoreDecorator({
-    loginForm: {
-      username: 'admin',
-      password: '123',
+  StoreDecorator(
+    {},
+    {
+      profile: profileReducer,
     },
-  }),
+  ),
 ];

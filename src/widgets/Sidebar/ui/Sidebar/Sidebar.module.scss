@@ -25,27 +25,6 @@
   gap: 16px;
 }
 
-.link {
-  color: var(--primary-color);
-  font: var(--font-m);
-  display: flex;
-  align-items: center;
-  grid-gap: 0 8px;
-}
-
-.linkText {
-  transition: opacity 0.4s, width 0.2s;
-}
-
 .collapsed {
   width: var(--sidebar-width-collapsed);
-
-  .linksList {
-    align-items: center;
-  }
-
-  .linkText {
-    opacity: 0;
-    width: 0;
-  }
 }

@@ -1,8 +1,9 @@
 import classNames from 'classnames';
 import { loginByUsername } from 'features/AuthByUsername/models/services/loginByUsername';
-import { FC, useCallback } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useDynamicReducerLoader } from 'shared/lib/hooks/useDynamicReducerLoader/useDynamicReducerLoader';
 import { Button } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
@@ -17,13 +18,14 @@ import styles from './LoginForm.module.scss';
 
 export interface LoginFormProps {
   className?: string;
+  onSuccess: () => void;
 }
 
-const LoginForm: FC<LoginFormProps> = ({ className }) => {
+const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
   const { t } = useTranslation();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
-  useDynamicReducerLoader('loginForm', LoginReducer);
+  useDynamicReducerLoader({ loginForm: LoginReducer });
 
   const username = useSelector(getLoginUsername);
   const password = useSelector(getLoginPassword);
@@ -44,9 +46,13 @@ const LoginForm: FC<LoginFormProps> = ({ className }) => {
     [dispatch],
   );
 
-  const onLoginSubmit = useCallback(() => {
-    dispatch(loginByUsername({ username, password }));
-  }, [dispatch, username, password]);
+  const onLoginSubmit = useCallback(async () => {
+    const result = await dispatch(loginByUsername({ username, password }));
+
+    if (result.meta.requestStatus === 'fulfilled') {
+      onSuccess();
+    }
+  }, [dispatch, username, password, onSuccess]);
 
   return (
     <div className={classNames(className, styles.loginform)}>
@@ -57,7 +63,7 @@ const LoginForm: FC<LoginFormProps> = ({ className }) => {
             autofocus
             className={styles.input}
             value={username}
-            onChange={(value) => onChangeUsername(value)}
+            onChange={onChangeUsername}
           />
         </div>
         <div className={styles.item}>
@@ -66,7 +72,7 @@ const LoginForm: FC<LoginFormProps> = ({ className }) => {
             type="password"
             className={styles.input}
             value={password}
-            onChange={(value) => onChangePassword(value)}
+            onChange={onChangePassword}
           />
         </div>
       </div>
@@ -87,6 +93,6 @@ const LoginForm: FC<LoginFormProps> = ({ className }) => {
       </Button>
     </div>
   );
-};
+});
 
 export default LoginForm;

@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import i18next from 'i18next';
-import { FC, useState } from 'react';
+import { memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import Arrow from '../assets/icons/down-arrow.svg';
@@ -15,7 +15,7 @@ interface LangSwitcherProps {
   className?: string;
 }
 
-export const LangSwitcher: FC<LangSwitcherProps> = ({ className }) => {
+export const LangSwitcher = memo(({ className }: LangSwitcherProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { i18n } = useTranslation();
 
@@ -78,4 +78,4 @@ export const LangSwitcher: FC<LangSwitcherProps> = ({ className }) => {
       </div>
     )
   );
-};
+});
