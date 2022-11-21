@@ -1,11 +1,11 @@
 import axios from 'axios';
-import { USER_LOCALSTORAGE_KEY } from '../const/locaclStorage';
+import { USER_LOCALSTORAGE_KEY } from '../const/localStorage';
 
 const baseURL = IS_DEV ? 'http://localhost:8000' : '';
 
 export const $api = axios.create({
   baseURL,
   headers: {
-    authorisation: localStorage.getItem(USER_LOCALSTORAGE_KEY),
+    authorization: localStorage.getItem(USER_LOCALSTORAGE_KEY),
   },
 });
