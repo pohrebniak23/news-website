@@ -17,10 +17,7 @@ export const loginByUsername = createAsyncThunk<
   const { dispatch, extra, rejectWithValue } = thunkAPI;
 
   try {
-    const response = await extra.api.post<User>(
-      'http://localhost:8000/login',
-      authData,
-    );
+    const response = await extra.api.post<User>('/login', authData);
 
     localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data));
     dispatch(UserActions.setAuthData(response.data));
@@ -29,6 +26,6 @@ export const loginByUsername = createAsyncThunk<
 
     return response.data;
   } catch (e) {
-    return rejectWithValue(e.message);
+    return rejectWithValue('Error');
   }
 });
