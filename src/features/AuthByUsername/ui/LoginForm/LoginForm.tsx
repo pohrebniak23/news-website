@@ -8,7 +8,6 @@ import { useDynamicReducerLoader } from 'shared/lib/hooks/useDynamicReducerLoade
 import { Button } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { ButtonTheme } from '../../../../shared/ui/Button/Button';
 import { getLoginError } from '../../models/selectors/getLoginError/getLoginError';
 import { getLoginLoading } from '../../models/selectors/getLoginLoading/getLoginLoading';
 import { getLoginPassword } from '../../models/selectors/getLoginPassword/getLoginPassword';
@@ -85,8 +84,9 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
 
       <Button
         className={styles.button}
-        theme={ButtonTheme.MODAL}
+        theme="modal"
         onClick={onLoginSubmit}
+        size="medium"
         isLoading={isLoading}
       >
         {t('Войти')}

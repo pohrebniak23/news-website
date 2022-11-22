@@ -25,51 +25,51 @@ DefaultDark.decorators = [ThemeDecorator(Theme.DARK)];
 export const Clear = Template.bind({});
 Clear.args = {
   children: 'Test',
-  theme: ButtonTheme.CLEAR,
+  theme: 'clear',
 };
 
 export const ClearDark = Template.bind({});
 ClearDark.args = {
   children: 'Test',
-  theme: ButtonTheme.CLEAR,
+  theme: 'clear',
 };
 ClearDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const Outline = Template.bind({});
 Outline.args = {
   children: 'Test',
-  theme: ButtonTheme.OUTLINE,
+  theme: 'outline',
 };
 
 export const OutlineDark = Template.bind({});
 OutlineDark.args = {
   children: 'Test',
-  theme: ButtonTheme.OUTLINE,
+  theme: 'outline',
 };
 OutlineDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const Modal = Template.bind({});
 Modal.args = {
   children: 'Test',
-  theme: ButtonTheme.MODAL,
+  theme: 'modal',
 };
 
 export const ModalDisabled = Template.bind({});
 ModalDisabled.args = {
   children: 'Test',
   disabled: true,
-  theme: ButtonTheme.MODAL,
+  theme: 'modal',
 };
 
 export const ModalDark = Template.bind({});
 ModalDark.args = {
   children: 'Test',
-  theme: ButtonTheme.MODAL,
+  theme: 'modal',
 };
 
 export const ModalDarkDisabled = Template.bind({});
 ModalDarkDisabled.args = {
   children: 'Test',
   disabled: true,
-  theme: ButtonTheme.MODAL,
+  theme: 'modal',
 };

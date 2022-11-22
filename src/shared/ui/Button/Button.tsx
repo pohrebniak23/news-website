@@ -3,19 +3,9 @@ import { ButtonHTMLAttributes, memo, ReactNode } from 'react';
 import { Loader } from '../Loader/Loader';
 import styles from './Button.module.scss';
 
-export enum ButtonTheme {
-  DEFAULT = '',
-  MODAL = 'modal',
-  CLEAR = 'clear',
-  OUTLINE = 'outline',
-  SQUARE = 'square',
-}
+export type ButtonTheme = 'modal' | 'clear' | 'outline' | 'square';
 
-export enum ButtonSize {
-  SMALL = 'small',
-  MEDIUM = 'medium',
-  LARGE = 'large',
-}
+export type ButtonSize = 'small' | 'medium' | 'large';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
@@ -30,8 +20,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export const Button = memo((props: ButtonProps) => {
   const {
     className,
-    theme = ButtonTheme.DEFAULT,
-    size = ButtonSize.MEDIUM,
+    theme = '',
+    size = 'medium',
     children,
     disabled = false,
     isLoading = false,

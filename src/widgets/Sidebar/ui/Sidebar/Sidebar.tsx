@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { memo, useState } from 'react';
 import ArrowIcon from 'shared/assets/arrow-icon.svg';
-import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
+import { Button } from 'shared/ui/Button/Button';
 import {
   SidebarItemsList,
   SidebarItemType,
@@ -39,8 +39,8 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
         data-testid="sidebar-toggle"
         type="button"
         onClick={onToggle}
-        theme={ButtonTheme.SQUARE}
-        size={ButtonSize.MEDIUM}
+        theme="square"
+        size="medium"
         className={styles.toggle}
       >
         <ArrowIcon

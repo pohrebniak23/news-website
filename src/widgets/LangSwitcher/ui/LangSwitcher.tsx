@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import i18next from 'i18next';
 import { memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { Button } from 'shared/ui/Button/Button';
 import Arrow from '../assets/icons/down-arrow.svg';
 import styles from './LangSwitcher.module.scss';
 
@@ -47,7 +47,7 @@ export const LangSwitcher = memo(({ className }: LangSwitcherProps) => {
     currentLang && (
       <div className={classNames(styles.langSwitcher, className)}>
         <Button
-          theme={ButtonTheme.CLEAR}
+          theme="clear"
           className={styles.langNav}
           onClick={toggleLangList}
         >
@@ -65,14 +65,14 @@ export const LangSwitcher = memo(({ className }: LangSwitcherProps) => {
           })}
         >
           {langList.map((item) => (
-            <button
-              type="button"
+            <Button
               key={item.lang}
+              theme="clear"
               className={styles.item}
               onClick={() => switchLang(item.lang)}
             >
               {item.text}
-            </button>
+            </Button>
           ))}
         </div>
       </div>
