@@ -3,7 +3,12 @@ import { ButtonHTMLAttributes, memo, ReactNode } from 'react';
 import { Loader } from '../Loader/Loader';
 import styles from './Button.module.scss';
 
-export type ButtonTheme = 'modal' | 'clear' | 'outline' | 'square';
+export type ButtonTheme =
+  | 'modal'
+  | 'clear'
+  | 'outline'
+  | 'outline-error'
+  | 'square';
 
 export type ButtonSize = 'small' | 'medium' | 'large';
 
@@ -21,7 +26,7 @@ export const Button = memo((props: ButtonProps) => {
   const {
     className,
     theme = '',
-    size = 'medium',
+    size = 'small',
     children,
     disabled = false,
     isLoading = false,

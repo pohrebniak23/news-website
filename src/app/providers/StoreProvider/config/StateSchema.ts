@@ -10,7 +10,7 @@ import { CounterSchema } from 'entities/Counter';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername/models';
 import { NavigateOptions, To } from 'react-router-dom';
-import { ProfileSchema } from '../../../../entities/Profile/models/types/ProfileSchema';
+import { ProfileSchema } from '../../../../features/EditableProfileCard/models/types/ProfileSchema';
 
 export interface StateSchema {
   counter: CounterSchema;
@@ -42,4 +42,5 @@ export interface ThunkExtraArg {
 export interface ThunkConfig<T> {
   rejectValue: T;
   extra: ThunkExtraArg;
+  state: StateSchema;
 }

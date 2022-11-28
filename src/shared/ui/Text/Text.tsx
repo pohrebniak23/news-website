@@ -25,7 +25,7 @@ export const Text = memo((props: TextProps) => {
   const {
     className,
     theme = TextTheme.DEFAULT,
-    size = TextSize.MEDIUM,
+    size = TextSize.SMALL,
     children,
   } = props;
 

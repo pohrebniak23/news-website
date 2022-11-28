@@ -1,11 +1,11 @@
 .button {
   background: var(--primary-color);
-  border: none;
   color: var(--additional-primary-color);
   padding: 6px 20px;
   border-radius: 6px;
+  border: 1px solid transparent;
   cursor: pointer;
-  font: var(--font-m);
+  font: var(--font-xs);
   fill: var(--additional-primary-color);
   display: flex;
   justify-content: center;
@@ -45,6 +45,12 @@
 .outline {
   border: 1px solid var(--primary-color);
   color: var(--primary-color);
+  background: transparent;
+}
+
+.outline-error {
+  border: 1px solid var(--error-color);
+  color: var(--error-color);
   background: transparent;
 }
 

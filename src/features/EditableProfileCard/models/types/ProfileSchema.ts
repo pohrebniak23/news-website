@@ -5,4 +5,5 @@ export interface ProfileSchema {
   readonly: boolean;
   error: string | undefined;
   data: Profile | undefined;
+  form: Profile | undefined;
 }

@@ -39,7 +39,9 @@ export const Navbar = memo(() => {
           <LangSwitcher className={styles.langSwitcher} />
           <ThemeSwitcher className={styles.themeSwitcher} />
 
-          <Button onClick={onLogout}>{t('Выйти')}</Button>
+          <Button size="small" onClick={onLogout}>
+            {t('Выйти')}
+          </Button>
         </div>
       </nav>
     );
@@ -55,7 +57,9 @@ export const Navbar = memo(() => {
           <LangSwitcher className={styles.langSwitcher} />
           <ThemeSwitcher className={styles.themeSwitcher} />
 
-          <Button onClick={onOpenModal}>{t('Войти')}</Button>
+          <Button size="small" onClick={onOpenModal}>
+            {t('Войти')}
+          </Button>
 
           <LoginModal isOpen={isModalOpen} onClose={onCloseModal} />
         </div>

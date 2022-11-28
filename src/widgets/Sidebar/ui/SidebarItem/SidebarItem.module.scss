@@ -1,23 +1,35 @@
 .link {
   color: var(--primary-color);
-  font: var(--font-m);
+  font: var(--font-s);
   display: flex;
   align-items: center;
-  grid-gap: 0 8px;
+  margin-left: 0;
+  transform: translateX(0);
+  transition: transform 0.4s, margin-left 0.4s;
 }
 
 .linkText {
-  transition: opacity 0.4s, width 0.2s;
+  white-space: nowrap;
+  margin-left: 8px;
+  transition: width 0.2s 2s, max-width 0.2s 2s, opacity 0.4s 0.2s, margin-left 0.4s;
 }
 
 .icon {
   fill: var(--primary-color);
+  height: 24px;
 }
 
 .collapsed {
+  margin-left: 50%;
+  transform: translateX(-50%);
+  transition: transform 0.4s 0.1s, margin-left 0.4s 0.1s;
+  height: 100%;
+  max-width: 200px;
+
   .linkText {
+    max-width: 0;
     opacity: 0;
-    transition: 0.2s opacity;
-    width: 0;
+    margin-left: 0;
+    transition: max-width 0.2s, opacity 0.2s, margin-left 0.2s 0.2s;
   }
 }

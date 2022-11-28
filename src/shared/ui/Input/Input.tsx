@@ -13,11 +13,14 @@ type HTMLInput = Omit<
   'value' | 'onChange'
 >;
 
+type InputTheme = 'edit-data';
+
 interface InputProps extends HTMLInput {
   className?: string;
-  value?: string;
+  value?: string | number;
   onChange?: (value: string) => void;
   autofocus?: boolean;
+  theme?: InputTheme;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -26,6 +29,7 @@ export const Input = memo((props: InputProps) => {
     value,
     onChange,
     type = 'text',
+    theme = '',
     autofocus,
     ...otherProps
   } = props;
@@ -51,7 +55,7 @@ export const Input = memo((props: InputProps) => {
       type={type}
       value={value}
       onChange={onChangeHandler}
-      className={classNames(styles.input, className)}
+      className={classNames(styles.input, className, styles[theme])}
       {...otherProps}
     />
   );

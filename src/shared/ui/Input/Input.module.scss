@@ -7,4 +7,13 @@
   padding: 8px 12px;
   border-radius: 6px;
   outline: none;
+  font: var(--font-m);
+}
+
+.edit-data {
+  padding: 0;
+  padding-bottom: 2px;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid var(--primary-color);
 }

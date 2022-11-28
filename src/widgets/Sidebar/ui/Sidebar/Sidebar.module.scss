@@ -1,9 +1,10 @@
 .sidebar {
   height: calc(100vh - var(--navbar-height));
   width: var(--sidebar-width);
+  min-width: var(--sidebar-width);
   background: var(--additional-bg-color);
   position: relative;
-  transition: width 0.4s;
+  transition: width 0.4s, min-width 0.4s;
   padding: 20px;
 }
 
@@ -12,7 +13,7 @@
   position: absolute;
   right: 0;
   transform: translateX(50%);
-  top: 50px;
+  bottom: 50px;
 
   .rotate {
     transform: rotate(180deg);
@@ -27,4 +28,5 @@
 
 .collapsed {
   width: var(--sidebar-width-collapsed);
+  min-width: var(--sidebar-width-collapsed);
 }
