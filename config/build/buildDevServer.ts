@@ -6,5 +6,6 @@ export function buildDevServer(otpions: BuildOptions): DevServerConfigureation {
     port: otpions.port,
     open: true,
     historyApiFallback: true,
+    hot: true,
   };
 }

@@ -1,6 +1,7 @@
 import classNames from 'classnames';
-import { memo, useState } from 'react';
+import { memo } from 'react';
 import ArrowIcon from 'shared/assets/arrow-icon.svg';
+import { useLocalStorage } from 'shared/lib/hooks/useLocalStorage/useLocalStorage';
 import { Button } from 'shared/ui/Button/Button';
 import {
   SidebarItemsList,
@@ -14,7 +15,7 @@ interface SidebarProps {
 }
 
 export const Sidebar = memo(({ className }: SidebarProps) => {
-  const [collapsed, setCollapsed] = useState<boolean>(false);
+  const [collapsed, setCollapsed] = useLocalStorage('sidebar-collapsed', false);
 
   const onToggle = () => {
     setCollapsed(!collapsed);
