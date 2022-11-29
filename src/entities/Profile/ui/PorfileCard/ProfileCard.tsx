@@ -49,7 +49,16 @@ export const ProfileCard = ({
   }, [dispatch]);
 
   if (error) {
-    return <div className={classNames(styles.error, className)}>{error}</div>;
+    return (
+      <div className={classNames(styles.errorScreen, className)}>
+        <Text className={styles.errorScreenTitle} theme="error" size="large">
+          {t('Something went wrong')}
+        </Text>
+        <Text theme="error" size="medium">
+          {t('Sorry we can`t get your profile data right now')}
+        </Text>
+      </div>
+    );
   }
 
   if (!data || isLoading) {

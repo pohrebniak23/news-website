@@ -3,7 +3,16 @@
   "Home": "Home",
   "About": "About",
   "Info": "Info",
+  "Profile": "Profile",
   "Information": "Information",
+  "toggle": "Toggle",
   "Logo": "Logo",
+  "Page not found": "Page not found",
+  "Reload page": "Reload page",
+  "Log in": "Log in",
+  "Log out": "Log out",
+  "Edit": "Edit",
+  "Save": "Save",
+  "Cancel": "Cancel",
   "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga culpa reprehenderit nobis consequatur beatae nihil rem eveniet corrupti labore, cupiditate sed neque quisquam dicta ipsum sequi sunt odit. Consequuntur, voluptatem.": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga culpa reprehenderit nobis consequatur beatae nihil rem eveniet corrupti labore, cupiditate sed neque quisquam dicta ipsum sequi sunt odit. Consequuntur, voluptatem."
 }

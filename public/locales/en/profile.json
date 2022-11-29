@@ -4,5 +4,9 @@
   "Lastname": "Lastname",
   "Username": "Username",
   "Age": "Age",
-  "Avatar link": "Avatar link"
+  "Avatar link": "Avatar link",
+  "Currency": "Currency",
+  "Country": "Country",
+  "Sorry we can`t get your profile data right now": "Sorry we can`t get your profile data right now",
+  "Something went wrong": "Something went wrong"
 }

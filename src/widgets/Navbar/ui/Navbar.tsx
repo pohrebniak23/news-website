@@ -40,7 +40,7 @@ export const Navbar = memo(() => {
           <ThemeSwitcher className={styles.themeSwitcher} />
 
           <Button size="small" onClick={onLogout}>
-            {t('Выйти')}
+            {t('Log out')}
           </Button>
         </div>
       </nav>
@@ -58,7 +58,7 @@ export const Navbar = memo(() => {
           <ThemeSwitcher className={styles.themeSwitcher} />
 
           <Button size="small" onClick={onOpenModal}>
-            {t('Войти')}
+            {t('Log in')}
           </Button>
 
           <LoginModal isOpen={isModalOpen} onClose={onCloseModal} />

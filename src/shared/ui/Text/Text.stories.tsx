@@ -13,30 +13,30 @@ const Template: ComponentStory<typeof Text> = (args) => <Text {...args} />;
 
 export const Light = Template.bind({});
 Light.args = {
-  size: TextSize.SMALL,
-  theme: TextTheme.DEFAULT,
+  size: 'small',
+  theme: 'default',
   children: 'Test string',
 };
 
 export const Dark = Template.bind({});
 Dark.args = {
-  size: TextSize.SMALL,
-  theme: TextTheme.DEFAULT,
+  size: 'small',
+  theme: 'default',
   children: 'Test string',
 };
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const LightErrorText = Template.bind({});
 LightErrorText.args = {
-  size: TextSize.MEDIUM,
-  theme: TextTheme.ERROR,
+  size: 'medium',
+  theme: 'error',
   children: 'Test string',
 };
 
 export const DarkErrorText = Template.bind({});
 DarkErrorText.args = {
-  size: TextSize.MEDIUM,
-  theme: TextTheme.ERROR,
+  size: 'medium',
+  theme: 'error',
   children: 'Test string',
 };
 DarkErrorText.decorators = [ThemeDecorator(Theme.DARK)];

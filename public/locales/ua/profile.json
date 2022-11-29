@@ -4,5 +4,9 @@
   "Lastname": "Прізвище",
   "Username": "Логін",
   "Age": "Вік",
-  "Avatar link": "Посилання на аватар"
+  "Avatar link": "Посилання на аватар",
+  "Currency": "Валюта",
+  "Country": "Країна",
+  "Sorry we can`t get your profile data right now": "Вибачте, зараз ми не можемо отримати дані вашого профілю",
+  "Something went wrong": "Щось пішло не так"
 }

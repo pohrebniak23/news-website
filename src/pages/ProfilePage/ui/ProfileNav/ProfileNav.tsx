@@ -15,7 +15,7 @@ interface ProfileNavProps {
 }
 
 export const ProfileNav = ({ className }: ProfileNavProps) => {
-  const { t } = useTranslation('profile');
+  const { t } = useTranslation(['translation', 'profile']);
   const dispatch = useAppDispatch();
 
   const readonly = useSelector(getProfileReadonly);

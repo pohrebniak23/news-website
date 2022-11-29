@@ -7,7 +7,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useDynamicReducerLoader } from 'shared/lib/hooks/useDynamicReducerLoader/useDynamicReducerLoader';
 import { Button } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
-import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { Text } from 'shared/ui/Text/Text';
 import { getLoginError } from '../../models/selectors/getLoginError/getLoginError';
 import { getLoginLoading } from '../../models/selectors/getLoginLoading/getLoginLoading';
 import { getLoginPassword } from '../../models/selectors/getLoginPassword/getLoginPassword';
@@ -77,7 +77,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
       </div>
 
       {error && (
-        <Text className={styles.error} theme={TextTheme.ERROR}>
+        <Text className={styles.error} theme="error">
           {error}
         </Text>
       )}
@@ -89,7 +89,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
         size="medium"
         isLoading={isLoading}
       >
-        {t('Войти')}
+        {t('Log in')}
       </Button>
     </div>
   );
