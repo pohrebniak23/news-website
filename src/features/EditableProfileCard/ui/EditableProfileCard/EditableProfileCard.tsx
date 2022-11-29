@@ -49,7 +49,11 @@ export const EditableProfileCard = ({
 
   const onChangeAge = useCallback(
     (value?: string) => {
-      dispatch(profileActions.updateProfile({ age: Number(value) }));
+      dispatch(
+        profileActions.updateProfile({
+          age: Number(value?.replace(/\D/g, '')) || 0,
+        }),
+      );
     },
     [dispatch],
   );

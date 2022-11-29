@@ -1,4 +1,9 @@
+import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
+import { ThemeProvider } from 'shared/contexts';
+import { Button } from 'shared/ui/Button/Button';
+import { Text } from 'shared/ui/Text/Text';
+import '../../../app/styles/index.scss';
 import styles from './PageErrorBoundary.module.scss';
 
 export const PageErrorBoundary = () => {
@@ -10,11 +15,15 @@ export const PageErrorBoundary = () => {
   };
 
   return (
-    <div className={styles.pageErrorBoundary}>
-      <h1 className={styles.title}>{t('Error, somtething went wrong')}</h1>
-      <button type="button" onClick={reloadPage} className={styles.button}>
-        {t('Reload page')}
-      </button>
-    </div>
+    <ThemeProvider>
+      <div className={classNames('app', styles.pageErrorBoundary)}>
+        <Text className={styles.title} size="medium">
+          {t('Error, somtething went wrong')}
+        </Text>
+        <Button onClick={reloadPage} theme="outline" className={styles.button}>
+          {t('Reload page')}
+        </Button>
+      </div>
+    </ThemeProvider>
   );
 };

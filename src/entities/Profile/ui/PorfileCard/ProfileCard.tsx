@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import { AgeSelect } from 'entities/Age/ui/AgeSelect/AgeSelect';
 import { Country, CountrySelect } from 'entities/Country';
 import { Currency, CurrencySelect } from 'entities/Currency';
 import { Profile } from 'features/EditableProfileCard';
@@ -9,7 +10,9 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Input } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { Text } from 'shared/ui/Text/Text';
+import { ValidateProfileErrors } from '../../../../features/EditableProfileCard/models/types/ProfileSchema';
 import { useAppDispatch } from '../../../../shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { ProfileValidateError } from '../ProfileValidateError/ProfileValidateError';
 import styles from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
@@ -78,6 +81,7 @@ export const ProfileCard = ({
             src={data.avatar}
             widthSize="280px"
             heightSize="280px"
+            radius="4px"
             alt="Avatar"
           />
         )}
@@ -85,94 +89,135 @@ export const ProfileCard = ({
 
       <div className={styles.fields}>
         <div className={styles.item}>
-          <Text className={styles.label}>{t('Name')}</Text>
-          {readonly ? (
-            <Text className={styles.text}>{data?.firstname}</Text>
-          ) : (
-            <Input
-              className={styles.input}
-              value={data?.firstname}
-              onChange={onChangeFirstName}
-              theme="edit-data"
-            />
-          )}
+          <div className={styles.itemRow}>
+            <Text className={styles.label}>{t('Name')}:</Text>
+
+            {readonly ? (
+              <Text className={styles.text}>{data?.firstname}</Text>
+            ) : (
+              <Input
+                className={styles.input}
+                value={data?.firstname}
+                onChange={onChangeFirstName}
+                theme="edit-data"
+              />
+            )}
+          </div>
+
+          <ProfileValidateError
+            className={styles.validateError}
+            error={ValidateProfileErrors.INCORRECT_FIRSTNAME}
+            text={t('Error with firstname')}
+          />
         </div>
 
         <div className={styles.item}>
-          <Text className={styles.label}>{t('Lastname')}</Text>
-          {readonly ? (
-            <Text className={styles.text}>{data?.lastname}</Text>
-          ) : (
-            <Input
-              className={styles.input}
-              value={data?.lastname}
-              onChange={onChangeLastName}
-              theme="edit-data"
-            />
-          )}
+          <div className={styles.itemRow}>
+            <Text className={styles.label}>{t('Lastname')}:</Text>
+
+            {readonly ? (
+              <Text className={styles.text}>{data?.lastname}</Text>
+            ) : (
+              <Input
+                className={styles.input}
+                value={data?.lastname}
+                onChange={onChangeLastName}
+                theme="edit-data"
+              />
+            )}
+          </div>
+
+          <ProfileValidateError
+            className={styles.validateError}
+            error={ValidateProfileErrors.INCORRECT_LASTNAME}
+            text={t('Error with lastname')}
+          />
         </div>
 
         <div className={styles.item}>
-          <Text className={styles.label}>{t('Username')}</Text>
-          {readonly ? (
-            <Text className={styles.text}>{data?.username}</Text>
-          ) : (
-            <Input
-              className={styles.input}
-              value={data?.username}
-              onChange={onChangeUsername}
-              theme="edit-data"
-            />
-          )}
+          <div className={styles.itemRow}>
+            <Text className={styles.label}>{t('Username')}:</Text>
+
+            {readonly ? (
+              <Text className={styles.text}>{data?.username}</Text>
+            ) : (
+              <Input
+                className={styles.input}
+                value={data?.username}
+                onChange={onChangeUsername}
+                theme="edit-data"
+              />
+            )}
+          </div>
+
+          <ProfileValidateError
+            className={styles.validateError}
+            error={ValidateProfileErrors.INCORRECT_USERNAME}
+            text={t('Error with username')}
+          />
         </div>
 
         <div className={styles.item}>
-          <Text className={styles.label}>{t('Age')}</Text>
-          {readonly ? (
-            <Text className={styles.text}>{data?.age}</Text>
-          ) : (
-            <Input
-              className={styles.input}
-              value={data?.age}
-              onChange={onChangeAge}
-              theme="edit-data"
-            />
-          )}
+          <div className={styles.itemRow}>
+            <Text className={styles.label}>{t('Age')}:</Text>
+
+            {readonly ? (
+              <Text className={styles.text}>{data?.age}</Text>
+            ) : (
+              <AgeSelect
+                className={styles.ageSelect}
+                value={String(data?.age)}
+                onChange={onChangeAge}
+              />
+            )}
+          </div>
+
+          <ProfileValidateError
+            className={styles.validateError}
+            error={ValidateProfileErrors.INCORRECT_AGE}
+            text={t('Error with age')}
+          />
         </div>
 
         <div className={styles.item}>
-          <Text className={styles.label}>{t('Avatar link')}</Text>
-          {readonly ? (
-            <Text className={styles.avatarLink}>{data?.avatar}</Text>
-          ) : (
-            <Input
-              className={styles.input}
-              value={data?.avatar}
-              onChange={onChangeAvatar}
-              theme="edit-data"
-            />
-          )}
+          <div className={styles.itemRow}>
+            <Text className={styles.label}>{t('Avatar link')}:</Text>
+            {readonly ? (
+              <Text className={styles.avatarLink}>{data?.avatar}</Text>
+            ) : (
+              <Input
+                className={styles.input}
+                value={data?.avatar}
+                onChange={onChangeAvatar}
+                theme="edit-data"
+              />
+            )}
+          </div>
         </div>
 
         <div className={styles.item}>
-          <Text className={styles.label}>{t('Currency')}</Text>
-          {readonly ? (
-            <Text className={styles.text}>{data?.currency}</Text>
-          ) : (
-            <CurrencySelect
-              value={data?.currency}
-              onChange={onChangeCurrency}
-            />
-          )}
+          <div className={styles.itemRow}>
+            <Text className={styles.label}>{t('Currency')}:</Text>
+            {readonly ? (
+              <Text className={styles.text}>{data?.currency}</Text>
+            ) : (
+              <CurrencySelect
+                value={data?.currency}
+                onChange={onChangeCurrency}
+              />
+            )}
+          </div>
         </div>
 
         <div className={styles.item}>
-          <Text className={styles.label}>{t('Country')}</Text>
-          {readonly ? (
-            <Text className={styles.text}>{data?.country}</Text>
-          ) : (
-            <CountrySelect value={data?.country} onChange={onChangeCountry} />
-          )}
+          <div className={styles.itemRow}>
+            <Text className={styles.label}>{t('Country')}:</Text>
+            {readonly ? (
+              <Text className={styles.text}>{data?.country}</Text>
+            ) : (
+              <CountrySelect value={data?.country} onChange={onChangeCountry} />
+            )}
+          </div>
         </div>
       </div>
     </div>
