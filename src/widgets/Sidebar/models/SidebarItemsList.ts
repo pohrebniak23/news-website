@@ -26,4 +26,10 @@ export const SidebarItemsList: SidebarItemType[] = [
     Icon: AboutIcon,
     authOnly: true,
   },
+  {
+    path: RoutePath.articles,
+    text: 'Articles',
+    Icon: AboutIcon,
+    authOnly: true,
+  },
 ];
