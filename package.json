@@ -78,7 +78,7 @@
     "json-server": "^0.17.0",
     "jsonwebtoken": "^8.5.1",
     "loki": "^0.30.3",
-    "mini-css-extract-plugin": "^2.6.1",
+    "mini-css-extract-plugin": "^2.7.1",
     "prettier": "^2.7.1",
     "react-refresh": "^0.14.0",
     "reg-cli": "^0.17.7",
