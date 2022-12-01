@@ -31,8 +31,7 @@ interface ArticleDetailsProps {
 export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
   const { t } = useTranslation('article');
   const dispatch = useAppDispatch();
-  // const isLoading = useSelector(getArticleDetailsLoading);
-  const isLoading = true;
+  const isLoading = useSelector(getArticleDetailsLoading);
   const error = useSelector(getArticleDetailsError);
   const data = useSelector(getArticleDetailsData);
 
