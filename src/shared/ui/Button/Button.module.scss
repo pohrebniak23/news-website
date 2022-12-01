@@ -10,6 +10,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 0.4s;
+
+  &:hover {
+    opacity: 0.9;
+  }
 
   &.small {
     font: var(--font-s);

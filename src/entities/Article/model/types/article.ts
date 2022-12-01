@@ -26,7 +26,11 @@ export interface ArticleBlockImage extends ArticleBlockBase {
   title: string;
 }
 
-export type ArticleType = 'IT' | 'SCIENCE' | 'BUSINESS';
+export enum ArticleType {
+  IT = 'IT',
+  SCIENCE = 'SCIENCE',
+  BUSINESS = 'BUSINESS',
+}
 
 export type ArticleBlock =
   | ArticleBlockCode

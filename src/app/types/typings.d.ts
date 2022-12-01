@@ -19,6 +19,7 @@ declare module '*.jpg';
 declare module '*.jpeg';
 
 declare const IS_DEV: boolean;
+declare const PROJECT: 'frontend' | 'jest' | 'storybook';
 
 declare type DeepPartial<T> = T extends object
   ? {

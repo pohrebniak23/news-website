@@ -2,8 +2,11 @@ import classNames from 'classnames';
 import { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import CalendarIcon from 'shared/assets/calendar-icon.svg';
+import ViewsIcon from 'shared/assets/views-icon.svg';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { Icon } from 'shared/ui/Icon/Icon';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { Text } from 'shared/ui/Text/Text';
 import { useDynamicReducerLoader } from '../../../../shared/lib/hooks/useDynamicReducerLoader/useDynamicReducerLoader';
@@ -28,14 +31,15 @@ interface ArticleDetailsProps {
 export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
   const { t } = useTranslation('article');
   const dispatch = useAppDispatch();
-  const isLoading = useSelector(getArticleDetailsLoading);
+  // const isLoading = useSelector(getArticleDetailsLoading);
+  const isLoading = true;
   const error = useSelector(getArticleDetailsError);
   const data = useSelector(getArticleDetailsData);
 
   useDynamicReducerLoader({ articleDetails: ArticleDetailsReducer });
 
   useEffect(() => {
-    if (id) {
+    if (id && PROJECT !== 'storybook') {
       dispatch(fetchArticleById(id));
     }
   }, [id, dispatch]);
@@ -103,15 +107,24 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
       <Avatar
         className={styles.avatar}
         src={data?.image}
-        widthSize="120px"
-        heightSize="120px"
+        widthSize="160px"
+        heightSize="160px"
         radius="50%"
       />
 
-      <Text className={styles.tittle} size="medium">
+      <Text className={styles.title} size="medium">
         {data?.title}
       </Text>
-      <Text className={styles.title}>{data?.subtitle}</Text>
+      <Text className={styles.subtitle}>{data?.subtitle}</Text>
+
+      <div className={styles.info}>
+        <Icon Svg={ViewsIcon} />
+        <Text>{data?.views}</Text>
+      </div>
+      <div className={styles.info}>
+        <Icon Svg={CalendarIcon} />
+        <Text>{data?.createdAt}</Text>
+      </div>
 
       {data?.blocks?.map(renderBlocks)}
     </div>

@@ -4,7 +4,7 @@ import { Theme } from 'shared/contexts/themeContext/ThemeContext';
 import ArticlesDetailsPage from './ArticlesDetailsPage';
 
 export default {
-  title: '/AriclesDetailsPage',
+  title: 'pages/AriclesDetailsPage',
   component: ArticlesDetailsPage,
   argTypes: {},
 } as ComponentMeta<typeof ArticlesDetailsPage>;

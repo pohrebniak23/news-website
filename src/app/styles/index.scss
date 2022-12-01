@@ -27,4 +27,5 @@ body {
   flex-grow: 1;
   padding: 24px;
   width: 100%;
+  height: calc(100vh - var(--navbar-height));
 }

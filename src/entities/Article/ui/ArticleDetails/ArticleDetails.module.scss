@@ -10,3 +10,30 @@
 .skeletonItem {
   margin-top: 15px;
 }
+
+.avatar {
+  display: block;
+  margin: 0 auto;
+}
+
+.title {
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  margin-bottom: 8px;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+
+  svg {
+    margin-right: 6px;
+  }
+}
+
+.blocks {
+  margin-top: 24px;
+}

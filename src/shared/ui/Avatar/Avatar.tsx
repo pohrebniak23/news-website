@@ -7,7 +7,7 @@ interface AvatarProps {
   widthSize?: string;
   heightSize?: string;
   radius?: string;
-  src: string;
+  src?: string;
   alt?: string;
 }
 

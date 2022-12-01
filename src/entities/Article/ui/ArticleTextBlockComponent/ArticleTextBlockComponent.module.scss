@@ -1,0 +1,14 @@
+.article-text-block-component {
+  display: block;
+  margin-top: 24px;
+}
+
+.title {
+  margin-bottom: 8px;
+}
+
+.text {
+  &:not(:last-child) {
+    margin-bottom: 8px;
+  }
+}
