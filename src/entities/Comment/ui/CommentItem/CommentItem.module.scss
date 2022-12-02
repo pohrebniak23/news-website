@@ -1,0 +1,21 @@
+.comment-item {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--primary-color);
+  border-radius: 6px;
+  padding: 10px;
+
+  &:not(:last-child) {
+    margin-bottom: 16px;
+  }
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.avatar {
+  margin-right: 16px;
+}

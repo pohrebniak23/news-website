@@ -23,7 +23,7 @@ body {
 
 .page-wrapper {
   display: flex;
-  max-width: calc(100% - var(--sidebar-width));
+  max-width: 100%;
   flex-grow: 1;
   padding: 24px;
   width: 100%;

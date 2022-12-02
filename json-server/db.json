@@ -14,7 +14,9 @@
       "views": 305,
       "createdAt": "22.11.2022",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/800px-Unofficial_JavaScript_logo_2.svg.png",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -80,12 +82,19 @@
   "comments": [
     {
       "id": "1",
-      "body": "some comment",
-      "postId": 1
+      "text": "some comment",
+      "postId": "1",
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "text": "comment 2",
+      "postId": "1",
+      "userId": "1"
     }
   ],
   "profile": {
-    "firstname": "Oleksandr",
+    "firstname": "Oleksandr1",
     "lastname": "Pohrebniak",
     "age": 22,
     "currency": "USD",
@@ -99,7 +108,8 @@
       "id": "1",
       "name": "Oleksandr",
       "username": "admin",
-      "password": "123"
+      "password": "123",
+      "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Code.org_logo.svg/1200px-Code.org_logo.svg.png"
     }
   ]
 }
