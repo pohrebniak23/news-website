@@ -3,15 +3,12 @@ import { AgeSelect } from 'entities/Age/ui/AgeSelect/AgeSelect';
 import { Country, CountrySelect } from 'entities/Country';
 import { Currency, CurrencySelect } from 'entities/Currency';
 import { Profile } from 'features/EditableProfileCard';
-import { fetchProfileData } from 'features/EditableProfileCard/models/services/fetchProfileData/fetchProfileData';
-import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Input } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { Text } from 'shared/ui/Text/Text';
 import { ValidateProfileErrors } from '../../../../features/EditableProfileCard/models/types/ProfileSchema';
-import { useAppDispatch } from '../../../../shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { ProfileValidateError } from '../ProfileValidateError/ProfileValidateError';
 import styles from './ProfileCard.module.scss';
 
@@ -45,11 +42,6 @@ export const ProfileCard = ({
   onChangeCountry,
 }: ProfileCardProps) => {
   const { t } = useTranslation('profile');
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    dispatch(fetchProfileData());
-  }, [dispatch]);
 
   if (error) {
     return (

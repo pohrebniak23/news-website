@@ -16,15 +16,19 @@ export const App = () => {
 
   return (
     <div className="app">
-      <Suspense fallback="">
-        <Navbar />
+      {userInited && (
+        <Suspense fallback="">
+          <Navbar />
 
-        <div className="content">
-          <Sidebar />
+          <div className="content">
+            <Sidebar />
 
-          <div className="page-wrapper">{userInited && <AppRouter />}</div>
-        </div>
-      </Suspense>
+            <div className="page-wrapper">
+              <AppRouter />
+            </div>
+          </div>
+        </Suspense>
+      )}
     </div>
   );
 };
