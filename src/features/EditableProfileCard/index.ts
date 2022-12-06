@@ -2,6 +2,8 @@ import { fetchProfileData } from './models/services/fetchProfileData/fetchProfil
 import { profileActions, profileReducer } from './models/slices/profileSlice';
 import { Profile } from './models/types/Profile';
 import { ProfileSchema } from './models/types/ProfileSchema';
+import { getProfileData } from './models/selectors/getProfileData/getProfileData';
+import { updateProfileData } from './models/services/updateProfileData/updateProfileData';
 
 export {
   ProfileSchema,
@@ -9,4 +11,6 @@ export {
   profileReducer,
   profileActions,
   fetchProfileData,
+  getProfileData,
+  updateProfileData,
 };

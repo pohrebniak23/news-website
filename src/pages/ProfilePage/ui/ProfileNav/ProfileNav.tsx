@@ -1,5 +1,10 @@
 import classNames from 'classnames';
-import { profileActions } from 'features/EditableProfileCard';
+import { getUserAuthData } from 'entities/User';
+import {
+  getProfileData,
+  profileActions,
+  updateProfileData,
+} from 'features/EditableProfileCard';
 import { getProfileReadonly } from 'features/EditableProfileCard/models/selectors/getProfileReadonly/getProfileReadonly';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -8,7 +13,6 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button } from 'shared/ui/Button/Button';
 import { Text } from 'shared/ui/Text/Text';
 import styles from './ProfileNav.module.scss';
-import { updateProfileData } from '../../../../features/EditableProfileCard/models/services/updateProfileData/updateProfileData';
 
 interface ProfileNavProps {
   className?: string;
@@ -19,6 +23,10 @@ export const ProfileNav = ({ className }: ProfileNavProps) => {
   const dispatch = useAppDispatch();
 
   const readonly = useSelector(getProfileReadonly);
+  const userData = useSelector(getUserAuthData);
+  const profileData = useSelector(getProfileData);
+
+  const isEditable = userData?.id === profileData?.id;
 
   const onEdit = useCallback(() => {
     dispatch(profileActions.setReadonly(false));
@@ -36,19 +44,23 @@ export const ProfileNav = ({ className }: ProfileNavProps) => {
     <div className={classNames(styles.profilenav, className)}>
       <Text className={styles.profileText}>{t('Profile')}</Text>
 
-      {readonly ? (
-        <Button size="small" onClick={onEdit}>
-          {t('Edit')}
-        </Button>
-      ) : (
-        <div className={styles.buttonsList}>
-          <Button size="small" onClick={onSave}>
-            {t('Save')}
-          </Button>
+      {isEditable && (
+        <div className={styles.editableWrapper}>
+          {readonly ? (
+            <Button size="small" onClick={onEdit}>
+              {t('Edit')}
+            </Button>
+          ) : (
+            <div className={styles.buttonsList}>
+              <Button size="small" onClick={onSave}>
+                {t('Save')}
+              </Button>
 
-          <Button size="small" onClick={onCancel} theme="outline-error">
-            {t('Cancel')}
-          </Button>
+              <Button size="small" onClick={onCancel} theme="outline-error">
+                {t('Cancel')}
+              </Button>
+            </div>
+          )}
         </div>
       )}
     </div>
