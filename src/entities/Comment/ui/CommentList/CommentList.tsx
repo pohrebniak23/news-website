@@ -38,7 +38,9 @@ export const CommentList = memo(
     return (
       <div className={classNames(className, styles.commentList)}>
         {comments ? (
-          comments.map((commentData) => <CommentItem comment={commentData} />)
+          comments.map((commentData) => (
+            <CommentItem key={commentData.id} comment={commentData} />
+          ))
         ) : (
           <Text>{t('Comments not found')}</Text>
         )}

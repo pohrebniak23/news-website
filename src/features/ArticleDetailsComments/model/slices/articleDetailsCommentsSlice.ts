@@ -5,8 +5,8 @@ import {
 } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { CommentType } from 'entities/Comment';
-import { ArticleDetailsCommentsSchema } from '../types/ArticleDetailsCommentsSchema';
 import { fetchCommentByArticleId } from '../services/fetchCommentsByArticleId';
+import { ArticleDetailsCommentsSchema } from '../types/ArticleDetailsCommentsSchema';
 
 const commentsAdapter = createEntityAdapter<CommentType>({
   selectId: (comment) => comment.id,
@@ -19,14 +19,18 @@ export const getArticleDetailsComments =
   );
 
 const articleDetailsCommensSlice = createSlice({
-  name: 'articleDetailsCommensSlice',
+  name: 'articleDetailsCommentsSlice',
   initialState: commentsAdapter.getInitialState<ArticleDetailsCommentsSchema>({
     isLoading: false,
     error: undefined,
     ids: [],
     entities: {},
   }),
-  reducers: {},
+  reducers: {
+    addNewComment: (state, action: PayloadAction<any>) => {
+      commentsAdapter.setOne(state, action.payload);
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchCommentByArticleId.pending, (state) => {

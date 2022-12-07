@@ -4,4 +4,5 @@ export interface CommentType {
   id: string;
   user: User;
   text: string;
+  articleId: string;
 }

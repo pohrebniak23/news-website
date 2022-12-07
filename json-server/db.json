@@ -81,16 +81,22 @@
   ],
   "comments": [
     {
-      "id": "1",
-      "text": "some comment",
-      "postId": "1",
-      "userId": "1"
+      "userId": "0",
+      "articleId": "1",
+      "text": "Good article",
+      "id": 1
     },
     {
-      "id": "2",
-      "text": "comment 2",
-      "postId": "1",
-      "userId": "1"
+      "userId": "0",
+      "articleId": "1",
+      "text": "Nice",
+      "id": 2
+    },
+    {
+      "userId": "1",
+      "articleId": "1",
+      "text": "Very good!!!",
+      "id": 3
     }
   ],
   "profile": [
