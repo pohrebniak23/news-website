@@ -97,6 +97,12 @@
       "articleId": "1",
       "text": "Very good!!!",
       "id": 3
+    },
+    {
+      "userId": "0",
+      "articleId": "1",
+      "text": "New comment",
+      "id": 4
     }
   ],
   "profile": [
