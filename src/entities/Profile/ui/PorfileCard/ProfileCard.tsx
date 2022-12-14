@@ -80,6 +80,12 @@ export const ProfileCard = ({
       </div>
 
       <div className={styles.fields}>
+        <ProfileValidateError
+          className={styles.validateError}
+          error={ValidateProfileErrors.SERVER_ERROR}
+          text={t('Server error')}
+        />
+
         <div className={styles.item}>
           <div className={styles.itemRow}>
             <Text className={styles.label}>{t('Name')}:</Text>
