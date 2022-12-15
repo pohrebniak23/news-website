@@ -23,9 +23,8 @@ body {
 
 .page-wrapper {
   display: flex;
-  max-width: 100%;
   flex-grow: 1;
   padding: 24px;
-  width: 100%;
   height: calc(100vh - var(--navbar-height));
+  overflow-y: scroll;
 }

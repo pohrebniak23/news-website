@@ -4,7 +4,9 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import CalendarIcon from 'shared/assets/calendar-icon.svg';
 import ViewsIcon from 'shared/assets/views-icon.svg';
+import { RoutePath } from 'shared/config/routes/routes';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Icon } from 'shared/ui/Icon/Icon';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
@@ -29,7 +31,7 @@ interface ArticleDetailsProps {
 }
 
 export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
-  const { t } = useTranslation('article');
+  const { t } = useTranslation('articles');
   const dispatch = useAppDispatch();
   const isLoading = useSelector(getArticleDetailsLoading);
   const error = useSelector(getArticleDetailsError);
@@ -103,6 +105,8 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
 
   return (
     <div className={classNames(styles.articleDetails, className)}>
+      <AppLink to={RoutePath.articles}>{t('Back to articles')}</AppLink>
+
       <Avatar
         className={styles.avatar}
         src={data?.image}

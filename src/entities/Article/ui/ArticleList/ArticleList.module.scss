@@ -1,0 +1,36 @@
+.TILE {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-gap: 24px 12px;
+
+  .skeleton-title {
+    margin-top: 16px;
+  }
+
+  .skeleton-item {
+    width: 100%;
+  }
+}
+
+.LIST {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  grid-gap: 24px 0;
+
+  .skeleton-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .skeleton-info {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 24px 0;
+  }
+
+  .skeleton-item {
+    width: 100%;
+  }
+}

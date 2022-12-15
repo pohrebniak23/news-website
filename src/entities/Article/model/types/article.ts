@@ -1,3 +1,5 @@
+import { User } from 'entities/User';
+
 export enum ArticleBlockType {
   CODE = 'CODE',
   TEXT = 'TEXT',
@@ -32,6 +34,11 @@ export enum ArticleType {
   BUSINESS = 'BUSINESS',
 }
 
+export enum ArticleView {
+  TILE = 'TILE',
+  LIST = 'LIST',
+}
+
 export type ArticleBlock =
   | ArticleBlockCode
   | ArticleBlockImage
@@ -41,6 +48,7 @@ export interface Article {
   id: string;
   title: string;
   subtitle: string;
+  user: User;
   views: number;
   createdAt: string;
   image: string;

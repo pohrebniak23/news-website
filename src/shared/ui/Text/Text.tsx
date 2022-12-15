@@ -4,7 +4,7 @@ import styles from './Text.module.scss';
 
 export type TextTheme = 'default' | 'error' | 'modal';
 
-export type TextSize = 'small' | 'medium' | 'large';
+export type TextSize = 'extra-small' | 'small' | 'medium' | 'large';
 
 interface TextProps {
   className?: string;

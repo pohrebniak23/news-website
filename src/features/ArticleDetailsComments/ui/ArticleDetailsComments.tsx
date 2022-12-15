@@ -1,7 +1,9 @@
 import classNames from 'classnames';
 import { AddNewComment, CommentList } from 'entities/Comment';
 import { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { Text } from 'shared/ui/Text/Text';
 import { useAppDispatch } from '../../../shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getArticleDetailsCommentsLoading } from '../model/selectors/getArticleDetailsCommentsLoading';
 import { getNewCommentText } from '../model/selectors/getNewCommentText';
@@ -18,9 +20,11 @@ export const ArticleDetailsComments = ({
   className,
 }: ArticleDetailsCommentsProps) => {
   const dispatch = useAppDispatch();
+  const { t } = useTranslation('articles');
 
   const comments = useSelector(getArticleDetailsComments.selectAll);
   const isLoading = useSelector(getArticleDetailsCommentsLoading);
+  // const isLoading = true;
   const commentText = useSelector(getNewCommentText);
 
   const onCommentChange = useCallback(
@@ -36,10 +40,15 @@ export const ArticleDetailsComments = ({
 
   return (
     <div className={classNames(className, styles.articleDetailsComments)}>
+      <Text className={styles.commentsTitle} size="medium">
+        {t('Comments')}
+      </Text>
+
       <AddNewComment
         commentText={commentText}
         onCommentChange={onCommentChange}
         onSendComment={onSendComment}
+        isLoading={isLoading}
       />
       <CommentList
         className={styles.list}

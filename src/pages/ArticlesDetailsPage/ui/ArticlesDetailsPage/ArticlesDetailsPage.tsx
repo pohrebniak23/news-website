@@ -5,7 +5,6 @@ import { ArticleDetailsCommentsReducer } from 'features/ArticleDetailsComments/m
 import { memo, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-import { Text } from 'shared/ui/Text/Text';
 import { ArticleDetailsComments } from '../../../../features/ArticleDetailsComments/ui/ArticleDetailsComments';
 import { useAppDispatch } from '../../../../shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useDynamicReducerLoader } from '../../../../shared/lib/hooks/useDynamicReducerLoader/useDynamicReducerLoader';
@@ -38,10 +37,6 @@ const ArticlesDetailsPage = () => {
       <ArticleDetails id={id} />
 
       <div className={styles.comments}>
-        <Text className={styles.commentsTitle} size="medium">
-          {t('Comments')}
-        </Text>
-
         <ArticleDetailsComments />
       </div>
     </div>

@@ -12,6 +12,7 @@
       "title": "Javascript - язык программирования",
       "subtitle": "Краткий пересказ всего JavaScript",
       "views": 305,
+      "userId": "1",
       "createdAt": "22.11.2022",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/800px-Unofficial_JavaScript_logo_2.svg.png",
       "type": [
@@ -103,6 +104,12 @@
       "articleId": "1",
       "text": "New comment",
       "id": 4
+    },
+    {
+      "userId": "0",
+      "articleId": "1",
+      "text": "1232323",
+      "id": 5
     }
   ],
   "profile": [
