@@ -22,23 +22,18 @@ export const ArticleList = memo(
       <ArticleListItem key={article.id} article={article} view={view} />
     );
 
-    if (isLoading) {
-      return (
-        <div className={classNames(styles.skeleton, styles[view])}>
-          {new Array(view === ArticleView.LIST ? 3 : 6)
+    return (
+      <div className={classNames(className, styles.articleList, styles[view])}>
+        {articles.length > 0 && articles.map(renderItems)}
+
+        {isLoading &&
+          new Array(view === ArticleView.LIST ? 3 : 6)
             .fill(0)
             .map((item, index) => (
               <ArticleListSkeleton key={index} view={view} />
             ))}
-        </div>
-      );
-    }
 
-    return (
-      <div className={classNames(className, styles.articleList, styles[view])}>
-        {articles.length > 0 ? (
-          articles.map(renderItems)
-        ) : (
+        {!isLoading && articles.length === 0 && (
           <Text>{t('There are currently no articles available')}</Text>
         )}
       </div>

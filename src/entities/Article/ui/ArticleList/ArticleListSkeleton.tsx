@@ -22,6 +22,18 @@ export const ArticleListSkeleton = ({
           height="20px"
           borderRadius="6px"
         />
+        <Skeleton
+          className={styles.skeletonTitle}
+          width="100%"
+          height="20px"
+          borderRadius="6px"
+        />
+        <Skeleton
+          className={styles.skeletonTitle}
+          width="40%"
+          height="20px"
+          borderRadius="6px"
+        />
       </div>
     );
   }

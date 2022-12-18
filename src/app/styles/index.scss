@@ -19,12 +19,5 @@ body {
 
 .content {
   display: flex;
-}
-
-.page-wrapper {
-  display: flex;
-  flex-grow: 1;
-  padding: 24px;
-  height: calc(100vh - var(--navbar-height));
-  overflow-y: scroll;
+  height: 100%;
 }

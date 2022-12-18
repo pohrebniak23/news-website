@@ -23,9 +23,7 @@ export const App = () => {
           <div className="content">
             <Sidebar />
 
-            <div className="page-wrapper">
-              <AppRouter />
-            </div>
+            <AppRouter />
           </div>
         </Suspense>
       )}

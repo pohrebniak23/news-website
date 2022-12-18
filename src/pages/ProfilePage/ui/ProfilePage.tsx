@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useDynamicReducerLoader } from 'shared/lib/hooks/useDynamicReducerLoader/useDynamicReducerLoader';
+import { PageWrapper } from 'widgets/PageWrapper/PageWrapper';
 import { ProfileNav } from './ProfileNav/ProfileNav';
 import styles from './ProfilePage.module.scss';
 
@@ -20,10 +21,12 @@ const ProfilePage = () => {
   }, [dispatch, id]);
 
   return (
-    <div className={styles.profilePage}>
-      <ProfileNav />
-      <EditableProfileCard />
-    </div>
+    <PageWrapper>
+      <div className={styles.profilePage}>
+        <ProfileNav />
+        <EditableProfileCard />
+      </div>
+    </PageWrapper>
   );
 };
 

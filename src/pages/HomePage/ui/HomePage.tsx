@@ -1,19 +1,22 @@
 import { BugButton } from 'app/providers/ErrorBoundary';
 import { Counter } from 'entities/Counter';
 import { useTranslation } from 'react-i18next';
+import { PageWrapper } from 'widgets/PageWrapper/PageWrapper';
 
 const HomePage = () => {
   const { t } = useTranslation();
 
   return (
-    <div>
-      <BugButton />
+    <PageWrapper>
+      <div>
+        <BugButton />
 
-      <Counter />
+        <Counter />
 
-      {t('Home page')}
-      {t('Information')}
-    </div>
+        {t('Home page')}
+        {t('Information')}
+      </div>
+    </PageWrapper>
   );
 };
 
