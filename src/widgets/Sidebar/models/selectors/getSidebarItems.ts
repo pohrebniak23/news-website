@@ -1,8 +1,10 @@
 import { createSelector } from '@reduxjs/toolkit';
-import HomeIcon from 'shared/assets/home-icon.svg';
-import { RoutePath } from 'shared/config/routes/routes';
-import AboutIcon from 'shared/assets/about-icon.svg';
 import { getUserAuthData } from 'entities/User';
+import AboutIcon from 'shared/assets/about-icon.svg';
+import ArticleIcon from 'shared/assets/article-icon.svg';
+import HomeIcon from 'shared/assets/home-icon.svg';
+import ProfileIcon from 'shared/assets/profile-icon.svg';
+import { RoutePath } from 'shared/config/routes/routes';
 import { SidebarItemType } from '../types/SidebarItemType';
 
 export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
@@ -24,13 +26,13 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
       {
         path: `${RoutePath.profile}${userData?.id}`,
         text: 'Profile',
-        Icon: AboutIcon,
+        Icon: ProfileIcon,
         authOnly: true,
       },
       {
         path: RoutePath.articles,
         text: 'Articles',
-        Icon: AboutIcon,
+        Icon: ArticleIcon,
         authOnly: true,
       },
     );

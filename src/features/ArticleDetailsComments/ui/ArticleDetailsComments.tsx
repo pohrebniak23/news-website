@@ -24,7 +24,6 @@ export const ArticleDetailsComments = ({
 
   const comments = useSelector(getArticleDetailsComments.selectAll);
   const isLoading = useSelector(getArticleDetailsCommentsLoading);
-  // const isLoading = true;
   const commentText = useSelector(getNewCommentText);
 
   const onCommentChange = useCallback(

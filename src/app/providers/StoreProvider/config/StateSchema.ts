@@ -13,6 +13,7 @@ import {
   AddNewCommentSchema,
   ArticleDetailsCommentsSchema,
 } from 'features/ArticleDetailsComments';
+import { ArticlePageSchema } from 'features/ArticlePage/model/types/ArticlePageSchema';
 import { LoginSchema } from 'features/AuthByUsername/models';
 import { NavigateOptions, To } from 'react-router-dom';
 import { ProfileSchema } from '../../../../features/EditableProfileCard/models/types/ProfileSchema';
@@ -27,6 +28,7 @@ export interface StateSchema {
   articleDetails?: ArticleDetailsSchema;
   articleDetailsComments?: ArticleDetailsCommentsSchema;
   addNewComment?: AddNewCommentSchema;
+  articlePage?: ArticlePageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

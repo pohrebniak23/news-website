@@ -1,0 +1,21 @@
+.article-page-view {
+  display: flex;
+  align-items: center;
+  grid-gap: 0 24px;
+}
+
+.button {
+  width: 25px;
+  height: 25px;
+  opacity: 0.6;
+  transition: 0.4s;
+
+  svg {
+    height: auto;
+    width: 100%;
+  }
+}
+
+.active {
+  opacity: 1;
+}

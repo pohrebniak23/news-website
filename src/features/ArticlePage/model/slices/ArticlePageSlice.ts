@@ -1,0 +1,62 @@
+import {
+  createEntityAdapter,
+  createSlice,
+  PayloadAction,
+} from '@reduxjs/toolkit';
+import { StateSchema } from 'app/providers/StoreProvider';
+import { Article } from 'entities/Article';
+import { ArticleView } from 'entities/Article/model/types/article';
+import { ARTICLE_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
+import { fetchArticlePage } from '../services/fetchArticlePage';
+import { ArticlePageSchema } from '../types/ArticlePageSchema';
+
+const articlePageAdapter = createEntityAdapter<Article>({
+  selectId: (article) => article.id,
+});
+
+export const getArticlePageData = articlePageAdapter.getSelectors<StateSchema>(
+  (state) => state.articlePage || articlePageAdapter.getInitialState(),
+);
+
+const articlePageSlice = createSlice({
+  name: 'articleDetailsCommentsSlice',
+  initialState: articlePageAdapter.getInitialState<ArticlePageSchema>({
+    isLoading: false,
+    error: undefined,
+    ids: [],
+    entities: {},
+    view: ArticleView.TILE,
+  }),
+  reducers: {
+    setView: (state, action: PayloadAction<ArticleView>) => {
+      state.view = action.payload;
+      localStorage.setItem(ARTICLE_VIEW_LOCALSTORAGE_KEY, action.payload);
+    },
+    initialView: (state) => {
+      state.view = localStorage.getItem(
+        ARTICLE_VIEW_LOCALSTORAGE_KEY,
+      ) as ArticleView;
+    },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchArticlePage.pending, (state) => {
+        state.error = undefined;
+        state.isLoading = true;
+      })
+      .addCase(
+        fetchArticlePage.fulfilled,
+        (state, action: PayloadAction<Article[]>) => {
+          state.isLoading = false;
+          articlePageAdapter.setAll(state, action.payload);
+        },
+      )
+      .addCase(fetchArticlePage.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      });
+  },
+});
+
+export const { reducer: ArticlePageReducer, actions: ArticlePageActions } =
+  articlePageSlice;
