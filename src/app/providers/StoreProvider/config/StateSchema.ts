@@ -15,7 +15,6 @@ import {
 } from 'features/ArticleDetailsComments';
 import { ArticlePageSchema } from 'features/ArticlePage/model/types/ArticlePageSchema';
 import { LoginSchema } from 'features/AuthByUsername/models';
-import { NavigateOptions, To } from 'react-router-dom';
 import { ProfileSchema } from '../../../../features/EditableProfileCard/models/types/ProfileSchema';
 
 export interface StateSchema {
@@ -46,7 +45,6 @@ export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
 
 export interface ThunkExtraArg {
   api: AxiosInstance;
-  navigate?: (to: To, options?: NavigateOptions) => void;
 }
 
 export interface ThunkConfig<T> {

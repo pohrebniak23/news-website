@@ -1,20 +1,16 @@
 import { ArticleList } from 'entities/Article';
-import { ArticlePageView } from 'features/ArticlePage';
+import { ArticlePageView, initArticlePage } from 'features/ArticlePage';
 import {
   getArticlePageError,
-  getArticlePageLimit,
   getArticlePageLoading,
-  getArticlePagePageNum,
   getArticlePageView,
 } from 'features/ArticlePage/model/selectors/getArticlePageSelectors';
-import { fetchArticlePage } from 'features/ArticlePage/model/services/fetchArticlePage/fetchArticlePage';
 import { fetchNextArticlePage } from 'features/ArticlePage/model/services/fetchNextArticlePage/fetchNextArticlePage';
 import {
-  ArticlePageActions,
   ArticlePageReducer,
   getArticlePageData,
 } from 'features/ArticlePage/model/slices/ArticlePageSlice';
-import { memo, useEffect, useCallback } from 'react';
+import { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -30,19 +26,16 @@ const ArticlesPage = () => {
   const view = useSelector(getArticlePageView);
   const error = useSelector(getArticlePageError);
   const isLoading = useSelector(getArticlePageLoading);
-  const limit = useSelector(getArticlePageLimit);
-  const page = useSelector(getArticlePagePageNum);
 
-  useDynamicReducerLoader({ articlePage: ArticlePageReducer });
+  useDynamicReducerLoader({ articlePage: ArticlePageReducer }, false);
 
   const endOfPageCallback = useCallback(() => {
     dispatch(fetchNextArticlePage());
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(ArticlePageActions.initialView());
-    dispatch(fetchArticlePage({ limit, page }));
-  }, [dispatch, limit, page]);
+    dispatch(initArticlePage);
+  }, [dispatch]);
 
   if (error) {
     return (
