@@ -6,6 +6,7 @@
   position: relative;
   transition: width 0.4s, min-width 0.4s;
   padding: 20px;
+  z-index: 100;
 }
 
 .toggle {

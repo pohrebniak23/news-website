@@ -4,8 +4,9 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
-import styles from './SidebarItem.module.scss';
+import { Icon } from 'shared/ui/Icon/Icon';
 import { SidebarItemType } from '../../models/types/SidebarItemType';
+import styles from './SidebarItem.module.scss';
 
 interface SidebarItemProps {
   item: SidebarItemType;
@@ -28,7 +29,10 @@ export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
         [styles.collapsed]: collapsed,
       })}
     >
-      <item.Icon className={styles.icon} />
+      <div className={styles.icon}>
+        <Icon Svg={item.icon} />
+      </div>
+
       <span className={styles.linkText}>{t(item.text)}</span>
     </AppLink>
   );

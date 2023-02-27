@@ -41,20 +41,27 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .label {
   white-space: nowrap;
   margin-right: 4px;
-  font: var(--font-s);
+  line-height: 27px;
+  border-bottom: 1px solid transparent;
 }
 
 .input {
   font: var(--font-s);
+  padding-bottom: 0;
 }
 
 .text {
-  line-height: 27px;
+  font: var(--font-s);
+  border-bottom: 1px solid transparent;
 }
 
 .fields {

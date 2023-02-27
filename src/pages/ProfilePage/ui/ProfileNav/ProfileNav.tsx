@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import { getUserAuthData } from 'entities/User';
 import {
   getProfileData,
+  getProfileForm,
   profileActions,
   updateProfileData,
 } from 'features/EditableProfileCard';
@@ -25,10 +26,11 @@ export const ProfileNav = ({ className }: ProfileNavProps) => {
   const readonly = useSelector(getProfileReadonly);
   const userData = useSelector(getUserAuthData);
   const profileData = useSelector(getProfileData);
+  const profileForm = useSelector(getProfileForm);
 
   const isEditable = userData?.id === profileData?.id;
 
-  const onEdit = useCallback(() => {
+  const onEditPorfile = useCallback(() => {
     dispatch(profileActions.setReadonly(false));
   }, [dispatch]);
 
@@ -37,8 +39,12 @@ export const ProfileNav = ({ className }: ProfileNavProps) => {
   }, [dispatch]);
 
   const onSave = useCallback(() => {
-    dispatch(updateProfileData());
-  }, [dispatch]);
+    if (profileData !== profileForm) {
+      dispatch(updateProfileData());
+    } else {
+      dispatch(profileActions.setReadonly(true));
+    }
+  }, [dispatch, profileData, profileForm]);
 
   return (
     <div className={classNames(styles.profilenav, className)}>
@@ -47,7 +53,7 @@ export const ProfileNav = ({ className }: ProfileNavProps) => {
       {isEditable && (
         <div className={styles.editableWrapper}>
           {readonly ? (
-            <Button size="small" onClick={onEdit}>
+            <Button size="small" onClick={onEditPorfile}>
               {t('Edit')}
             </Button>
           ) : (

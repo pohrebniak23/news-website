@@ -17,6 +17,15 @@
 .icon {
   fill: var(--primary-color);
   height: 24px;
+  width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    height: 100%;
+    width: auto;
+  }
 }
 
 .collapsed {

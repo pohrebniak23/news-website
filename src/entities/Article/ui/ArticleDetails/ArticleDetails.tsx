@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import ArrowIcon from 'shared/assets/arrow-icon.svg';
 import CalendarIcon from 'shared/assets/calendar-icon.svg';
 import ViewsIcon from 'shared/assets/views-icon.svg';
 import { RoutePath } from 'shared/config/routes/routes';
@@ -105,7 +106,10 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
 
   return (
     <div className={classNames(styles.articleDetails, className)}>
-      <AppLink to={RoutePath.articles}>{t('Back to articles')}</AppLink>
+      <AppLink className={styles.backLink} to={RoutePath.articles}>
+        <ArrowIcon className={styles.backArrow} />
+        <Text size="extra-small">{t('Back')}</Text>
+      </AppLink>
 
       <Avatar
         className={styles.avatar}

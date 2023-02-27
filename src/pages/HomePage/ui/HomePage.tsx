@@ -1,6 +1,7 @@
 import { BugButton } from 'app/providers/ErrorBoundary';
-import { Counter } from 'entities/Counter';
+// import { Counter } from 'entities/Counter';
 import { useTranslation } from 'react-i18next';
+import { Text } from 'shared/ui/Text/Text';
 import { PageWrapper } from 'widgets/PageWrapper/PageWrapper';
 
 const HomePage = () => {
@@ -9,12 +10,11 @@ const HomePage = () => {
   return (
     <PageWrapper>
       <div>
+        <Text>{t('Hi, its a home page')}</Text>
+
         <BugButton />
 
-        <Counter />
-
-        {t('Home page')}
-        {t('Information')}
+        {/* <Counter /> */}
       </div>
     </PageWrapper>
   );

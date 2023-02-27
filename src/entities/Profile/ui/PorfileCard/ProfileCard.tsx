@@ -73,7 +73,7 @@ export const ProfileCard = ({
             src={data.avatar}
             widthSize="280px"
             heightSize="280px"
-            radius="4px"
+            radius="10px"
             alt="Avatar"
           />
         )}

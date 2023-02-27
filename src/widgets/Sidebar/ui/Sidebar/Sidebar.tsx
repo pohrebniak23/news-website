@@ -18,7 +18,7 @@ interface SidebarProps {
 export const Sidebar = memo(({ className }: SidebarProps) => {
   const [collapsed, setCollapsed] = useLocalStorage('sidebar-collapsed', false);
 
-  const onToggle = () => {
+  const onToggleSidebarCollapsed = () => {
     setCollapsed(!collapsed);
   };
 
@@ -42,7 +42,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
       <Button
         data-testid="sidebar-toggle"
         type="button"
-        onClick={onToggle}
+        onClick={onToggleSidebarCollapsed}
         theme="square"
         size="medium"
         className={styles.toggle}

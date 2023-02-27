@@ -37,3 +37,13 @@
 .blocks {
   margin-top: 24px;
 }
+
+.back-link {
+  display: flex;
+  align-items: center;
+}
+
+.back-arrow {
+  transform: rotate(180deg);
+  margin-right: 6px;
+}

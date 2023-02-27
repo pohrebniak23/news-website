@@ -1,6 +1,5 @@
-import { Counter } from 'entities/Counter';
-import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Text } from 'shared/ui/Text/Text';
 import { PageWrapper } from 'widgets/PageWrapper/PageWrapper';
 
 const AboutPage = () => {
@@ -9,9 +8,7 @@ const AboutPage = () => {
   return (
     <PageWrapper>
       <div>
-        {t('About page')}
-
-        <Counter />
+        <Text>{t('About page')}</Text>
       </div>
     </PageWrapper>
   );
