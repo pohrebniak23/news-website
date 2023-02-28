@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { ChangeEvent, memo, useMemo } from 'react';
+import { ChangeEvent, memo, useMemo, useCallback } from 'react';
 import styles from './Select.module.scss';
 
 export interface SelectOptions {
@@ -7,39 +7,44 @@ export interface SelectOptions {
   label: string;
 }
 
-interface SelectProps {
+interface SelectProps<T> {
   className?: string;
   value?: string;
   options: SelectOptions[];
-  onChange?: (value: string) => void;
+  onChange?: (value: T) => void;
 }
 
-export const Select = memo(
-  ({ className, value, options, onChange }: SelectProps) => {
-    const optionsList = useMemo(() => {
-      return options?.map((optItem) => (
-        <option
-          key={optItem.value}
-          className={styles.option}
-          value={optItem.value}
-        >
-          {optItem.label}
-        </option>
-      ));
-    }, [options]);
+const genericMemo: <T>(component: T) => T = memo;
 
-    const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-      onChange?.(e.target.value);
-    };
+export const Select = genericMemo(<T extends string>(props: SelectProps<T>) => {
+  const { className, value, options, onChange } = props;
 
-    return (
-      <select
-        className={classNames(styles.select, className)}
-        value={value}
-        onChange={onChangeHandler}
+  const optionsList = useMemo(() => {
+    return options?.map((optItem) => (
+      <option
+        key={optItem.value}
+        className={styles.option}
+        value={optItem.value}
       >
-        {optionsList}
-      </select>
-    );
-  },
-);
+        {optItem.label}
+      </option>
+    ));
+  }, [options]);
+
+  const onChangeHandler = useCallback(
+    (event: ChangeEvent<HTMLSelectElement>) => {
+      onChange?.(event.target.value as T);
+    },
+    [onChange],
+  );
+
+  return (
+    <select
+      className={classNames(styles.select, className)}
+      value={value}
+      onChange={onChangeHandler}
+    >
+      {optionsList}
+    </select>
+  );
+});

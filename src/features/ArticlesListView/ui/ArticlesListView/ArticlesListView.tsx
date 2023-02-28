@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { ArticleView } from 'entities/Article/model/types/article';
-import { ArticlePageActions } from 'features/ArticlePage/model/slices/ArticlePageSlice';
+import { ArticlePageActions } from 'features/ArticlesListView/model/slices/articlesListViewSlice';
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import ListIcon from 'shared/assets/list-view-icon.svg';
@@ -9,13 +9,13 @@ import { Button } from 'shared/ui/Button/Button';
 import { Icon } from 'shared/ui/Icon/Icon';
 import { useAppDispatch } from '../../../../shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getArticlePageView } from '../../model/selectors/getArticlePageSelectors';
-import styles from './ArticlePageView.module.scss';
+import styles from './ArticlesListView.module.scss';
 
-interface ArticlePageViewProps {
+interface ArticlesListViewProps {
   className?: string;
 }
 
-export const ArticlePageView = ({ className }: ArticlePageViewProps) => {
+export const ArticlesListView = ({ className }: ArticlesListViewProps) => {
   const dispatch = useAppDispatch();
 
   const viewItems = useMemo(

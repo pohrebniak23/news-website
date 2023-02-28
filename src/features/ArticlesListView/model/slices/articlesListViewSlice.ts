@@ -7,8 +7,8 @@ import { StateSchema } from 'app/providers/StoreProvider';
 import { Article } from 'entities/Article';
 import { ArticleView } from 'entities/Article/model/types/article';
 import { ARTICLE_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
-import { fetchArticlePage } from '../services/fetchArticlePage/fetchArticlePage';
 import { ArticlePageSchema } from '../types/ArticlePageSchema';
+import { fetchArticlesListView } from '../services/fetchArticlesListView/fetchArticlesListView';
 
 const articlePageAdapter = createEntityAdapter<Article>({
   selectId: (article) => article.id,
@@ -18,8 +18,8 @@ export const getArticlePageData = articlePageAdapter.getSelectors<StateSchema>(
   (state) => state.articlePage || articlePageAdapter.getInitialState(),
 );
 
-const articlePageSlice = createSlice({
-  name: 'articlePageSlice',
+const articlesListViewSlice = createSlice({
+  name: 'articlesListViewSlice',
   initialState: articlePageAdapter.getInitialState<ArticlePageSchema>({
     isLoading: false,
     error: undefined,
@@ -50,19 +50,19 @@ const articlePageSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchArticlePage.pending, (state) => {
+      .addCase(fetchArticlesListView.pending, (state) => {
         state.error = undefined;
         state.isLoading = true;
       })
       .addCase(
-        fetchArticlePage.fulfilled,
+        fetchArticlesListView.fulfilled,
         (state, action: PayloadAction<Article[]>) => {
           state.isLoading = false;
           articlePageAdapter.addMany(state, action.payload);
           state.hasMore = action.payload.length > 0;
         },
       )
-      .addCase(fetchArticlePage.rejected, (state, action) => {
+      .addCase(fetchArticlesListView.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       });
@@ -70,4 +70,4 @@ const articlePageSlice = createSlice({
 });
 
 export const { reducer: ArticlePageReducer, actions: ArticlePageActions } =
-  articlePageSlice;
+  articlesListViewSlice;

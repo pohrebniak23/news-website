@@ -13,9 +13,10 @@ import {
   AddNewCommentSchema,
   ArticleDetailsCommentsSchema,
 } from 'features/ArticleDetailsComments';
-import { ArticlePageSchema } from 'features/ArticlePage/model/types/ArticlePageSchema';
+import { ArticlePageSchema } from 'features/ArticlesListView/model/types/ArticlePageSchema';
+import { ArticleSortingSchema } from 'features/ArticleSorting';
 import { LoginSchema } from 'features/AuthByUsername/models';
-import { ProfileSchema } from '../../../../features/EditableProfileCard/models/types/ProfileSchema';
+import { ProfileSchema } from 'features/EditableProfileCard/models/types/ProfileSchema';
 
 export interface StateSchema {
   counter: CounterSchema;
@@ -28,6 +29,7 @@ export interface StateSchema {
   articleDetailsComments?: ArticleDetailsCommentsSchema;
   addNewComment?: AddNewCommentSchema;
   articlePage?: ArticlePageSchema;
+  articleSorting?: ArticleSortingSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

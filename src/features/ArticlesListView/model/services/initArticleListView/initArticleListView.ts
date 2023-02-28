@@ -5,14 +5,14 @@ import {
   getArticlePageLimit,
   getArticlePagePageNum,
 } from '../../selectors/getArticlePageSelectors';
-import { ArticlePageActions } from '../../slices/ArticlePageSlice';
-import { fetchArticlePage } from '../fetchArticlePage/fetchArticlePage';
+import { ArticlePageActions } from '../../slices/articlesListViewSlice';
+import { fetchArticlesListView } from '../fetchArticlesListView/fetchArticlesListView';
 
-export const initArticlePage = createAsyncThunk<
+export const initArticleListView = createAsyncThunk<
   void,
   void,
   ThunkConfig<string>
->('articlePage/initArticlePage', (_, thunkAPI) => {
+>('articles/initArticleListView', (_, thunkAPI) => {
   const { dispatch, getState } = thunkAPI;
 
   const limit = getArticlePageLimit(getState());
@@ -21,6 +21,6 @@ export const initArticlePage = createAsyncThunk<
 
   if (!inited) {
     dispatch(ArticlePageActions.initialView());
-    dispatch(fetchArticlePage({ limit, page }));
+    dispatch(fetchArticlesListView({ limit, page }));
   }
 });

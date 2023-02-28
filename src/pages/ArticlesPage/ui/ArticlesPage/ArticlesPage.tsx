@@ -1,15 +1,18 @@
 import { ArticleList } from 'entities/Article';
-import { ArticlePageView, initArticlePage } from 'features/ArticlePage';
+import { ArticleSorting, ArticleSortingReducer } from 'features/ArticleSorting';
+import {
+  ArticlesListView,
+  fetchNextArticleListView,
+} from 'features/ArticlesListView';
 import {
   getArticlePageError,
   getArticlePageLoading,
   getArticlePageView,
-} from 'features/ArticlePage/model/selectors/getArticlePageSelectors';
-import { fetchNextArticlePage } from 'features/ArticlePage/model/services/fetchNextArticlePage/fetchNextArticlePage';
+} from 'features/ArticlesListView/model/selectors/getArticlePageSelectors';
 import {
   ArticlePageReducer,
   getArticlePageData,
-} from 'features/ArticlePage/model/slices/ArticlePageSlice';
+} from 'features/ArticlesListView/model/slices/articlesListViewSlice';
 import { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -17,6 +20,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useDynamicReducerLoader } from 'shared/lib/hooks/useDynamicReducerLoader/useDynamicReducerLoader';
 import { Text } from 'shared/ui/Text/Text';
 import { PageWrapper } from 'widgets/PageWrapper/PageWrapper';
+import { initArticleListView } from '../../../../features/ArticlesListView/model/services/initArticleListView/initArticleListView';
 import styles from './ArticlesPage.module.scss';
 
 const ArticlesPage = () => {
@@ -27,14 +31,17 @@ const ArticlesPage = () => {
   const error = useSelector(getArticlePageError);
   const isLoading = useSelector(getArticlePageLoading);
 
-  useDynamicReducerLoader({ articlePage: ArticlePageReducer }, false);
+  useDynamicReducerLoader(
+    { articlePage: ArticlePageReducer, articleSorting: ArticleSortingReducer },
+    false,
+  );
 
   const endOfPageCallback = useCallback(() => {
-    dispatch(fetchNextArticlePage());
+    dispatch(fetchNextArticleListView());
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(initArticlePage);
+    dispatch(initArticleListView);
   }, [dispatch]);
 
   if (error) {
@@ -58,7 +65,9 @@ const ArticlesPage = () => {
           </Text>
 
           <div className={styles.view}>
-            <ArticlePageView />
+            <ArticlesListView />
+
+            <ArticleSorting />
           </div>
         </div>
 

@@ -6,14 +6,14 @@ import {
   getArticlePageLoading,
   getArticlePagePageNum,
 } from '../../selectors/getArticlePageSelectors';
-import { ArticlePageActions } from '../../slices/ArticlePageSlice';
-import { fetchArticlePage } from '../fetchArticlePage/fetchArticlePage';
+import { ArticlePageActions } from '../../slices/articlesListViewSlice';
+import { fetchArticlesListView } from '../fetchArticlesListView/fetchArticlesListView';
 
-export const fetchNextArticlePage = createAsyncThunk<
+export const fetchNextArticleListView = createAsyncThunk<
   void,
   void,
   ThunkConfig<string>
->('articlePage/fetchNextArticlePage', (_, thunkAPI) => {
+>('articles/fetchNextArticleListView', (_, thunkAPI) => {
   const { dispatch, getState } = thunkAPI;
 
   const limit = getArticlePageLimit(getState());
@@ -23,6 +23,6 @@ export const fetchNextArticlePage = createAsyncThunk<
 
   if (hasMore && !isLoading) {
     dispatch(ArticlePageActions.setPage(page + 1));
-    dispatch(fetchArticlePage({ page: page + 1, limit }));
+    dispatch(fetchArticlesListView({ page: page + 1, limit }));
   }
 });
