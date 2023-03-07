@@ -1,10 +1,9 @@
 import { EntityState } from '@reduxjs/toolkit';
-import { Article, ArticleView } from 'entities/Article/model/types/article';
+import { Article } from './article';
 
-export interface ArticlePageSchema extends EntityState<Article> {
+export interface ArticleListSchema extends EntityState<Article> {
   isLoading: boolean;
   error?: string;
-  view: ArticleView;
 
   // paginate
   limit?: number;

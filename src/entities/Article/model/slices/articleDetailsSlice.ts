@@ -7,8 +7,8 @@ const initialState: ArticleDetailsSchema = {
   isLoading: false,
 };
 
-const ArticleDetailsSlice = createSlice({
-  name: 'ArticleDetailsSlice',
+const articleDetailsSlice = createSlice({
+  name: 'article/articleDetailsSlice',
   initialState,
   reducers: {
     setArticleDetailsData: (state, action: PayloadAction<Article>) => {
@@ -35,4 +35,4 @@ const ArticleDetailsSlice = createSlice({
 export const {
   reducer: ArticleDetailsReducer,
   actions: ArticleDetailsActions,
-} = ArticleDetailsSlice;
+} = articleDetailsSlice;

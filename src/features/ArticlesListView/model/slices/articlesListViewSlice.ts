@@ -1,42 +1,16 @@
-import {
-  createEntityAdapter,
-  createSlice,
-  PayloadAction,
-} from '@reduxjs/toolkit';
-import { StateSchema } from 'app/providers/StoreProvider';
-import { Article } from 'entities/Article';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ArticleView } from 'entities/Article/model/types/article';
 import { ARTICLE_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
-import { ArticlePageSchema } from '../types/ArticlePageSchema';
-import { fetchArticlesListView } from '../services/fetchArticlesListView/fetchArticlesListView';
-
-const articlePageAdapter = createEntityAdapter<Article>({
-  selectId: (article) => article.id,
-});
-
-export const getArticlePageData = articlePageAdapter.getSelectors<StateSchema>(
-  (state) => state.articlePage || articlePageAdapter.getInitialState(),
-);
 
 const articlesListViewSlice = createSlice({
-  name: 'articlesListViewSlice',
-  initialState: articlePageAdapter.getInitialState<ArticlePageSchema>({
-    isLoading: false,
-    error: undefined,
-    ids: [],
-    entities: {},
-    view: ArticleView.TILE,
-    page: 1,
-    hasMore: true,
-    _inited: false,
-  }),
+  name: 'article/articlesListViewSlice',
+  initialState: {
+    view: ArticleView.LIST,
+  },
   reducers: {
     setView: (state, action: PayloadAction<ArticleView>) => {
       state.view = action.payload;
       localStorage.setItem(ARTICLE_VIEW_LOCALSTORAGE_KEY, action.payload);
-    },
-    setPage: (state, action: PayloadAction<number>) => {
-      state.page = action.payload;
     },
     initialView: (state) => {
       const view = localStorage.getItem(
@@ -44,30 +18,11 @@ const articlesListViewSlice = createSlice({
       ) as ArticleView;
 
       state.view = view;
-      state.limit = view === ArticleView.LIST ? 4 : 9;
-      state._inited = true;
     },
-  },
-  extraReducers: (builder) => {
-    builder
-      .addCase(fetchArticlesListView.pending, (state) => {
-        state.error = undefined;
-        state.isLoading = true;
-      })
-      .addCase(
-        fetchArticlesListView.fulfilled,
-        (state, action: PayloadAction<Article[]>) => {
-          state.isLoading = false;
-          articlePageAdapter.addMany(state, action.payload);
-          state.hasMore = action.payload.length > 0;
-        },
-      )
-      .addCase(fetchArticlesListView.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      });
   },
 });
 
-export const { reducer: ArticlePageReducer, actions: ArticlePageActions } =
-  articlesListViewSlice;
+export const {
+  reducer: ArticleListViewReducer,
+  actions: ArticleListViewActions,
+} = articlesListViewSlice;

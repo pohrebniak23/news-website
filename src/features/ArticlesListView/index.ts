@@ -1,13 +1,15 @@
-import { fetchArticlesListView } from './model/services/fetchArticlesListView/fetchArticlesListView';
-import { initArticleListView } from './model/services/initArticleListView/initArticleListView';
-import { ArticlePageReducer } from './model/slices/articlesListViewSlice';
+import { getArticleListView } from './model/selectors/getArticlePageSelectors';
+import {
+  ArticleListViewActions,
+  ArticleListViewReducer,
+} from './model/slices/articlesListViewSlice';
+import { ArticleViewSchema } from './model/types/ArticleViewSchema';
 import { ArticlesListView } from './ui/ArticlesListView/ArticlesListView';
-import { fetchNextArticleListView } from './model/services/fetchNextArticleListView/fetchNextArticlePage';
 
 export {
-  ArticlePageReducer,
+  ArticleListViewActions,
+  ArticleListViewReducer,
+  ArticleViewSchema,
   ArticlesListView,
-  fetchArticlesListView,
-  initArticleListView,
-  fetchNextArticleListView,
+  getArticleListView,
 };

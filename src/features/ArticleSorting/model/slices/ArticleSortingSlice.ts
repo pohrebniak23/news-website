@@ -6,7 +6,7 @@ import {
 } from '../types/articleSortingSchema';
 
 const initialState: ArticleSortingSchema = {
-  order: 'asc',
+  order: 'desc',
   title: '',
   sort: ArticleSortingBy.CREATED,
 };

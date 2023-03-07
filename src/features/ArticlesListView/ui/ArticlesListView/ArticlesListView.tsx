@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import { ArticleView } from 'entities/Article/model/types/article';
-import { ArticlePageActions } from 'features/ArticlesListView/model/slices/articlesListViewSlice';
+import { getArticleListView } from 'features/ArticlesListView/model/selectors/getArticlePageSelectors';
+import { ArticleListViewActions } from 'features/ArticlesListView/model/slices/articlesListViewSlice';
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import ListIcon from 'shared/assets/list-view-icon.svg';
@@ -8,7 +9,6 @@ import TileIcon from 'shared/assets/tile-view-icon.svg';
 import { Button } from 'shared/ui/Button/Button';
 import { Icon } from 'shared/ui/Icon/Icon';
 import { useAppDispatch } from '../../../../shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { getArticlePageView } from '../../model/selectors/getArticlePageSelectors';
 import styles from './ArticlesListView.module.scss';
 
 interface ArticlesListViewProps {
@@ -33,10 +33,10 @@ export const ArticlesListView = ({ className }: ArticlesListViewProps) => {
   );
 
   const viewHandler = (viewType: ArticleView) => () => {
-    dispatch(ArticlePageActions.setView(viewType));
+    dispatch(ArticleListViewActions.setView(viewType));
   };
 
-  const currentView = useSelector(getArticlePageView);
+  const currentView = useSelector(getArticleListView);
 
   return (
     <div className={classNames(className, styles.articlePageView)}>

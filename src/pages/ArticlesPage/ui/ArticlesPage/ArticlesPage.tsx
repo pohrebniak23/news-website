@@ -1,18 +1,22 @@
-import { ArticleList } from 'entities/Article';
-import { ArticleSorting, ArticleSortingReducer } from 'features/ArticleSorting';
 import {
+  ArticleList,
+  ArticleListReducer,
+  fetchNextArticlesList,
+  getArticleList,
+  getArticleListError,
+  getArticleListLoading,
+  initArticleList,
+} from 'entities/Article';
+import {
+  ArticleSearch,
+  ArticleSorting,
+  ArticleSortingReducer,
+} from 'features/ArticleSorting';
+import {
+  ArticleListViewReducer,
   ArticlesListView,
-  fetchNextArticleListView,
 } from 'features/ArticlesListView';
-import {
-  getArticlePageError,
-  getArticlePageLoading,
-  getArticlePageView,
-} from 'features/ArticlesListView/model/selectors/getArticlePageSelectors';
-import {
-  ArticlePageReducer,
-  getArticlePageData,
-} from 'features/ArticlesListView/model/slices/articlesListViewSlice';
+import { getArticleListView } from 'features/ArticlesListView/model/selectors/getArticlePageSelectors';
 import { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -20,28 +24,31 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useDynamicReducerLoader } from 'shared/lib/hooks/useDynamicReducerLoader/useDynamicReducerLoader';
 import { Text } from 'shared/ui/Text/Text';
 import { PageWrapper } from 'widgets/PageWrapper/PageWrapper';
-import { initArticleListView } from '../../../../features/ArticlesListView/model/services/initArticleListView/initArticleListView';
 import styles from './ArticlesPage.module.scss';
 
 const ArticlesPage = () => {
   const { t } = useTranslation('articles');
   const dispatch = useAppDispatch();
-  const articles = useSelector(getArticlePageData.selectAll);
-  const view = useSelector(getArticlePageView);
-  const error = useSelector(getArticlePageError);
-  const isLoading = useSelector(getArticlePageLoading);
+  const articles = useSelector(getArticleList.selectAll);
+  const view = useSelector(getArticleListView);
+  const error = useSelector(getArticleListError);
+  const isLoading = useSelector(getArticleListLoading);
 
   useDynamicReducerLoader(
-    { articlePage: ArticlePageReducer, articleSorting: ArticleSortingReducer },
+    {
+      articleList: ArticleListReducer,
+      articleSorting: ArticleSortingReducer,
+      articleView: ArticleListViewReducer,
+    },
     false,
   );
 
   const endOfPageCallback = useCallback(() => {
-    dispatch(fetchNextArticleListView());
+    dispatch(fetchNextArticlesList());
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(initArticleListView);
+    dispatch(initArticleList);
   }, [dispatch]);
 
   if (error) {
@@ -60,14 +67,20 @@ const ArticlesPage = () => {
     <PageWrapper endOfPageCallback={endOfPageCallback}>
       <div className={styles.articlesPage}>
         <div className={styles.header}>
-          <Text className={styles.title} size="medium">
-            {t('Articles')}
-          </Text>
+          <div className={styles.nav}>
+            <Text className={styles.title} size="medium">
+              {t('Articles')}
+            </Text>
 
-          <div className={styles.view}>
-            <ArticlesListView />
+            <div className={styles.sortingNav}>
+              <ArticleSorting />
 
-            <ArticleSorting />
+              <ArticlesListView />
+            </div>
+          </div>
+
+          <div className={styles.search}>
+            <ArticleSearch />
           </div>
         </div>
 

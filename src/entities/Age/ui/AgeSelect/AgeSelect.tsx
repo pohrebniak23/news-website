@@ -8,7 +8,7 @@ interface AgeSelectProps {
 
 const list = Array.from(Array(100).keys());
 
-const optionsList: SelectOptions[] = list.map((item) => ({
+const optionsList: SelectOptions<string>[] = list.map((item) => ({
   value: `${item}`,
   label: `${item}`,
 }));
