@@ -6,7 +6,7 @@ export interface ArticleListSchema extends EntityState<Article> {
   error?: string;
 
   // paginate
-  limit?: number;
+  limit: number;
   page: number;
   hasMore: boolean;
 

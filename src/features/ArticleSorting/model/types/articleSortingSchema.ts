@@ -8,6 +8,6 @@ export enum ArticleSortingBy {
 
 export interface ArticleSortingSchema {
   sort: ArticleSortingBy;
-  title: string;
+  search: string;
   order: SortingOrder;
 }

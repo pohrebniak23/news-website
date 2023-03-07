@@ -10,5 +10,5 @@ export const getArticleSortingBy = (state: StateSchema) => {
 };
 
 export const getArticleSearchTitle = (state: StateSchema) => {
-  return state.articleSorting?.title ?? '';
+  return state.articleSorting?.search ?? '';
 };

@@ -3,6 +3,7 @@ import { ArticleListActions, fetchArticlesList } from 'entities/Article';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { useSearchParams } from 'react-router-dom';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Select, SelectOptions } from 'shared/ui/Select/Select';
 import { Text } from 'shared/ui/Text/Text';
@@ -20,16 +21,22 @@ export const ArticleSorting = () => {
   const dispatch = useAppDispatch();
   const initialSortValue = useSelector(getArticleSortingBy);
   const initialOrderValue = useSelector(getArticleSortingOrder);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const newSearchParams = new URLSearchParams(searchParams.toString());
 
   const onChangeSortHandler = (value: ArticleSortingBy) => {
     dispatch(ArticleSortingActions.setSort(value));
     dispatch(ArticleListActions.setPage(1));
+    newSearchParams.set('sort', value);
+    setSearchParams(newSearchParams);
     dispatch(fetchArticlesList({ replace: true }));
   };
 
   const onChangeOrderHandler = (value: SortingOrder) => {
     dispatch(ArticleSortingActions.setOrder(value));
     dispatch(ArticleListActions.setPage(1));
+    newSearchParams.set('order', value);
+    setSearchParams(newSearchParams);
     dispatch(fetchArticlesList({ replace: true }));
   };
 

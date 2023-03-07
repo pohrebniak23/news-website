@@ -20,6 +20,7 @@ import { getArticleListView } from 'features/ArticlesListView/model/selectors/ge
 import { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { useSearchParams } from 'react-router-dom';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useDynamicReducerLoader } from 'shared/lib/hooks/useDynamicReducerLoader/useDynamicReducerLoader';
 import { Text } from 'shared/ui/Text/Text';
@@ -29,6 +30,7 @@ import styles from './ArticlesPage.module.scss';
 const ArticlesPage = () => {
   const { t } = useTranslation('articles');
   const dispatch = useAppDispatch();
+  const [searchParams] = useSearchParams();
   const articles = useSelector(getArticleList.selectAll);
   const view = useSelector(getArticleListView);
   const error = useSelector(getArticleListError);
@@ -48,8 +50,8 @@ const ArticlesPage = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(initArticleList);
-  }, [dispatch]);
+    dispatch(initArticleList(searchParams));
+  }, [dispatch, searchParams]);
 
   if (error) {
     return (

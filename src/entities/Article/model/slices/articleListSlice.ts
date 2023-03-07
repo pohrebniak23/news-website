@@ -25,6 +25,7 @@ const articleListSlice = createSlice({
     ids: [],
     entities: {},
     page: 1,
+    limit: 10,
     hasMore: true,
     _inited: false,
   }),
@@ -53,8 +54,7 @@ const articleListSlice = createSlice({
       })
       .addCase(fetchArticlesList.fulfilled, (state, action) => {
         state.isLoading = false;
-
-        state.hasMore = action.payload.length > 0;
+        state.hasMore = action.payload.length >= state?.limit;
 
         if (action.meta.arg.replace) {
           articleListAdapter.setAll(state, action.payload);

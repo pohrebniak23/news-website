@@ -7,7 +7,7 @@ import {
 
 const initialState: ArticleSortingSchema = {
   order: 'desc',
-  title: '',
+  search: '',
   sort: ArticleSortingBy.CREATED,
 };
 
@@ -19,7 +19,7 @@ const articleSortingSlice = createSlice({
       state.order = payload;
     },
     setSearch: (state, { payload }: PayloadAction<string>) => {
-      state.title = payload;
+      state.search = payload;
     },
     setSort: (state, { payload }: PayloadAction<ArticleSortingBy>) => {
       state.sort = payload;
