@@ -1,22 +1,14 @@
+import { ArticleList } from 'entities/Article';
 import {
-  ArticleList,
-  ArticleListReducer,
+  ArticlesPageFilters,
+  ArticlesPageFiltersReducer,
   fetchNextArticlesList,
   getArticleList,
-  getArticleListError,
-  getArticleListLoading,
+  getArticlesPageFiltersError,
+  getArticlesPageFiltersLoading,
+  getArticlesPageFiltersView,
   initArticleList,
-} from 'entities/Article';
-import {
-  ArticleSearch,
-  ArticleSorting,
-  ArticleSortingReducer,
-} from 'features/ArticleSorting';
-import {
-  ArticleListViewReducer,
-  ArticlesListView,
-} from 'features/ArticlesListView';
-import { getArticleListView } from 'features/ArticlesListView/model/selectors/getArticlePageSelectors';
+} from 'features/ArticlesPageFilters';
 import { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -32,15 +24,13 @@ const ArticlesPage = () => {
   const dispatch = useAppDispatch();
   const [searchParams] = useSearchParams();
   const articles = useSelector(getArticleList.selectAll);
-  const view = useSelector(getArticleListView);
-  const error = useSelector(getArticleListError);
-  const isLoading = useSelector(getArticleListLoading);
+  const view = useSelector(getArticlesPageFiltersView);
+  const error = useSelector(getArticlesPageFiltersError);
+  const isLoading = useSelector(getArticlesPageFiltersLoading);
 
   useDynamicReducerLoader(
     {
-      articleList: ArticleListReducer,
-      articleSorting: ArticleSortingReducer,
-      articleView: ArticleListViewReducer,
+      articlesPageFilters: ArticlesPageFiltersReducer,
     },
     false,
   );
@@ -68,23 +58,7 @@ const ArticlesPage = () => {
   return (
     <PageWrapper endOfPageCallback={endOfPageCallback}>
       <div className={styles.articlesPage}>
-        <div className={styles.header}>
-          <div className={styles.nav}>
-            <Text className={styles.title} size="medium">
-              {t('Articles')}
-            </Text>
-
-            <div className={styles.sortingNav}>
-              <ArticleSorting />
-
-              <ArticlesListView />
-            </div>
-          </div>
-
-          <div className={styles.search}>
-            <ArticleSearch />
-          </div>
-        </div>
+        <ArticlesPageFilters className={styles.filters} />
 
         <ArticleList
           className={styles.list}

@@ -6,15 +6,14 @@ import {
   ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
-import { ArticleDetailsSchema, ArticleListSchema } from 'entities/Article';
+import { ArticleDetailsSchema } from 'entities/Article';
 import { CounterSchema } from 'entities/Counter';
 import { UserSchema } from 'entities/User';
 import {
   AddNewCommentSchema,
   ArticleDetailsCommentsSchema,
 } from 'features/ArticleDetailsComments';
-import { ArticleSortingSchema } from 'features/ArticleSorting';
-import { ArticleViewSchema } from 'features/ArticlesListView';
+import { ArticlesPageFiltersSchema } from 'features/ArticlesPageFilters';
 import { LoginSchema } from 'features/AuthByUsername/models';
 import { ProfileSchema } from 'features/EditableProfileCard/models/types/ProfileSchema';
 
@@ -28,9 +27,7 @@ export interface StateSchema {
   articleDetails?: ArticleDetailsSchema;
   articleDetailsComments?: ArticleDetailsCommentsSchema;
   addNewComment?: AddNewCommentSchema;
-  articleList?: ArticleListSchema;
-  articleSorting?: ArticleSortingSchema;
-  articleView?: ArticleViewSchema;
+  articlesPageFilters?: ArticlesPageFiltersSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

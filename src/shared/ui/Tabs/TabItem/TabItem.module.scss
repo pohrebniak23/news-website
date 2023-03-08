@@ -1,0 +1,18 @@
+.tab-item {
+  padding: 2px 6px;
+  color: var(--primary-color);
+  border-radius: 6px;
+  font: var(--font-s);
+  cursor: pointer;
+  user-select: none;
+}
+
+.OUTLINE {
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.NORMAL {
+  background: var(--primary-color);
+  color: var(--additional-primary-color);
+}
