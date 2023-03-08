@@ -2,6 +2,10 @@ import { ArticleDetails } from 'entities/Article';
 import { fetchCommentByArticleId } from 'features/ArticleDetailsComments/model/services/fetchCommentsByArticleId';
 import { AddNewCommentReducer } from 'features/ArticleDetailsComments/model/slices/addNewCommentSlice';
 import { ArticleDetailsCommentsReducer } from 'features/ArticleDetailsComments/model/slices/articleDetailsCommentsSlice';
+import {
+  ArticlePageRecomendations,
+  ArticlePageRecomendationsReducer,
+} from 'features/ArticlePageRecomendations';
 import { memo, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
@@ -19,6 +23,7 @@ const ArticlesDetailsPage = () => {
   useDynamicReducerLoader({
     articleDetailsComments: ArticleDetailsCommentsReducer,
     addNewComment: AddNewCommentReducer,
+    articlePageRecomendations: ArticlePageRecomendationsReducer,
   });
 
   useEffect(() => {
@@ -37,6 +42,8 @@ const ArticlesDetailsPage = () => {
     <PageWrapper>
       <div className={styles.ariclesDetailsPage}>
         <ArticleDetails id={id} />
+
+        <ArticlePageRecomendations />
 
         <div className={styles.comments}>
           <ArticleDetailsComments />
