@@ -6,6 +6,7 @@ import ArrowIcon from 'shared/assets/arrow-icon.svg';
 
 import { useLocalStorage } from 'shared/lib/hooks/useLocalStorage/useLocalStorage';
 import { Button } from 'shared/ui/Button/Button';
+import { VStack } from 'shared/ui/Stack';
 import { getSidebarItems } from '../../models/selectors/getSidebarItems';
 import { SidebarItemType } from '../../models/types/SidebarItemType';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
@@ -33,11 +34,11 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
         className,
       )}
     >
-      <div className={styles.linksList}>
+      <VStack gap="16">
         {sidebarItemsList.map((item: SidebarItemType) => (
           <SidebarItem key={item.path} item={item} collapsed={collapsed} />
         ))}
-      </div>
+      </VStack>
 
       <Button
         data-testid="sidebar-toggle"

@@ -21,12 +21,6 @@
   }
 }
 
-.linksList {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
 .collapsed {
   width: var(--sidebar-width-collapsed);
   min-width: var(--sidebar-width-collapsed);

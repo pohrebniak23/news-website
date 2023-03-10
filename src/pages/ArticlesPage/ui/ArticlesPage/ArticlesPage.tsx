@@ -15,6 +15,7 @@ import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useDynamicReducerLoader } from 'shared/lib/hooks/useDynamicReducerLoader/useDynamicReducerLoader';
+import { VStack } from 'shared/ui/Stack';
 import { Text } from 'shared/ui/Text/Text';
 import { PageWrapper } from 'widgets/PageWrapper/PageWrapper';
 import styles from './ArticlesPage.module.scss';
@@ -57,7 +58,7 @@ const ArticlesPage = () => {
 
   return (
     <PageWrapper endOfPageCallback={endOfPageCallback}>
-      <div className={styles.articlesPage}>
+      <VStack>
         <ArticlesPageFilters className={styles.filters} />
 
         <ArticleList
@@ -66,7 +67,7 @@ const ArticlesPage = () => {
           articles={articles}
           view={view}
         />
-      </div>
+      </VStack>
     </PageWrapper>
   );
 };

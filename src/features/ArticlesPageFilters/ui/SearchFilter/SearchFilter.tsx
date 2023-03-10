@@ -5,11 +5,11 @@ import { useSearchParams } from 'react-router-dom';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 import { Input } from 'shared/ui/Input/Input';
+import { VStack } from 'shared/ui/Stack';
 import { Text } from 'shared/ui/Text/Text';
 import { getFiltersTitle } from '../../model/selectors/getArticlesPageFiltersSelector';
 import { fetchArticlesPageWithFilters } from '../../model/services/fetchArticlesPageWithFilters/fetchArticlesPageWithFilters';
 import { ArticlesPageFiltersActions } from '../../model/slices/ArticlesPageFiltersSlice';
-import styles from './SearchFilter.module.scss';
 
 interface ArticleSearchProps {
   className?: string;
@@ -34,15 +34,14 @@ export const SearchFilter = ({ className }: ArticleSearchProps) => {
   };
 
   return (
-    <div className={classNames(className, styles.articleSearch)}>
+    <VStack className={classNames(className)}>
       <Text>{t('Search by title')}:</Text>
 
       <Input
         type="text"
-        className={styles.input}
         value={articleSearchTitle}
         onChange={articleSearchHandler}
       />
-    </div>
+    </VStack>
   );
 };

@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
+import { HStack, VStack } from 'shared/ui/Stack';
 import { Text } from 'shared/ui/Text/Text';
 import styles from './ArticlesPageFilters.module.scss';
 import { SearchFilter } from './SearchFilter/SearchFilter';
@@ -17,24 +18,24 @@ export const ArticlesPageFilters = ({
   const { t } = useTranslation();
 
   return (
-    <div className={classNames(styles.filters, className)}>
-      <div className={styles.nav}>
+    <VStack className={classNames(styles.filters, className)}>
+      <HStack justify="between" className={styles.nav}>
         <Text className={styles.title} size="medium">
           {t('Articles')}
         </Text>
 
-        <div className={styles.sortingNav}>
+        <HStack justify="end" gap="16" className={styles.sortingNav}>
           <SortingFilter />
 
           <ViewFilter />
-        </div>
-      </div>
+        </HStack>
+      </HStack>
 
-      <div className={styles.search}>
+      <HStack className={styles.search}>
         <SearchFilter />
-      </div>
+      </HStack>
 
       <TabsFilter className={styles.tabs} />
-    </div>
+    </VStack>
   );
 };
