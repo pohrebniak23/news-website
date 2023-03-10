@@ -13,7 +13,7 @@
   "parserOptions": {
     "project": "./tsconfig.json"
   },
-  "plugins": ["react", "i18next", "react-hooks"],
+  "plugins": ["react", "i18next", "react-hooks", "fsd-import-checker"],
   "rules": {
     "import/prefer-default-export": "off",
     "import/no-extraneous-dependencies": "off",
@@ -32,7 +32,8 @@
     "jsx-a11y/no-static-element-interactions": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "error",
-    "react/no-array-index-key": "off"
+    "react/no-array-index-key": "off",
+    "fsd-import-checker/relative-path-cheker": "error"
     // "no-param-reassign": 0
   },
   "globals": {

@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { FC, useCallback, useEffect, useState } from 'react';
-import { Portal } from 'shared/ui/Portal/Portal';
+import { Portal } from '../Portal/Portal';
 import styles from './Modal.module.scss';
 
 interface ModalProps {

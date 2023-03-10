@@ -2,7 +2,6 @@ import classNames from 'classnames';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 import { ProfileCard } from 'entities/Profile/ui/PorfileCard/ProfileCard';
-import { profileActions } from 'features/EditableProfileCard/models/slices/profileSlice';
 import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '../../../../shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -10,6 +9,7 @@ import { getProfileError } from '../../models/selectors/getProfileError/getProfi
 import { getProfileForm } from '../../models/selectors/getProfileForm/getProfileForm';
 import { getProfileIsLoading } from '../../models/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileReadonly } from '../../models/selectors/getProfileReadonly/getProfileReadonly';
+import { profileActions } from '../../models/slices/profileSlice';
 import styles from './EditableProfileCard.module.scss';
 
 interface EditableProfileCardProps {

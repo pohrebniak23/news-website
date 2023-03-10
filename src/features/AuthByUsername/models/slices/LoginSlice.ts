@@ -28,10 +28,13 @@ const LoginSlice = createSlice({
       })
       .addCase(loginByUsername.fulfilled, (state) => {
         state.isLoading = false;
+        state.password = '';
+        state.username = '';
       })
       .addCase(loginByUsername.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
+        state.password = '';
       });
   },
 });
