@@ -1,5 +1,5 @@
 {
-  "name": "ulbi",
+  "name": "news-website",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -24,7 +24,7 @@
     "storybook:build": "build-storybook -c ./config/storybook"
   },
   "keywords": [],
-  "author": "",
+  "author": "pohrebniak23",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.19.1",
