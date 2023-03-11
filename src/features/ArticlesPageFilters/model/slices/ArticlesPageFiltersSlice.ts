@@ -37,7 +37,7 @@ const ArticlesPageFiltersSlice = createSlice({
       order: 'desc',
       search: '',
       sort: ArticleSortingBy.VIEWS,
-      view: ArticleView.LIST,
+      view: ArticleView.TILE,
       type: ArticleType.ALL,
       _inited: false,
     }),

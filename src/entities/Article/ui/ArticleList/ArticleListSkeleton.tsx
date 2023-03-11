@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { HStack, VStack } from 'shared/ui/Stack';
 import { ArticleView } from '../../model/types/article';
 import styles from './ArticleList.module.scss';
 
@@ -14,7 +15,7 @@ export const ArticleListSkeleton = ({
 }: ArticleListSkeletonProps) => {
   if (view === ArticleView.TILE) {
     return (
-      <div className={classNames(className, styles.skeletonItem)}>
+      <VStack className={classNames(className, styles.skeletonItem)}>
         <Skeleton width="100%" height="180px" borderRadius="6px" />
         <Skeleton
           className={styles.skeletonTitle}
@@ -34,14 +35,32 @@ export const ArticleListSkeleton = ({
           height="20px"
           borderRadius="6px"
         />
-      </div>
+      </VStack>
     );
   }
 
   return (
-    <div className={classNames(className, styles.skeletonItem)}>
-      <div className={styles.skeletonBlock}>
-        <div className={styles.skeletonInfo}>
+    <HStack className={classNames(className, styles.skeletonItem)}>
+      <HStack justify="between" className={styles.skeletonBlock}>
+        <VStack gap="8">
+          <Skeleton
+            className={styles.skeletonAvatar}
+            width="100px"
+            height="100px"
+            borderRadius="50px"
+          />
+          <Skeleton
+            className={styles.skeletonTitle}
+            width="50%"
+            height="20px"
+            borderRadius="6px"
+          />
+          <Skeleton
+            className={styles.skeletonTitle}
+            width="50%"
+            height="20px"
+            borderRadius="6px"
+          />
           <Skeleton
             className={styles.skeletonTitle}
             width="400px"
@@ -54,10 +73,10 @@ export const ArticleListSkeleton = ({
             height="20px"
             borderRadius="6px"
           />
-        </div>
+        </VStack>
 
         <Skeleton width="250px" height="250px" borderRadius="6px" />
-      </div>
-    </div>
+      </HStack>
+    </HStack>
   );
 };

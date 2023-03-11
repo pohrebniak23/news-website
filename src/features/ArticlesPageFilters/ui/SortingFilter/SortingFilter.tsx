@@ -1,10 +1,10 @@
-import classNames from 'classnames';
-import { useMemo, useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Select, SelectOptions } from 'shared/ui/Select/Select';
+import { HStack } from 'shared/ui/Stack';
 import { Text } from 'shared/ui/Text/Text';
 import { SortingOrder } from '../../../../shared/types/Sorting';
 import {
@@ -14,7 +14,6 @@ import {
 import { fetchArticlesPageWithFilters } from '../../model/services/fetchArticlesPageWithFilters/fetchArticlesPageWithFilters';
 import { ArticlesPageFiltersActions } from '../../model/slices/ArticlesPageFiltersSlice';
 import { ArticleSortingBy } from '../../model/types/articlePageFiltersSchema';
-import styles from './SortingFilter.module.scss';
 
 export const SortingFilter = () => {
   const { t } = useTranslation();
@@ -73,24 +72,24 @@ export const SortingFilter = () => {
   );
 
   return (
-    <div className={classNames(styles.sorting)}>
-      <div className={styles.item}>
+    <HStack w100={false} gap="32">
+      <HStack w100={false} gap="4">
         <Text>{t('Sort by:')}</Text>
         <Select<ArticleSortingBy>
           value={initialSortValue}
           options={sortOptions}
           onChange={onChangeSortHandler}
         />
-      </div>
+      </HStack>
 
-      <div className={styles.item}>
+      <HStack w100={false} gap="4">
         <Text>{t('Order by:')}</Text>
         <Select<SortingOrder>
           value={initialOrderValue}
           options={orderOptions}
           onChange={onChangeOrderHandler}
         />
-      </div>
-    </div>
+      </HStack>
+    </HStack>
   );
 };

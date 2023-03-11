@@ -1,0 +1,7 @@
+.input {
+  font: var(--font-s);
+
+  &::placeholder {
+    font: var(--font-s);
+  }
+}

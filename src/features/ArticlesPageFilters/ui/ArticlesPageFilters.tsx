@@ -24,7 +24,12 @@ export const ArticlesPageFilters = ({
           {t('Articles')}
         </Text>
 
-        <HStack justify="end" gap="16" className={styles.sortingNav}>
+        <HStack
+          justify="end"
+          align="center"
+          gap="32"
+          className={styles.sortingNav}
+        >
           <SortingFilter />
 
           <ViewFilter />
