@@ -5,7 +5,7 @@ import { useSearchParams } from 'react-router-dom';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Select, SelectOptions } from 'shared/ui/Select/Select';
 import { HStack } from 'shared/ui/Stack';
-import { Text } from 'shared/ui/Text/Text';
+import { Text } from 'shared/ui/Text';
 import { SortingOrder } from '../../../../shared/types/Sorting';
 import {
   getFiltersBy,

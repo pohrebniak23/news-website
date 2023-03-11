@@ -1,7 +1,7 @@
 import { getValidateErrors } from 'features/EditableProfileCard/models/selectors/getValidateErrors/getValidateErorrs';
 import { ValidateProfileErrors } from 'features/EditableProfileCard/models/types/ProfileSchema';
 import { useSelector } from 'react-redux';
-import { Text } from 'shared/ui/Text/Text';
+import { Text } from 'shared/ui/Text';
 
 interface ProfileValidateErrorProps {
   className?: string;

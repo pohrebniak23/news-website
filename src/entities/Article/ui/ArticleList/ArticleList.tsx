@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Text } from 'shared/ui/Text/Text';
+import { Text } from 'shared/ui/Text';
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import styles from './ArticleList.module.scss';

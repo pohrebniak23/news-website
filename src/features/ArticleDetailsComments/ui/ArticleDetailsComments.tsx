@@ -3,7 +3,7 @@ import { AddNewComment, CommentList } from 'entities/Comment';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { Text } from 'shared/ui/Text/Text';
+import { Text } from 'shared/ui/Text';
 import { useAppDispatch } from '../../../shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getArticleDetailsCommentsLoading } from '../model/selectors/getArticleDetailsCommentsLoading';
 import { getNewCommentText } from '../model/selectors/getNewCommentText';

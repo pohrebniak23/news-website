@@ -6,7 +6,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useDynamicReducerLoader } from 'shared/lib/hooks/useDynamicReducerLoader/useDynamicReducerLoader';
 import { Button } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
-import { Text } from 'shared/ui/Text/Text';
+import { Text } from 'shared/ui/Text';
 import { getLoginError } from '../../models/selectors/getLoginError/getLoginError';
 import { getLoginLoading } from '../../models/selectors/getLoginLoading/getLoginLoading';
 import { getLoginPassword } from '../../models/selectors/getLoginPassword/getLoginPassword';

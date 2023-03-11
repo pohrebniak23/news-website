@@ -16,7 +16,7 @@ import { useSearchParams } from 'react-router-dom';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useDynamicReducerLoader } from 'shared/lib/hooks/useDynamicReducerLoader/useDynamicReducerLoader';
 import { VStack } from 'shared/ui/Stack';
-import { Text } from 'shared/ui/Text/Text';
+import { Text } from 'shared/ui/Text';
 import { PageWrapper } from 'widgets/PageWrapper/PageWrapper';
 import styles from './ArticlesPage.module.scss';
 

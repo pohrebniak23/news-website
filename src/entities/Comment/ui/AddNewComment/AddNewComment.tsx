@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Button } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import { Text } from 'shared/ui/Text/Text';
+import { Text } from 'shared/ui/Text';
 import styles from './AddNewComment.module.scss';
 
 interface AddNewCommentProps {

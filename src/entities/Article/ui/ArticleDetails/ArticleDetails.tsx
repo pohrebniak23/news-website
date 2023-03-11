@@ -7,12 +7,13 @@ import CalendarIcon from 'shared/assets/calendar-icon.svg';
 import ViewsIcon from 'shared/assets/views-icon.svg';
 import { RoutePath } from 'shared/config/routes/routes';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useDynamicReducerLoader } from 'shared/lib/hooks/useDynamicReducerLoader';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Icon } from 'shared/ui/Icon/Icon';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import { Text } from 'shared/ui/Text/Text';
-import { useDynamicReducerLoader } from '../../../../shared/lib/hooks/useDynamicReducerLoader/useDynamicReducerLoader';
+import { Text } from 'shared/ui/Text';
+import { Title } from 'shared/ui/Title';
 import {
   getArticleDetailsData,
   getArticleDetailsError,
@@ -119,9 +120,9 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
         radius="50%"
       />
 
-      <Text className={styles.title} size="medium">
+      <Title className={styles.title} size="medium">
         {data?.title}
-      </Text>
+      </Title>
       <Text className={styles.subtitle}>{data?.subtitle}</Text>
 
       <div className={styles.info}>

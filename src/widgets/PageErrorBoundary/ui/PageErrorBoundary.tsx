@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { ThemeProvider } from 'shared/contexts';
 import { Button } from 'shared/ui/Button/Button';
-import { Text } from 'shared/ui/Text/Text';
+import { Text } from 'shared/ui/Text';
 import '../../../app/styles/index.scss';
 import styles from './PageErrorBoundary.module.scss';
 

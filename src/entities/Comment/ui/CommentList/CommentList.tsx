@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import { Text } from 'shared/ui/Text/Text';
+import { Text } from 'shared/ui/Text';
 import { CommentType } from '../../model/types/comment';
 import { CommentItem } from '../CommentItem/CommentItem';
 import styles from './CommentList.module.scss';

@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Text } from 'shared/ui/Text/Text';
+import { Text } from 'shared/ui/Text';
 import { getArticleRecomendations } from '../model/selectors/getArticlePageRecomendationsSelector';
 import { fetchArticlesPageRecomendation } from '../model/services/fetchArticlePageRecomendations';
 import styles from './ArticlePageRecomendations.module.scss';

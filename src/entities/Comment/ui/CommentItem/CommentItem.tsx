@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { memo } from 'react';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Text } from 'shared/ui/Text/Text';
+import { Text } from 'shared/ui/Text';
 import { CommentType } from '../../model/types/comment';
 import styles from './CommentItem.module.scss';
 import { RoutePath } from '../../../../shared/config/routes/routes';

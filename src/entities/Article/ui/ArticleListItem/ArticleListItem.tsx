@@ -5,7 +5,7 @@ import ViewsIcon from 'shared/assets/views-icon.svg';
 import { RoutePath } from 'shared/config/routes/routes';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { Icon } from 'shared/ui/Icon/Icon';
-import { Text } from 'shared/ui/Text/Text';
+import { Text } from 'shared/ui/Text';
 import {
   Article,
   ArticleView,
