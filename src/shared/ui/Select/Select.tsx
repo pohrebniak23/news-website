@@ -1,51 +1,61 @@
+import { Listbox, Transition } from '@headlessui/react';
 import classNames from 'classnames';
-import { ChangeEvent, useCallback, useMemo } from 'react';
-import { genericMemoComponent } from 'shared/lib/genericMemoComponent/genericMemoComponent';
+import DownArrow from '../../assets/down-arrow.svg';
 import styles from './Select.module.scss';
 
-export interface SelectOptions<T extends string> {
+export interface SelectOption<T extends string> {
   value: T;
   label: string;
+  available?: boolean;
 }
 
 interface SelectProps<T extends string> {
   className?: string;
-  value?: T;
-  options: SelectOptions<T>[];
+  value: T;
+  label: string;
   onChange?: (value: T) => void;
+  options: SelectOption<T>[];
 }
 
-export const Select = genericMemoComponent(
-  <T extends string>(props: SelectProps<T>) => {
-    const { className, value, options, onChange } = props;
+export const Select = <T extends string>(props: SelectProps<T>) => {
+  const { options, value, label, className, onChange } = props;
 
-    const optionsList = useMemo(() => {
-      return options?.map((optItem) => (
-        <option
-          key={optItem.value}
-          className={styles.option}
-          value={optItem.value}
-        >
-          {optItem.label}
-        </option>
-      ));
-    }, [options]);
+  return (
+    <div className={classNames(className, styles.wrapper)}>
+      <Listbox value={value} onChange={onChange}>
+        {({ open }) => (
+          <>
+            <Listbox.Button className={styles.currentValue}>
+              {label}
+              <DownArrow
+                className={classNames(styles.arrow, {
+                  [styles.arrowRotate]: open,
+                })}
+              />
+            </Listbox.Button>
 
-    const onChangeHandler = useCallback(
-      (event: ChangeEvent<HTMLSelectElement>) => {
-        onChange?.(event.target.value as T);
-      },
-      [onChange],
-    );
-
-    return (
-      <select
-        className={classNames(styles.select, className)}
-        value={value}
-        onChange={onChangeHandler}
-      >
-        {optionsList}
-      </select>
-    );
-  },
-);
+            <Transition
+              enterFrom={`${styles['enter-from']}`}
+              enterTo={`${styles['enter-to']}`}
+              leaveFrom={`${styles['leave-to']}`}
+              leaveTo={`${styles['leave-to']}`}
+            >
+              <Listbox.Options className={styles.options}>
+                {options.map((item) => (
+                  <Listbox.Option
+                    key={item.value}
+                    value={item.value}
+                    disabled={item.available}
+                    className={styles.item}
+                  >
+                    {item.label}
+                  </Listbox.Option>
+                ))}
+              </Listbox.Options>
+            </Transition>
+          </>
+        )}
+      </Listbox>
+    </div>
+  );
+};

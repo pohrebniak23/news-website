@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { USER_LOCALSTORAGE_KEY } from '../const/localStorage';
 
-const baseURL = IS_DEV ? 'http://localhost:8000' : '';
+const baseURL = IS_DEV ? 'http://localhost:10000' : '';
 
 const getToken = () => {
   let token = null;

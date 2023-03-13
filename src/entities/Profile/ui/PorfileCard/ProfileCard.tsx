@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Input } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/Loader';
-import { Text } from 'shared/ui/Text';
+import { Text } from 'shared/ui/Text/Text';
 import { ValidateProfileErrors } from '../../../../features/EditableProfileCard/models/types/ProfileSchema';
 import { ProfileValidateError } from '../ProfileValidateError/ProfileValidateError';
 import styles from './ProfileCard.module.scss';
@@ -155,7 +155,7 @@ export const ProfileCard = ({
           />
         </div>
 
-        <div className={styles.item}>
+        <div className={classNames(styles.item, styles.itemAge)}>
           <div className={styles.itemRow}>
             <Text className={styles.label}>{t('Age')}:</Text>
 
@@ -193,29 +193,38 @@ export const ProfileCard = ({
           </div>
         </div>
 
-        <div className={styles.item}>
-          <div className={styles.itemRow}>
-            <Text className={styles.label}>{t('Currency')}:</Text>
-            {readonly ? (
-              <Text className={styles.text}>{data?.currency}</Text>
-            ) : (
-              <CurrencySelect
-                value={data?.currency}
-                onChange={onChangeCurrency}
-              />
-            )}
-          </div>
+        <div className={classNames(styles.item, styles.itemCurrency)}>
+          {data.currency && onChangeCurrency && (
+            <div className={styles.itemRow}>
+              <Text className={styles.label}>{t('Currency')}:</Text>
+              {readonly ? (
+                <Text className={styles.text}>{data?.currency}</Text>
+              ) : (
+                <CurrencySelect
+                  value={data.currency}
+                  label={data.currency}
+                  onChangeCurrency={onChangeCurrency}
+                />
+              )}
+            </div>
+          )}
         </div>
 
-        <div className={styles.item}>
-          <div className={styles.itemRow}>
-            <Text className={styles.label}>{t('Country')}:</Text>
-            {readonly ? (
-              <Text className={styles.text}>{data?.country}</Text>
-            ) : (
-              <CountrySelect value={data?.country} onChange={onChangeCountry} />
-            )}
-          </div>
+        <div className={classNames(styles.item, styles.itemCountry)}>
+          {data.country && onChangeCountry && (
+            <div className={styles.itemRow}>
+              <Text className={styles.label}>{t('Country')}:</Text>
+              {readonly ? (
+                <Text className={styles.text}>{data?.country}</Text>
+              ) : (
+                <CountrySelect
+                  value={data.country}
+                  label={data.country}
+                  onChangeCountry={onChangeCountry}
+                />
+              )}
+            </div>
+          )}
         </div>
       </div>
     </div>

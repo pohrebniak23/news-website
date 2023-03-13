@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Select, SelectOptions } from 'shared/ui/Select/Select';
+import { Select, SelectOption } from 'shared/ui/Select';
 import { HStack } from 'shared/ui/Stack';
 import { Text } from 'shared/ui/Text';
 import { SortingOrder } from '../../../../shared/types/Sorting';
@@ -48,7 +48,7 @@ export const SortingFilter = () => {
     [dispatch, setSearchParams, searchParams],
   );
 
-  const sortOptions = useMemo<SelectOptions<ArticleSortingBy>[]>(
+  const sortOptions = useMemo<SelectOption<ArticleSortingBy>[]>(
     () => [
       { value: ArticleSortingBy.VIEWS, label: t('views') },
       { value: ArticleSortingBy.TITLE, label: t('alphabet') },
@@ -57,7 +57,7 @@ export const SortingFilter = () => {
     [t],
   );
 
-  const orderOptions = useMemo<SelectOptions<SortingOrder>[]>(
+  const orderOptions = useMemo<SelectOption<SortingOrder>[]>(
     () => [
       {
         value: 'asc',
@@ -77,6 +77,7 @@ export const SortingFilter = () => {
         <Text>{t('Sort by:')}</Text>
         <Select<ArticleSortingBy>
           value={initialSortValue}
+          label={initialSortValue}
           options={sortOptions}
           onChange={onChangeSortHandler}
         />
@@ -86,6 +87,7 @@ export const SortingFilter = () => {
         <Text>{t('Order by:')}</Text>
         <Select<SortingOrder>
           value={initialOrderValue}
+          label={initialOrderValue}
           options={orderOptions}
           onChange={onChangeOrderHandler}
         />

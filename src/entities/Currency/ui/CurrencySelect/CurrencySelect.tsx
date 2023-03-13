@@ -1,11 +1,12 @@
-import { memo, useCallback } from 'react';
-import { Select } from 'shared/ui/Select/Select';
+import { memo } from 'react';
+import { Select } from 'shared/ui/Select';
 import { Currency } from '../../model/types/Currency';
 
 interface CurrencySelectProps {
   className?: string;
-  value?: Currency;
-  onChange?: (currency: Currency) => void;
+  value: Currency;
+  label: string;
+  onChangeCurrency: (currency: Currency) => void;
 }
 
 const optionsList = [
@@ -24,20 +25,14 @@ const optionsList = [
 ];
 
 export const CurrencySelect = memo(
-  ({ value, onChange, className }: CurrencySelectProps) => {
-    const onChangeHandler = useCallback(
-      (handledValue: string) => {
-        onChange?.(handledValue as Currency);
-      },
-      [onChange],
-    );
-
+  ({ className, value, label, onChangeCurrency }: CurrencySelectProps) => {
     return (
-      <Select
+      <Select<Currency>
         className={className}
         value={value}
-        onChange={onChangeHandler}
+        label={label}
         options={optionsList}
+        onChange={onChangeCurrency}
       />
     );
   },

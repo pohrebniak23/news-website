@@ -1,11 +1,11 @@
-import { useCallback } from 'react';
-import { Select } from 'shared/ui/Select/Select';
+import { Select } from 'shared/ui/Select';
 import { Country } from '../../model/types/Country';
 
 interface CountrySelectProps {
   className?: string;
-  value?: Country;
-  onChange?: (value: Country) => void;
+  value: Country;
+  label: string;
+  onChangeCountry?: (value: Country) => void;
 }
 
 const optionsList = [
@@ -26,21 +26,16 @@ const optionsList = [
 export const CountrySelect = ({
   className,
   value,
-  onChange,
+  label,
+  onChangeCountry,
 }: CountrySelectProps) => {
-  const onChangeHandler = useCallback(
-    (handledValue: string) => {
-      onChange?.(handledValue as Country);
-    },
-    [onChange],
-  );
-
   return (
-    <Select
+    <Select<Country>
       className={className}
       value={value}
+      label={label}
       options={optionsList}
-      onChange={onChangeHandler}
+      onChange={onChangeCountry}
     />
   );
 };

@@ -1,10 +1,76 @@
-.select {
-  background: var(--bg-color);
-  color: var(--primary-color);
-  border-radius: 4px;
-  padding: 2px;
+.wrapper {
+  position: relative;
+  min-width: 200px;
 }
 
-.option {
+.current-value {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-color);
   color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font: var(--font-xs);
+  width: 100%;
+  cursor: pointer;
+}
+
+.arrow {
+  transition: 0.4s;
+
+  & > path {
+    stroke: var(--primary-color);
+  }
+}
+
+.arrow-rotate {
+  transform: rotate(180deg);
+}
+
+.options {
+  position: absolute;
+  background: var(--bg-color);
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  margin-top: 4px;
+  width: 100%;
+  transition: 1s;
+  max-height: 300px;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.item {
+  font: var(--font-xs);
+  padding: 6px 8px;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--additional-bg-color);
+  }
+}
+
+.enter-to {
+  transition: 0.3s;
+  opacity: 1;
+  z-index: 1000;
+}
+
+.enter-from {
+  transition: 0.3s;
+  opacity: 0;
+  z-index: 1000;
+}
+
+.leave-to {
+  transition: 0.3s;
+  opacity: 0;
+}
+
+.leave-from {
+  transition: 0.3s;
+  opacity: 1;
 }

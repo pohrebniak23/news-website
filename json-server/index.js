@@ -50,6 +50,6 @@ server.use((req, res, next) => {
 server.use(router);
 
 // Запускаем сервер
-server.listen(8000, () => {
+server.listen(10000, () => {
   console.log('JSON Server is running');
 });
