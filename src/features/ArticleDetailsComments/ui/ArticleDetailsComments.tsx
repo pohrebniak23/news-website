@@ -3,15 +3,19 @@ import { AddNewComment, CommentList } from 'entities/Comment';
 import { useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { useDynamicReducerLoader } from 'shared/lib/hooks/useDynamicReducerLoader';
 import { Text } from 'shared/ui/Text';
 import { useAppDispatch } from '../../../shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getArticleDetailsCommentsLoading } from '../model/selectors/getArticleDetailsCommentsLoading';
 import { getNewCommentText } from '../model/selectors/getNewCommentText';
 import { addNewCommentForArticle } from '../model/services/addNewCommentForArticle';
-import { AddNewCommentActions } from '../model/slices/addNewCommentSlice';
-import { getArticleDetailsComments } from '../model/slices/articleDetailsCommentsSlice';
-import styles from './ArticleDetailsComments.module.scss';
 import { fetchCommentByArticleId } from '../model/services/fetchCommentsByArticleId';
+import { AddNewCommentActions } from '../model/slices/addNewCommentSlice';
+import {
+  ArticleDetailsCommentsReducer,
+  getArticleDetailsComments,
+} from '../model/slices/articleDetailsCommentsSlice';
+import styles from './ArticleDetailsComments.module.scss';
 
 interface ArticleDetailsCommentsProps {
   className?: string;
@@ -24,6 +28,13 @@ export const ArticleDetailsComments = ({
 }: ArticleDetailsCommentsProps) => {
   const dispatch = useAppDispatch();
   const { t } = useTranslation('articles');
+
+  useDynamicReducerLoader(
+    {
+      articleDetailsComments: ArticleDetailsCommentsReducer,
+    },
+    false,
+  );
 
   const comments = useSelector(getArticleDetailsComments.selectAll);
   const isLoading = useSelector(getArticleDetailsCommentsLoading);

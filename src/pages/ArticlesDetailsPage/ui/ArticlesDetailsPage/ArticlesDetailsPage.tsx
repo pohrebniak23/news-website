@@ -1,14 +1,9 @@
 import { ArticleDetails } from 'entities/Article';
 import { ArticleDetailsComments } from 'features/ArticleDetailsComments';
-import { ArticleDetailsCommentsReducer } from 'features/ArticleDetailsComments/model/slices/articleDetailsCommentsSlice';
-import {
-  ArticlePageRecomendations,
-  ArticlePageRecomendationsReducer,
-} from 'features/ArticlePageRecomendations';
+import { ArticlePageRecomendations } from 'features/ArticlePageRecomendations';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-import { useDynamicReducerLoader } from 'shared/lib/hooks/useDynamicReducerLoader';
 import { Text } from 'shared/ui/Text';
 import { PageWrapper } from 'widgets/PageWrapper/PageWrapper';
 import styles from './ArticlesDetailsPage.module.scss';
@@ -16,14 +11,6 @@ import styles from './ArticlesDetailsPage.module.scss';
 const ArticlesDetailsPage = () => {
   const { t } = useTranslation('articles');
   const { id } = useParams();
-
-  useDynamicReducerLoader(
-    {
-      articleDetailsComments: ArticleDetailsCommentsReducer,
-      articlePageRecomendations: ArticlePageRecomendationsReducer,
-    },
-    false,
-  );
 
   if (!id) {
     return (

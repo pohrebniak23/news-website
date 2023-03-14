@@ -1,10 +1,12 @@
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { useDynamicReducerLoader } from 'shared/lib/hooks/useDynamicReducerLoader';
 import { HStack, VStack } from 'shared/ui/Stack';
 import { Text } from 'shared/ui/Text';
 import { Title } from 'shared/ui/Title';
 import { getFiltersError } from '../model/selectors/getArticlesPageFiltersSelector';
+import { ArticlesPageFiltersReducer } from '../model/slices/ArticlesPageFiltersSlice';
 import styles from './ArticlesPageFilters.module.scss';
 import { SearchFilter } from './SearchFilter/SearchFilter';
 import { SortingFilter } from './SortingFilter/SortingFilter';
@@ -20,6 +22,13 @@ export const ArticlesPageFilters = ({
 }: ArticlesPageFiltersProps) => {
   const { t } = useTranslation();
   const error = useSelector(getFiltersError);
+
+  useDynamicReducerLoader(
+    {
+      articlesPageFilters: ArticlesPageFiltersReducer,
+    },
+    false,
+  );
 
   if (error) {
     return (

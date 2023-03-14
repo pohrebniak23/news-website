@@ -5,13 +5,14 @@ import { ProfileCard } from 'entities/Profile/ui/PorfileCard/ProfileCard';
 import { useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { useDynamicReducerLoader } from 'shared/lib/hooks/useDynamicReducerLoader';
 import { useAppDispatch } from '../../../shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getProfileError } from '../models/selectors/getProfileError/getProfileError';
 import { getProfileForm } from '../models/selectors/getProfileForm/getProfileForm';
 import { getProfileIsLoading } from '../models/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileReadonly } from '../models/selectors/getProfileReadonly/getProfileReadonly';
 import { fetchProfileData } from '../models/services/fetchProfileData/fetchProfileData';
-import { profileActions } from '../models/slices/profileSlice';
+import { profileActions, profileReducer } from '../models/slices/profileSlice';
 import styles from './EditableProfileCard.module.scss';
 import { ProfileCardNavigation } from './ProfileCardNavigation/ProfileCardNavigation';
 
@@ -24,6 +25,8 @@ export const EditableProfileCard = ({
 }: EditableProfileCardProps) => {
   const dispatch = useAppDispatch();
   const { id } = useParams();
+
+  useDynamicReducerLoader({ profile: profileReducer });
 
   const profileForm = useSelector(getProfileForm);
   const error = useSelector(getProfileError);
