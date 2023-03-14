@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { AddNewComment, CommentList } from 'entities/Comment';
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { Text } from 'shared/ui/Text';
@@ -11,13 +11,16 @@ import { addNewCommentForArticle } from '../model/services/addNewCommentForArtic
 import { AddNewCommentActions } from '../model/slices/addNewCommentSlice';
 import { getArticleDetailsComments } from '../model/slices/articleDetailsCommentsSlice';
 import styles from './ArticleDetailsComments.module.scss';
+import { fetchCommentByArticleId } from '../model/services/fetchCommentsByArticleId';
 
 interface ArticleDetailsCommentsProps {
   className?: string;
+  id: string;
 }
 
 export const ArticleDetailsComments = ({
   className,
+  id,
 }: ArticleDetailsCommentsProps) => {
   const dispatch = useAppDispatch();
   const { t } = useTranslation('articles');
@@ -25,6 +28,10 @@ export const ArticleDetailsComments = ({
   const comments = useSelector(getArticleDetailsComments.selectAll);
   const isLoading = useSelector(getArticleDetailsCommentsLoading);
   const commentText = useSelector(getNewCommentText);
+
+  useEffect(() => {
+    dispatch(fetchCommentByArticleId(id));
+  }, [id, dispatch]);
 
   const onCommentChange = useCallback(
     (value: string) => {

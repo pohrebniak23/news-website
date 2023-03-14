@@ -30,7 +30,11 @@ export const ArticlePageRecomendations = ({
 
       <div className={styles.list}>
         {recomendations?.map((article) => (
-          <ArticleListItem article={article} view={ArticleView.TILE} />
+          <ArticleListItem
+            key={article.id}
+            article={article}
+            view={ArticleView.TILE}
+          />
         ))}
       </div>
     </div>

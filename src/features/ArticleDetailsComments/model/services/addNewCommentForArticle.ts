@@ -11,38 +11,41 @@ export const addNewCommentForArticle = createAsyncThunk<
   CommentType,
   string,
   ThunkConfig<string>
->('articleDetails/addNewCommentForArticle', async (commentText, thunkAPI) => {
-  const { dispatch, extra, rejectWithValue, getState } = thunkAPI;
+>(
+  'articleDetailsComments/addNewCommentForArticle',
+  async (commentText, thunkAPI) => {
+    const { dispatch, extra, rejectWithValue, getState } = thunkAPI;
 
-  const userData = getUserAuthData(getState());
-  const article = getArticleDetailsData(getState());
+    const userData = getUserAuthData(getState());
+    const article = getArticleDetailsData(getState());
 
-  if (!userData || !commentText || !article) {
-    rejectWithValue('Error with initial data');
-  }
-
-  try {
-    const response = await extra.api.post<CommentType>('/comments', {
-      userId: userData?.id,
-      articleId: article?.id,
-      text: commentText,
-    });
-
-    if (!response.data) {
-      rejectWithValue('Erorr with respone');
+    if (!userData || !commentText || !article) {
+      rejectWithValue('Error with initial data');
     }
 
-    const newComment = {
-      id: response.data.id,
-      text: response.data.text,
-      user: userData,
-    };
+    try {
+      const response = await extra.api.post<CommentType>('/comments', {
+        userId: userData?.id,
+        articleId: article?.id,
+        text: commentText,
+      });
 
-    dispatch(ArticleDetailsCommentsActions.addNewComment(newComment));
-    dispatch(AddNewCommentActions.setText(''));
+      if (!response.data) {
+        rejectWithValue('Erorr with respone');
+      }
 
-    return response.data;
-  } catch (e: any) {
-    return rejectWithValue(`Error ${e.message}`);
-  }
-});
+      const newComment = {
+        id: response.data.id,
+        text: response.data.text,
+        user: userData,
+      };
+
+      dispatch(ArticleDetailsCommentsActions.addNewComment(newComment));
+      dispatch(AddNewCommentActions.setText(''));
+
+      return response.data;
+    } catch (e: any) {
+      return rejectWithValue(`Error ${e.message}`);
+    }
+  },
+);

@@ -40,10 +40,11 @@ export const Dropdown = (props: DropdownProps) => {
           leaveTo={`${styles['leave-to']}`}
         >
           <Menu.Items className={classNames(styles.options, styles[direction])}>
-            {listItems.map((item) => {
+            {listItems.map((item, index) => {
               if (item.href) {
                 return (
                   <Menu.Item
+                    key={index}
                     className={styles.item}
                     as={AppLink}
                     to={item.href}
@@ -56,6 +57,7 @@ export const Dropdown = (props: DropdownProps) => {
 
               return (
                 <Menu.Item
+                  key={index}
                   className={styles.item}
                   as="div"
                   onClick={item.onClick}

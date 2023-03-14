@@ -1,25 +1,25 @@
 import classNames from 'classnames';
 import { getUserAuthData } from 'entities/User';
-import {
-  getProfileData,
-  getProfileForm,
-  profileActions,
-  updateProfileData,
-} from 'features/EditableProfileCard';
-import { getProfileReadonly } from 'features/EditableProfileCard/models/selectors/getProfileReadonly/getProfileReadonly';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button } from 'shared/ui/Button/Button';
 import { Text } from 'shared/ui/Text';
-import styles from './ProfileNav.module.scss';
+import { getProfileData } from '../../models/selectors/getProfileData/getProfileData';
+import { getProfileForm } from '../../models/selectors/getProfileForm/getProfileForm';
+import { getProfileReadonly } from '../../models/selectors/getProfileReadonly/getProfileReadonly';
+import { updateProfileData } from '../../models/services/updateProfileData/updateProfileData';
+import { profileActions } from '../../models/slices/profileSlice';
+import styles from './ProfileCardNavigation.module.scss';
 
-interface ProfileNavProps {
+interface ProfileCardNavigationProps {
   className?: string;
 }
 
-export const ProfileNav = ({ className }: ProfileNavProps) => {
+export const ProfileCardNavigation = ({
+  className,
+}: ProfileCardNavigationProps) => {
   const { t } = useTranslation(['translation', 'profile']);
   const dispatch = useAppDispatch();
 
@@ -47,7 +47,7 @@ export const ProfileNav = ({ className }: ProfileNavProps) => {
   }, [dispatch, profileData, profileForm]);
 
   return (
-    <div className={classNames(styles.profilenav, className)}>
+    <div className={classNames(styles.ProfileCardNavigation, className)}>
       <Text className={styles.profileText}>{t('Profile')}</Text>
 
       {isEditable && (

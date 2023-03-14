@@ -2,15 +2,18 @@ import classNames from 'classnames';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 import { ProfileCard } from 'entities/Profile/ui/PorfileCard/ProfileCard';
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from '../../../../shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { getProfileError } from '../../models/selectors/getProfileError/getProfileError';
-import { getProfileForm } from '../../models/selectors/getProfileForm/getProfileForm';
-import { getProfileIsLoading } from '../../models/selectors/getProfileIsLoading/getProfileIsLoading';
-import { getProfileReadonly } from '../../models/selectors/getProfileReadonly/getProfileReadonly';
-import { profileActions } from '../../models/slices/profileSlice';
+import { useParams } from 'react-router-dom';
+import { useAppDispatch } from '../../../shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { getProfileError } from '../models/selectors/getProfileError/getProfileError';
+import { getProfileForm } from '../models/selectors/getProfileForm/getProfileForm';
+import { getProfileIsLoading } from '../models/selectors/getProfileIsLoading/getProfileIsLoading';
+import { getProfileReadonly } from '../models/selectors/getProfileReadonly/getProfileReadonly';
+import { fetchProfileData } from '../models/services/fetchProfileData/fetchProfileData';
+import { profileActions } from '../models/slices/profileSlice';
 import styles from './EditableProfileCard.module.scss';
+import { ProfileCardNavigation } from './ProfileCardNavigation/ProfileCardNavigation';
 
 interface EditableProfileCardProps {
   className?: string;
@@ -20,11 +23,18 @@ export const EditableProfileCard = ({
   className,
 }: EditableProfileCardProps) => {
   const dispatch = useAppDispatch();
+  const { id } = useParams();
 
   const profileForm = useSelector(getProfileForm);
   const error = useSelector(getProfileError);
   const isLoading = useSelector(getProfileIsLoading);
   const readonly = useSelector(getProfileReadonly);
+
+  useEffect(() => {
+    if (id) {
+      dispatch(fetchProfileData(id));
+    }
+  }, [dispatch, id]);
 
   const onChangeFirstName = useCallback(
     (value?: string) => {
@@ -81,6 +91,8 @@ export const EditableProfileCard = ({
 
   return (
     <div className={classNames(styles.profileData, className)}>
+      <ProfileCardNavigation />
+
       <ProfileCard
         data={profileForm}
         error={error}
