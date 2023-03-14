@@ -1,17 +1,17 @@
-import { getUserAuthData, UserActions } from 'entities/User';
+import { getUserAuthData } from 'entities/User';
 import { LoginModal } from 'features/AuthByUsername';
 import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { RoutePath } from 'shared/config/routes/routes';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { Button } from 'shared/ui/Button/Button';
 import { LangSwitcher } from 'widgets/LangSwitcher/ui/LangSwitcher';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import styles from './Navbar.module.scss';
+import { NavbarMenu } from './NavbarMenu/NavbarMenu';
 
 export const Navbar = memo(() => {
-  const dispatch = useDispatch();
   const { t } = useTranslation();
 
   const authData = useSelector(getUserAuthData);
@@ -25,10 +25,6 @@ export const Navbar = memo(() => {
     setIsModalOpen(true);
   }, []);
 
-  const onLogout = useCallback(() => {
-    dispatch(UserActions.logout());
-  }, [dispatch]);
-
   const authUser = () => {
     return (
       <nav data-testid="navbar" className={styles.navbar}>
@@ -39,9 +35,7 @@ export const Navbar = memo(() => {
           <LangSwitcher className={styles.langSwitcher} />
           <ThemeSwitcher className={styles.themeSwitcher} />
 
-          <Button size="small" onClick={onLogout}>
-            {t('Log out')}
-          </Button>
+          <NavbarMenu />
         </div>
       </nav>
     );

@@ -1,6 +1,5 @@
 .wrapper {
   position: relative;
-  min-width: 200px;
 }
 
 .current-value {
@@ -17,18 +16,6 @@
   cursor: pointer;
 }
 
-.arrow {
-  transition: 0.4s;
-
-  & > path {
-    stroke: var(--primary-color);
-  }
-}
-
-.arrow-rotate {
-  transform: rotate(180deg);
-}
-
 .options {
   position: absolute;
   background: var(--bg-color);
@@ -39,6 +26,9 @@
   width: 100%;
   transition: 1s;
   max-height: 300px;
+  min-width: 120px;
+  max-width: 300px;
+  padding: 4px 0;
   z-index: 1000;
   overflow-y: auto;
 }
@@ -47,6 +37,8 @@
   font: var(--font-xs);
   padding: 6px 8px;
   cursor: pointer;
+  width: 100%;
+  display: block;
 
   &:hover {
     background: var(--additional-bg-color);
@@ -77,4 +69,32 @@
 .leave-from {
   transition: 0.3s;
   opacity: 1;
+}
+
+.triggerBtn {
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.bottom-left {
+  top: 100%;
+  left: 0;
+}
+
+.bottom-right {
+  top: 100%;
+  right: 0;
+}
+
+.top-left {
+  bottom: 100%;
+  left: 0;
+}
+
+.top-right {
+  bottom: 100%;
+  right: 0;
 }

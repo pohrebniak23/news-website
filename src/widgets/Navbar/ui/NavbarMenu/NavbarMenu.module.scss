@@ -1,0 +1,28 @@
+.menuAvatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.menu {
+  position: relative;
+  z-index: 1000;
+  width: 30px;
+  height: 30px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+}
+
+.menu-icon {
+  margin-right: 6px;
+  max-width: 18px;
+  max-height: 18px;
+  fill: var(--primary-color);
+
+  & > path {
+    stroke: var(--primary-color);
+  }
+}

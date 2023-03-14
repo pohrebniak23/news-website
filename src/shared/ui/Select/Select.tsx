@@ -46,9 +46,16 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
                     key={item.value}
                     value={item.value}
                     disabled={item.available}
-                    className={styles.item}
                   >
-                    {item.label}
+                    {({ active }) => (
+                      <li
+                        className={classNames(styles.item, {
+                          [styles.activeOption]: active,
+                        })}
+                      >
+                        {item.label}
+                      </li>
+                    )}
                   </Listbox.Option>
                 ))}
               </Listbox.Options>
