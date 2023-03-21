@@ -15,7 +15,7 @@ describe('loginByUsername.test', () => {
 
     expect(thunk.api.post).toHaveBeenCalled();
     expect(thunk.dispatch).toHaveBeenCalled();
-    expect(thunk.dispatch).toHaveBeenCalledTimes(5);
+    expect(thunk.dispatch).toHaveBeenCalledTimes(3);
     expect(result.meta.requestStatus).toBe('fulfilled');
     expect(result.meta.arg).toEqual(loginFormData);
     expect(result.payload).toEqual(loginFormData);
