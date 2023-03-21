@@ -1,4 +1,4 @@
-import { Profile } from './Profile';
+import { Profile } from 'entities/Profile';
 
 export enum ValidateProfileErrors {
   NO_DATA = 'NO_DATA',

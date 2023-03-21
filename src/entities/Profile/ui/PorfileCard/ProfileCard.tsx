@@ -2,13 +2,13 @@ import classNames from 'classnames';
 import { AgeSelect } from 'entities/Age/ui/AgeSelect/AgeSelect';
 import { Country, CountrySelect } from 'entities/Country';
 import { Currency, CurrencySelect } from 'entities/Currency';
-import { Profile } from 'features/EditableProfileCard';
 import { useTranslation } from 'react-i18next';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Input } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { Text } from 'shared/ui/Text/Text';
 import { ValidateProfileErrors } from '../../../../features/EditableProfileCard/models/types/ProfileSchema';
+import { Profile } from '../../model/types/profile';
 import { ProfileValidateError } from '../ProfileValidateError/ProfileValidateError';
 import styles from './ProfileCard.module.scss';
 
