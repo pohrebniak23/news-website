@@ -1,4 +1,3 @@
-import { UserRole } from 'entities/User';
 import { Suspense, useCallback } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { PageLoader } from 'widgets/PageLoader/ui/PageLoader';
@@ -7,7 +6,7 @@ import { RequireAuth } from './RequireAuth';
 
 export const AppRouter = () => {
   const renderWithAuth = useCallback(
-    ({ path, authOnly, element, roles = [UserRole.USER] }: AppRouteProps) => {
+    ({ path, authOnly, element, roles = [] }: AppRouteProps) => {
       const resultElement = (
         <Suspense fallback={<PageLoader />}>{element}</Suspense>
       );

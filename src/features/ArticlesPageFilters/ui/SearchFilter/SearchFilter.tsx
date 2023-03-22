@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { t } from 'i18next';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -16,6 +16,7 @@ interface ArticleSearchProps {
 }
 
 export const SearchFilter = ({ className }: ArticleSearchProps) => {
+  const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const articleSearchTitle = useSelector(getFiltersTitle);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -40,7 +41,7 @@ export const SearchFilter = ({ className }: ArticleSearchProps) => {
         type="text"
         value={articleSearchTitle}
         onChange={articleSearchHandler}
-        placeholder={t('Search by title')}
+        placeholder={t('Search by title')!}
       />
     </VStack>
   );

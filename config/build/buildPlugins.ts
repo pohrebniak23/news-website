@@ -1,4 +1,5 @@
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import CircularDependencyPlugin from 'circular-dependency-plugin';
 import ESLintPlugin from 'eslint-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
@@ -23,6 +24,10 @@ export function buildPlugins({
     new webpack.DefinePlugin({
       IS_DEV: JSON.stringify(isDev),
       PROJECT: JSON.stringify(project),
+    }),
+    new CircularDependencyPlugin({
+      exclude: /node_modules/,
+      failOnError: true,
     }),
   ];
 

@@ -4,7 +4,6 @@ import { ThunkConfig } from 'app/providers/StoreProvider';
 import { getArticleDetailsData } from 'entities/Article';
 import { CommentType } from 'entities/Comment';
 import { getUserAuthData } from 'entities/User';
-import { AddNewCommentActions } from '../slices/addNewCommentSlice';
 import { ArticleDetailsCommentsActions } from '../slices/articleDetailsCommentsSlice';
 
 export const addNewCommentForArticle = createAsyncThunk<
@@ -41,7 +40,6 @@ export const addNewCommentForArticle = createAsyncThunk<
       };
 
       dispatch(ArticleDetailsCommentsActions.addNewComment(newComment));
-      dispatch(AddNewCommentActions.setText(''));
 
       return response.data;
     } catch (e: any) {

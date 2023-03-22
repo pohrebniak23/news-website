@@ -27,6 +27,7 @@ const addNewCommentSlice = createSlice({
       })
       .addCase(addNewCommentForArticle.fulfilled, (state) => {
         state.isLoading = false;
+        state.text = '';
       })
       .addCase(addNewCommentForArticle.rejected, (state, action) => {
         state.isLoading = false;

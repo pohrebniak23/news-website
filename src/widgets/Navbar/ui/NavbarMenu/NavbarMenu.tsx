@@ -30,7 +30,7 @@ export const NavbarMenu = () => {
     ...(isAdminPanelAvailable
       ? [
           {
-            href: `/admin`,
+            href: '/admin',
             content: <div className={styles.menuItem}>{t('Admin')}</div>,
           },
         ]

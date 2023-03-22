@@ -16,6 +16,10 @@ export const RequireAuth = ({ children, roles }: RequireAuthProps) => {
 
   const requireRole = roles.includes(userRoleData);
 
+  if (roles.length === 0) {
+    return children;
+  }
+
   if (!user) {
     return <Navigate to={RoutePath.home} state={{ from: location }} replace />;
   }
