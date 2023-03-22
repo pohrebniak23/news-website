@@ -15,7 +15,9 @@
       "userId": "1",
       "createdAt": "22.11.2022",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/800px-Unofficial_JavaScript_logo_2.svg.png",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -85,7 +87,9 @@
       "userId": "1",
       "createdAt": "22.11.2022",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
-      "type": ["BUSINESS"],
+      "type": [
+        "BUSINESS"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -127,7 +131,9 @@
       "userId": "0",
       "createdAt": "22.11.2022",
       "image": "https://d1fmx1rbmqrxrr.cloudfront.net/zdnet/i/edit/ne/2021/09/logo_java.jpg",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -169,7 +175,9 @@
       "userId": "0",
       "createdAt": "22.11.2022",
       "image": "https://d1fmx1rbmqrxrr.cloudfront.net/zdnet/i/edit/ne/2021/09/logo_java.jpg",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -191,7 +199,9 @@
       "userId": "1",
       "createdAt": "22.11.2022",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -213,7 +223,9 @@
       "userId": "0",
       "createdAt": "22.11.2022",
       "image": "https://d1fmx1rbmqrxrr.cloudfront.net/zdnet/i/edit/ne/2021/09/logo_java.jpg",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -235,7 +247,9 @@
       "userId": "1",
       "createdAt": "22.11.2022",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -257,7 +271,9 @@
       "userId": "0",
       "createdAt": "22.11.2022",
       "image": "https://d1fmx1rbmqrxrr.cloudfront.net/zdnet/i/edit/ne/2021/09/logo_java.jpg",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -279,7 +295,9 @@
       "userId": "1",
       "createdAt": "22.11.2022",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -301,7 +319,9 @@
       "userId": "0",
       "createdAt": "22.11.2022",
       "image": "https://d1fmx1rbmqrxrr.cloudfront.net/zdnet/i/edit/ne/2021/09/logo_java.jpg",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -323,7 +343,9 @@
       "userId": "1",
       "createdAt": "22.11.2022",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -345,7 +367,9 @@
       "userId": "0",
       "createdAt": "22.11.2022",
       "image": "https://d1fmx1rbmqrxrr.cloudfront.net/zdnet/i/edit/ne/2021/09/logo_java.jpg",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -367,7 +391,9 @@
       "userId": "1",
       "createdAt": "22.11.2022",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -389,7 +415,9 @@
       "userId": "0",
       "createdAt": "22.11.2022",
       "image": "https://d1fmx1rbmqrxrr.cloudfront.net/zdnet/i/edit/ne/2021/09/logo_java.jpg",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -411,7 +439,9 @@
       "userId": "1",
       "createdAt": "22.11.2022",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -433,7 +463,9 @@
       "userId": "0",
       "createdAt": "22.11.2022",
       "image": "https://d1fmx1rbmqrxrr.cloudfront.net/zdnet/i/edit/ne/2021/09/logo_java.jpg",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -455,7 +487,9 @@
       "userId": "1",
       "createdAt": "22.11.2022",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -477,7 +511,9 @@
       "userId": "0",
       "createdAt": "22.11.2022",
       "image": "https://d1fmx1rbmqrxrr.cloudfront.net/zdnet/i/edit/ne/2021/09/logo_java.jpg",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -499,7 +535,9 @@
       "userId": "1",
       "createdAt": "22.11.2022",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -550,6 +588,36 @@
       "articleId": "2",
       "text": "Java!)",
       "id": 6
+    },
+    {
+      "userId": "0",
+      "articleId": "6",
+      "text": "123",
+      "id": 7
+    },
+    {
+      "userId": "0",
+      "articleId": "6",
+      "text": "123",
+      "id": 8
+    },
+    {
+      "userId": "0",
+      "articleId": "6",
+      "text": "q",
+      "id": 9
+    },
+    {
+      "userId": "0",
+      "articleId": "6",
+      "text": "a",
+      "id": 10
+    },
+    {
+      "userId": "0",
+      "articleId": "6",
+      "text": "ad",
+      "id": 11
     }
   ],
   "profile": [

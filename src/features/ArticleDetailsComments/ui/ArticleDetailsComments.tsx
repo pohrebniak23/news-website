@@ -1,59 +1,60 @@
+import { skipToken } from '@reduxjs/toolkit/dist/query';
 import classNames from 'classnames';
+import { getArticleId } from 'entities/Article/model/selectors/articleDetailsSelector';
 import { AddNewComment, CommentList } from 'entities/Comment';
-import { useCallback, useEffect } from 'react';
+import { getUserId } from 'entities/User/models/selectors/getUserAuthData';
+import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useDynamicReducerLoader } from 'shared/lib/hooks/useDynamicReducerLoader';
 import { Text } from 'shared/ui/Text';
-import { useAppDispatch } from '../../../shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { getArticleDetailsCommentsLoading } from '../model/selectors/getArticleDetailsCommentsLoading';
-import { getNewCommentText } from '../model/selectors/getNewCommentText';
-import { addNewCommentForArticle } from '../model/services/addNewCommentForArticle';
-import { fetchCommentByArticleId } from '../model/services/fetchCommentsByArticleId';
-import { AddNewCommentActions } from '../model/slices/addNewCommentSlice';
 import {
-  ArticleDetailsCommentsReducer,
-  getArticleDetailsComments,
-} from '../model/slices/articleDetailsCommentsSlice';
+  useAddNewComment,
+  useGetArticleComments,
+} from '../api/articleDetailsCommentsApi';
 import styles from './ArticleDetailsComments.module.scss';
 
 interface ArticleDetailsCommentsProps {
   className?: string;
-  id: string;
 }
 
 export const ArticleDetailsComments = ({
   className,
-  id,
 }: ArticleDetailsCommentsProps) => {
-  const dispatch = useAppDispatch();
   const { t } = useTranslation('articles');
 
-  useDynamicReducerLoader(
-    {
-      articleDetailsComments: ArticleDetailsCommentsReducer,
-    },
-    false,
-  );
+  const userId = useSelector(getUserId);
+  const articleId = useSelector(getArticleId);
+  const [commentText, setCommentText] = useState<string>('');
+  const [addNewComment] = useAddNewComment();
+  const {
+    data: articleComments,
+    isLoading,
+    refetch,
+  } = useGetArticleComments(articleId || skipToken);
+  // useDynamicReducerLoader(
+  //   {
+  //     articleDetailsComments: ArticleDetailsCommentsReducer,
+  //   },
+  //   false,
+  // );
 
-  const comments = useSelector(getArticleDetailsComments.selectAll);
-  const isLoading = useSelector(getArticleDetailsCommentsLoading);
-  const commentText = useSelector(getNewCommentText);
+  // const comments = useSelector(getArticleDetailsComments.selectAll);
+  // const isLoading = useSelector(getArticleDetailsCommentsLoading);
 
-  useEffect(() => {
-    dispatch(fetchCommentByArticleId(id));
-  }, [id, dispatch]);
-
-  const onCommentChange = useCallback(
-    (value: string) => {
-      dispatch(AddNewCommentActions.setText(value));
-    },
-    [dispatch],
-  );
+  const onCommentChange = useCallback((value: string) => {
+    setCommentText(value);
+  }, []);
 
   const onSendComment = useCallback(() => {
-    dispatch(addNewCommentForArticle(commentText));
-  }, [dispatch, commentText]);
+    if (userId && articleId) {
+      addNewComment({
+        userId,
+        articleId,
+        text: commentText,
+      });
+      refetch();
+    }
+  }, [addNewComment, userId, articleId, commentText, refetch]);
 
   return (
     <div className={classNames(className, styles.articleDetailsComments)}>
@@ -67,11 +68,13 @@ export const ArticleDetailsComments = ({
         onSendComment={onSendComment}
         isLoading={isLoading}
       />
-      <CommentList
-        className={styles.list}
-        isLoading={isLoading}
-        comments={comments}
-      />
+      {articleComments && (
+        <CommentList
+          className={styles.list}
+          isLoading={isLoading}
+          comments={articleComments}
+        />
+      )}
     </div>
   );
 };

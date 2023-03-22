@@ -29,7 +29,7 @@ const ArticlesDetailsPage = () => {
 
         <ArticlePageRecomendations />
 
-        <ArticleDetailsComments className={styles.comments} id={id} />
+        <ArticleDetailsComments className={styles.comments} />
       </div>
     </PageWrapper>
   );

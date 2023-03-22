@@ -3,8 +3,6 @@ import {
   ArticleBlockType,
   ArticleType,
 } from 'entities/Article/model/types/article';
-import { AddNewCommentReducer } from 'features/ArticleDetailsComments/model/slices/addNewCommentSlice';
-import { ArticleDetailsCommentsReducer } from 'features/ArticleDetailsComments/model/slices/articleDetailsCommentsSlice';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'shared/contexts/themeContext/ThemeContext';
@@ -94,48 +92,36 @@ const articleData = {
 export const Light = Template.bind({});
 Light.args = {};
 Light.decorators = [
-  StoreDecorator(
-    {
-      user: {
-        authData: {
-          id: '0',
-          username: 'admin',
-          avatar:
-            'https://d1fmx1rbmqrxrr.cloudfront.net/cnet/optim/i/edit/2019/04/eso1644bsmall__w770.jpg',
-        },
-      },
-      articleDetails: {
-        data: articleData,
+  StoreDecorator({
+    user: {
+      authData: {
+        id: '0',
+        username: 'admin',
+        avatar:
+          'https://d1fmx1rbmqrxrr.cloudfront.net/cnet/optim/i/edit/2019/04/eso1644bsmall__w770.jpg',
       },
     },
-    {
-      articleDetailsComments: ArticleDetailsCommentsReducer,
-      addNewComment: AddNewCommentReducer,
+    articleDetails: {
+      data: articleData,
     },
-  ),
+  }),
 ];
 
 export const Dark = Template.bind({});
 Dark.args = { id: 0 };
 Dark.decorators = [
   ThemeDecorator(Theme.DARK),
-  StoreDecorator(
-    {
-      user: {
-        authData: {
-          id: '0',
-          username: 'admin',
-          avatar:
-            'https://d1fmx1rbmqrxrr.cloudfront.net/cnet/optim/i/edit/2019/04/eso1644bsmall__w770.jpg',
-        },
-      },
-      articleDetails: {
-        data: articleData,
+  StoreDecorator({
+    user: {
+      authData: {
+        id: '0',
+        username: 'admin',
+        avatar:
+          'https://d1fmx1rbmqrxrr.cloudfront.net/cnet/optim/i/edit/2019/04/eso1644bsmall__w770.jpg',
       },
     },
-    {
-      articleDetailsComments: ArticleDetailsCommentsReducer,
-      addNewComment: AddNewCommentReducer,
+    articleDetails: {
+      data: articleData,
     },
-  ),
+  }),
 ];
