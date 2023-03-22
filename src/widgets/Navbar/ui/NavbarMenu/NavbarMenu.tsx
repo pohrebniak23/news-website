@@ -1,5 +1,9 @@
 import classNames from 'classnames';
 import { UserActions, getUserAuthData } from 'entities/User';
+import {
+  isUserAdmin,
+  isUserManager,
+} from 'entities/User/models/selectors/getUserRole';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -13,12 +17,24 @@ export const NavbarMenu = () => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const authData = useSelector(getUserAuthData);
+  const isAdmin = useSelector(isUserAdmin);
+  const isManager = useSelector(isUserManager);
 
   const onLogout = useCallback(() => {
     dispatch(UserActions.logout());
   }, [dispatch]);
 
+  const isAdminPanelAvailable = isAdmin || isManager;
+
   const menuItems: DropdownItem[] = [
+    ...(isAdminPanelAvailable
+      ? [
+          {
+            href: `/admin`,
+            content: <div className={styles.menuItem}>{t('Admin')}</div>,
+          },
+        ]
+      : []),
     {
       href: `/profile/${authData?.id}`,
       content: (

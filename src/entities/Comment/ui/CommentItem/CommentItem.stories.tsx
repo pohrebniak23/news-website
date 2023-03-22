@@ -1,4 +1,5 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { UserRole } from 'entities/User';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'shared/contexts/themeContext/ThemeContext';
 import { CommentItem } from './CommentItem';
@@ -19,6 +20,7 @@ Light.args = {
     user: {
       id: '0',
       username: 'admin',
+      role: UserRole.ADMIN,
       avatar:
         'https://d1fmx1rbmqrxrr.cloudfront.net/cnet/optim/i/edit/2019/04/eso1644bsmall__w770.jpg',
     },
@@ -34,6 +36,7 @@ Dark.args = {
     user: {
       id: '0',
       username: 'admin',
+      role: UserRole.ADMIN,
       avatar:
         'https://d1fmx1rbmqrxrr.cloudfront.net/cnet/optim/i/edit/2019/04/eso1644bsmall__w770.jpg',
     },

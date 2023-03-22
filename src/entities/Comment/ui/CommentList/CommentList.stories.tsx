@@ -1,4 +1,5 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { UserRole } from 'entities/User';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'shared/contexts/themeContext/ThemeContext';
 import { CommentList } from './CommentList';
@@ -20,6 +21,7 @@ Light.args = {
       user: {
         id: '0',
         username: 'admin',
+        role: UserRole.ADMIN,
         avatar:
           'https://d1fmx1rbmqrxrr.cloudfront.net/cnet/optim/i/edit/2019/04/eso1644bsmall__w770.jpg',
       },
@@ -29,8 +31,9 @@ Light.args = {
     },
     {
       user: {
-        id: '0',
+        id: '1',
         username: 'admin',
+        role: UserRole.ADMIN,
         avatar:
           'https://d1fmx1rbmqrxrr.cloudfront.net/cnet/optim/i/edit/2019/04/eso1644bsmall__w770.jpg',
       },
@@ -48,6 +51,7 @@ Dark.args = {
       user: {
         id: '0',
         username: 'admin',
+        role: UserRole.ADMIN,
         avatar:
           'https://d1fmx1rbmqrxrr.cloudfront.net/cnet/optim/i/edit/2019/04/eso1644bsmall__w770.jpg',
       },
@@ -59,6 +63,7 @@ Dark.args = {
       user: {
         id: '0',
         username: 'admin',
+        role: UserRole.ADMIN,
         avatar:
           'https://d1fmx1rbmqrxrr.cloudfront.net/cnet/optim/i/edit/2019/04/eso1644bsmall__w770.jpg',
       },

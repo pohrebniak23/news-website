@@ -15,9 +15,7 @@
       "userId": "1",
       "createdAt": "22.11.2022",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/800px-Unofficial_JavaScript_logo_2.svg.png",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -87,9 +85,7 @@
       "userId": "1",
       "createdAt": "22.11.2022",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
-      "type": [
-        "BUSINESS"
-      ],
+      "type": ["BUSINESS"],
       "blocks": [
         {
           "id": "1",
@@ -131,9 +127,7 @@
       "userId": "0",
       "createdAt": "22.11.2022",
       "image": "https://d1fmx1rbmqrxrr.cloudfront.net/zdnet/i/edit/ne/2021/09/logo_java.jpg",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -175,9 +169,7 @@
       "userId": "0",
       "createdAt": "22.11.2022",
       "image": "https://d1fmx1rbmqrxrr.cloudfront.net/zdnet/i/edit/ne/2021/09/logo_java.jpg",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -199,9 +191,7 @@
       "userId": "1",
       "createdAt": "22.11.2022",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -223,9 +213,7 @@
       "userId": "0",
       "createdAt": "22.11.2022",
       "image": "https://d1fmx1rbmqrxrr.cloudfront.net/zdnet/i/edit/ne/2021/09/logo_java.jpg",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -247,9 +235,7 @@
       "userId": "1",
       "createdAt": "22.11.2022",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -271,9 +257,7 @@
       "userId": "0",
       "createdAt": "22.11.2022",
       "image": "https://d1fmx1rbmqrxrr.cloudfront.net/zdnet/i/edit/ne/2021/09/logo_java.jpg",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -295,9 +279,7 @@
       "userId": "1",
       "createdAt": "22.11.2022",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -319,9 +301,7 @@
       "userId": "0",
       "createdAt": "22.11.2022",
       "image": "https://d1fmx1rbmqrxrr.cloudfront.net/zdnet/i/edit/ne/2021/09/logo_java.jpg",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -343,9 +323,7 @@
       "userId": "1",
       "createdAt": "22.11.2022",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -367,9 +345,7 @@
       "userId": "0",
       "createdAt": "22.11.2022",
       "image": "https://d1fmx1rbmqrxrr.cloudfront.net/zdnet/i/edit/ne/2021/09/logo_java.jpg",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -391,9 +367,7 @@
       "userId": "1",
       "createdAt": "22.11.2022",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -415,9 +389,7 @@
       "userId": "0",
       "createdAt": "22.11.2022",
       "image": "https://d1fmx1rbmqrxrr.cloudfront.net/zdnet/i/edit/ne/2021/09/logo_java.jpg",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -439,9 +411,7 @@
       "userId": "1",
       "createdAt": "22.11.2022",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -463,9 +433,7 @@
       "userId": "0",
       "createdAt": "22.11.2022",
       "image": "https://d1fmx1rbmqrxrr.cloudfront.net/zdnet/i/edit/ne/2021/09/logo_java.jpg",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -487,9 +455,7 @@
       "userId": "1",
       "createdAt": "22.11.2022",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -511,9 +477,7 @@
       "userId": "0",
       "createdAt": "22.11.2022",
       "image": "https://d1fmx1rbmqrxrr.cloudfront.net/zdnet/i/edit/ne/2021/09/logo_java.jpg",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -535,9 +499,7 @@
       "userId": "1",
       "createdAt": "22.11.2022",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -619,21 +581,24 @@
       "id": "0",
       "name": "Oleksandr",
       "username": "admin",
-      "password": "123",
+      "password": "123456",
+      "role": "ADMIN",
       "avatar": "https://d1fmx1rbmqrxrr.cloudfront.net/cnet/optim/i/edit/2019/04/eso1644bsmall__w770.jpg"
     },
     {
       "id": "1",
       "name": "Oleh",
       "username": "user",
-      "password": "123",
+      "password": "123456",
+      "role": "USER",
       "avatar": "https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg"
     },
     {
+      "id": "Iqw6Ori",
       "name": "Oleksandr",
-      "username": "Alex007",
+      "username": "manager",
       "password": "123456",
-      "id": "Iqw6Ori"
+      "role": "MANAGER"
     }
   ]
 }
