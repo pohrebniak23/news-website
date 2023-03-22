@@ -7,6 +7,7 @@ import {
 import { CounterReducer } from 'entities/Counter';
 import { UserReducer } from 'entities/User';
 import { $api } from 'shared/api/api';
+import { newsApi } from 'shared/api/newsApi';
 import { StateSchema } from './StateSchema';
 import { createReducerManager } from './reducerManager';
 
@@ -18,6 +19,7 @@ export const createReduxStore = (
     ...asyncReducers,
     counter: CounterReducer,
     user: UserReducer,
+    [newsApi.reducerPath]: newsApi.reducer,
   };
 
   const reducerManager = createReducerManager(rootReducers);
@@ -33,7 +35,7 @@ export const createReduxStore = (
             api: $api,
           },
         },
-      }),
+      }).concat(newsApi.middleware),
   });
 
   // @ts-ignore

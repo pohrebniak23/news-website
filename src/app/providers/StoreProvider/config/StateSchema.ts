@@ -13,14 +13,15 @@ import {
   AddNewCommentSchema,
   ArticleDetailsCommentsSchema,
 } from 'features/ArticleDetailsComments';
-import { ArticlePageRecomendationsSchema } from 'features/ArticlePageRecomendations';
 import { ArticlesPageFiltersSchema } from 'features/ArticlesPageFilters';
 import { LoginSchema } from 'features/AuthByUsername/models';
 import { ProfileSchema } from 'features/EditableProfileCard/models/types/ProfileSchema';
+import { newsApi } from 'shared/api/newsApi';
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
+  [newsApi.reducerPath]: ReturnType<typeof newsApi.reducer>;
 
   // Async reducers
   loginForm?: LoginSchema;
@@ -31,7 +32,6 @@ export interface StateSchema {
   articlesPageFilters?: ArticlesPageFiltersSchema;
   articleDetails?: ArticleDetailsSchema;
   articleDetailsComments?: ArticleDetailsCommentsSchema;
-  articlePageRecomendations?: ArticlePageRecomendationsSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
