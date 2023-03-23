@@ -1,3 +1,5 @@
 import { Select, SelectOption } from './Select';
 
-export { Select, SelectOption };
+export { Select };
+
+export type { SelectOption };

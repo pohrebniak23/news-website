@@ -1,3 +1,5 @@
 import { DropdownItem, Dropdown } from './Dropdown';
 
-export { DropdownItem, Dropdown };
+export { Dropdown };
+
+export type { DropdownItem };

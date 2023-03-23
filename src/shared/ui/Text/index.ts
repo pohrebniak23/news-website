@@ -1,3 +1,5 @@
 import { Text, TextSize } from './Text';
 
-export { Text, TextSize };
+export { Text };
+
+export type { TextSize };

@@ -1,3 +1,3 @@
 import { LoginSchema } from './types/LoginSchema';
 
-export { LoginSchema };
+export type { LoginSchema };

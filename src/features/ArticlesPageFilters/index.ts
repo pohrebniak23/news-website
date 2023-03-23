@@ -17,7 +17,6 @@ export {
   ArticlesPageFilters,
   ArticlesPageFiltersActions,
   ArticlesPageFiltersReducer,
-  ArticlesPageFiltersSchema,
   fetchNextArticlesList,
   getArticleList,
   getFiltersError as getArticlesPageFiltersError,
@@ -25,3 +24,5 @@ export {
   getFiltersView as getArticlesPageFiltersView,
   initArticleList,
 };
+
+export type { ArticlesPageFiltersSchema };

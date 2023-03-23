@@ -6,12 +6,12 @@ import { ArticleList } from './ui/ArticleList/ArticleList';
 import { ArticleListItem } from './ui/ArticleListItem/ArticleListItem';
 
 export {
-  Article,
   ArticleDetails,
-  ArticleDetailsSchema,
   ArticleList,
   getArticleDetailsData,
   ArticleView,
   ArticleType,
   ArticleListItem,
 };
+
+export type { ArticleDetailsSchema, Article };
