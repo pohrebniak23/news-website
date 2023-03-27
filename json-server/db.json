@@ -9,14 +9,15 @@
   "articles": [
     {
       "id": "0",
-      "title": "Javascript - язык программирования",
-      "subtitle": "Краткий пересказ всего JavaScript",
-      "views": 305,
+      "title": "The Impact of Technology on the Workplace: How Technology is Changing",
+      "subtitle": "The Impact of Technology on the Workplace: How Technology is Changing",
+      "views": 123305,
       "userId": "1",
       "createdAt": "22.11.2022",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/800px-Unofficial_JavaScript_logo_2.svg.png",
+      "image": "https://www.netscribes.com/wp-content/uploads/2019/06/Technology-Watch.jpg",
       "type": [
-        "IT"
+        "IT",
+        "Technology"
       ],
       "blocks": [
         {

@@ -17,7 +17,7 @@ export const ArticlePageRecomendations = ({
 
   return (
     <div className={classNames(styles.recomendations, className)}>
-      <Text size="medium">{t('Recomendation')}</Text>
+      <Text size="m">{t('Recomendation')}</Text>
 
       <div className={styles.list}>
         {recomendations?.map((article) => (

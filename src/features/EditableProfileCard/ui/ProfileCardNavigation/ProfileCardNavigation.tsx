@@ -53,16 +53,16 @@ export const ProfileCardNavigation = ({
       {isEditable && (
         <div className={styles.editableWrapper}>
           {readonly ? (
-            <Button size="small" onClick={onEditPorfile}>
+            <Button size="s" onClick={onEditPorfile}>
               {t('Edit')}
             </Button>
           ) : (
             <div className={styles.buttonsList}>
-              <Button size="small" onClick={onSave}>
+              <Button size="s" onClick={onSave}>
                 {t('Save')}
               </Button>
 
-              <Button size="small" onClick={onCancel} theme="outline-error">
+              <Button size="s" onClick={onCancel} theme="outline-error">
                 {t('Cancel')}
               </Button>
             </div>

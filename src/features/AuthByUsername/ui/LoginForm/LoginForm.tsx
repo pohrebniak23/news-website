@@ -86,7 +86,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
         className={styles.button}
         theme="modal"
         onClick={onLoginSubmit}
-        size="medium"
+        size="m"
         isLoading={isLoading}
       >
         {t('Log in')}

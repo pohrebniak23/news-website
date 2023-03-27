@@ -33,7 +33,7 @@ export const ArticlesPageFilters = ({
   if (error) {
     return (
       <HStack className={classNames(styles.filters, className)}>
-        <Text size="medium">{t('Filters not found')}</Text>
+        <Text size="m">{t('Filters not found')}</Text>
       </HStack>
     );
   }
@@ -41,7 +41,7 @@ export const ArticlesPageFilters = ({
   return (
     <VStack className={classNames(styles.filters, className)}>
       <HStack justify="between" className={styles.nav}>
-        <Title className={styles.title} size="medium">
+        <Title className={styles.title} size="m">
           {t('Articles')}
         </Title>
 

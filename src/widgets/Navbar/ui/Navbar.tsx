@@ -6,10 +6,13 @@ import { useSelector } from 'react-redux';
 import { RoutePath } from 'shared/config/routes/routes';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { Button } from 'shared/ui/Button/Button';
+import { HStack } from 'shared/ui/Stack';
+import { Text } from 'shared/ui/Text';
 import { LangSwitcher } from 'widgets/LangSwitcher/ui/LangSwitcher';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
+import { MenuLinkList } from './MenuLinksList/MenuLinkList';
 import styles from './Navbar.module.scss';
-import { NavbarMenu } from './NavbarMenu/NavbarMenu';
+import { UserMenu } from './UserMenu/UserMenu';
 
 export const Navbar = memo(() => {
   const { t } = useTranslation();
@@ -27,17 +30,20 @@ export const Navbar = memo(() => {
 
   const authUser = () => {
     return (
-      <nav data-testid="navbar" className={styles.navbar}>
+      <HStack justify="between" data-testid="navbar" className={styles.navbar}>
         <AppLink to={RoutePath.home} className={styles.logo}>
-          {t('Logo')}
+          <Text size="s">{t('Logo')}</Text>
         </AppLink>
+
+        <MenuLinkList />
+
         <div className={styles.rightContent}>
           <LangSwitcher className={styles.langSwitcher} />
           <ThemeSwitcher className={styles.themeSwitcher} />
 
-          <NavbarMenu />
+          <UserMenu />
         </div>
-      </nav>
+      </HStack>
     );
   };
 
@@ -51,7 +57,7 @@ export const Navbar = memo(() => {
           <LangSwitcher className={styles.langSwitcher} />
           <ThemeSwitcher className={styles.themeSwitcher} />
 
-          <Button size="small" onClick={onOpenModal}>
+          <Button size="s" onClick={onOpenModal}>
             {t('Log in')}
           </Button>
 

@@ -17,7 +17,7 @@ export const PageErrorBoundary = () => {
   return (
     <ThemeProvider>
       <div className={classNames('app', styles.pageErrorBoundary)}>
-        <Text className={styles.title} size="medium">
+        <Text className={styles.title} size="m">
           {t('Error, somtething went wrong')}
         </Text>
         <Button onClick={reloadPage} theme="outline" className={styles.button}>

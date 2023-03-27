@@ -30,7 +30,7 @@ export const CommentItem = memo(({ className, comment }: CommentItemProps) => {
           </AppLink>
         )}
         <AppLink to={`${RoutePath.profile}${comment.user.id}`}>
-          <Text size="medium">{comment.user.username}</Text>
+          <Text size="m">{comment.user.username}</Text>
         </AppLink>
       </div>
 

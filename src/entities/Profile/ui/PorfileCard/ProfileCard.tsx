@@ -46,10 +46,10 @@ export const ProfileCard = ({
   if (error) {
     return (
       <div className={classNames(styles.errorScreen, className)}>
-        <Text className={styles.errorScreenTitle} theme="error" size="large">
+        <Text className={styles.errorScreenTitle} theme="error" size="l">
           {t('Something went wrong')}
         </Text>
-        <Text theme="error" size="medium">
+        <Text theme="error" size="m">
           {t('Sorry we can`t get your profile data right now')}
         </Text>
       </div>

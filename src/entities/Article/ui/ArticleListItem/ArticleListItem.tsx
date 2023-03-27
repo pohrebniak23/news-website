@@ -5,12 +5,13 @@ import ViewsIcon from 'shared/assets/views-icon.svg';
 import { RoutePath } from 'shared/config/routes/routes';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { Icon } from 'shared/ui/Icon/Icon';
+import { HStack } from 'shared/ui/Stack';
 import { Text } from 'shared/ui/Text';
 import {
   Article,
-  ArticleView,
-  ArticleBlockType,
   ArticleBlockText,
+  ArticleBlockType,
+  ArticleView,
 } from '../../model/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import styles from './ArticleListItem.module.scss';
@@ -26,7 +27,7 @@ export const ArticleListItem = memo(
     const { t } = useTranslation('articles');
 
     const typesBlock = (
-      <Text size="small" className={styles.type}>
+      <Text size="s" className={styles.type}>
         {article.type.join(', ')}
       </Text>
     );
@@ -58,16 +59,31 @@ export const ArticleListItem = memo(
               alt={article.title}
               className={styles.image}
             />
-
-            <span className={styles.date}>{article.createdAt}</span>
           </div>
 
-          <div className={styles.info}>
-            {typesBlock}
-            {viewsBlock}
-          </div>
+          <HStack gap="16" className={styles.category}>
+            {article?.type &&
+              article?.type.map((item) => (
+                <Text size="xs" key={item} className={styles.categoryItem}>
+                  {item}
+                </Text>
+              ))}
+          </HStack>
 
           <Text className={styles.title}>{article.title}</Text>
+
+          <HStack className={styles.bottomInfo} gap="16" align="center">
+            <HStack
+              w100={false}
+              className={styles.user}
+              gap="16"
+              align="center"
+            >
+              <img src={article.user.avatar} className={styles.avatar} alt="" />
+              <Text className={styles.username}>{article.user.username}</Text>
+            </HStack>
+            <Text className={styles.date}>{article?.createdAt}</Text>
+          </HStack>
         </AppLink>
       );
     }
@@ -88,7 +104,7 @@ export const ArticleListItem = memo(
 
         <div className={styles.info}>
           <div className={styles.content}>
-            <Text className={styles.title} size="medium">
+            <Text className={styles.title} size="m">
               {article.title}
             </Text>
 
@@ -97,7 +113,7 @@ export const ArticleListItem = memo(
             {textInfoBlock && (
               <ArticleTextBlockComponent
                 withTitle={false}
-                textSize="extra-small"
+                textSize="xs"
                 className={styles.text}
                 block={textInfoBlock}
               />

@@ -16,15 +16,15 @@
     opacity: 0.9;
   }
 
-  &.small {
+  &.s {
     font: var(--font-s);
   }
 
-  &.medium {
+  &.m {
     font: var(--font-m);
   }
 
-  &.large {
+  &.l {
     font: var(--font-l);
   }
 }
@@ -65,17 +65,17 @@
   align-items: center;
   padding: 0;
 
-  &.small {
+  &.s {
     width: 20px;
     height: 20px;
   }
 
-  &.medium {
+  &.m {
     width: 24px;
     height: 24px;
   }
 
-  &.large {
+  &.l {
     width: 30px;
     height: 30px;
   }

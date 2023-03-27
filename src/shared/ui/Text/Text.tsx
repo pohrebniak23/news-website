@@ -4,7 +4,7 @@ import styles from './Text.module.scss';
 
 export type TextTheme = 'default' | 'error' | 'modal';
 
-export type TextSize = 'extra-small' | 'small' | 'medium' | 'large';
+export type TextSize = 'xs' | 's' | 'm' | 'l' | 'xl';
 
 interface TextProps {
   className?: string;
@@ -14,7 +14,7 @@ interface TextProps {
 }
 
 export const Text = memo(
-  ({ className, theme = 'default', size = 'small', children }: TextProps) => {
+  ({ className, theme = 'default', size = 's', children }: TextProps) => {
     return (
       <p
         className={classNames(

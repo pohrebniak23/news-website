@@ -1,3 +1,4 @@
+import { ArticlePageMostPopular } from 'features/ArticlePageMostPopular';
 import {
   ArticlesPageFilters,
   fetchNextArticlesList,
@@ -20,6 +21,8 @@ const ArticlesPage = () => {
     <PageWrapper endOfPageCallback={endOfPageCallback}>
       <VStack>
         <ArticlesPageFilters className={styles.filters} />
+
+        <ArticlePageMostPopular className={styles.popular} />
 
         <ArticlesPageInfiniteList />
       </VStack>

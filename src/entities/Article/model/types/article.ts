@@ -31,8 +31,9 @@ export interface ArticleBlockImage extends ArticleBlockBase {
 export enum ArticleType {
   ALL = 'ALL',
   IT = 'IT',
-  SCIENCE = 'SCIENCE',
-  BUSINESS = 'BUSINESS',
+  SCIENCE = 'Science',
+  BUSINESS = 'Business',
+  TECHNOLOGY = 'Technology',
 }
 
 export enum ArticleView {

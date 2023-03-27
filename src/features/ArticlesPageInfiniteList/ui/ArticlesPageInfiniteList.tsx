@@ -10,6 +10,7 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { HStack } from 'shared/ui/Stack';
 import styles from './ArticlesPageInfiniteList.module.scss';
 
 export const ArticlesPageInfiniteList = () => {
@@ -24,13 +25,13 @@ export const ArticlesPageInfiniteList = () => {
   }, [dispatch, searchParams]);
 
   return (
-    <div className={classNames(styles.infiniteList)}>
+    <HStack className={classNames(styles.infiniteList)}>
       <ArticleList
         className={styles.list}
         isLoading={isLoading}
         articles={articles}
         view={view}
       />
-    </div>
+    </HStack>
   );
 };

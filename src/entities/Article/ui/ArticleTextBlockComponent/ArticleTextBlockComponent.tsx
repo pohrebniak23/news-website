@@ -21,7 +21,7 @@ export const ArticleTextBlockComponent = memo(
     return (
       <div className={classNames(className, styles.articleTextBlockComponent)}>
         {block.title && withTitle && (
-          <Text className={styles.title} size="medium">
+          <Text className={styles.title} size="m">
             {block.title}
           </Text>
         )}

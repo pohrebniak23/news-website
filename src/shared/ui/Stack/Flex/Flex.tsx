@@ -5,7 +5,7 @@ import styles from './Flex.module.scss';
 export type FlexJustify = 'center' | 'start' | 'end' | 'between' | 'around';
 export type FlexAlign = 'center' | 'start' | 'end';
 export type FlexDirection = 'column' | 'row';
-export type FlexGap = '4' | '8' | '16' | '32';
+export type FlexGap = '4' | '8' | '16' | '32' | '48';
 
 export interface FlexProps {
   className?: string;
@@ -41,6 +41,7 @@ const gapClasses: Record<FlexGap, string> = {
   8: styles.gap8,
   16: styles.gap16,
   32: styles.gap32,
+  48: styles.gap48,
 };
 
 export const Flex = ({

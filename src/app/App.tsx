@@ -2,9 +2,8 @@ import { UserActions } from 'entities/User';
 import { Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navbar } from 'widgets/Navbar/ui/Navbar';
-import { Sidebar } from 'widgets/Sidebar';
-import { AppRouter } from './providers/RouterProvider';
 import { getUserInited } from '../entities/User/models/selectors/getUserInited';
+import { AppRouter } from './providers/RouterProvider';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -21,7 +20,7 @@ export const App = () => {
           <Navbar />
 
           <div className="content">
-            <Sidebar />
+            {/* <Sidebar /> */}
 
             <AppRouter />
           </div>

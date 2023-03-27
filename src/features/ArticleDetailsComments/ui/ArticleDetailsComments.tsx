@@ -58,7 +58,7 @@ export const ArticleDetailsComments = ({
 
   return (
     <div className={classNames(className, styles.articleDetailsComments)}>
-      <Text className={styles.commentsTitle} size="medium">
+      <Text className={styles.commentsTitle} size="m">
         {t('Comments')}
       </Text>
 
