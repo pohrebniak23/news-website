@@ -20,7 +20,11 @@ export const MenuLinkList = memo(({ className }: MenuLinkListProps) => {
   return (
     <HStack w100={false} gap="48" className={className}>
       {menuLinksList.map((item: MenuLinksListType) => (
-        <AppLink to={item.path} className={classNames(styles.link)}>
+        <AppLink
+          key={item.path}
+          to={item.path}
+          className={classNames(styles.link)}
+        >
           <Text size="s" className={styles.linkText}>
             {t(item.text)}
           </Text>

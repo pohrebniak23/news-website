@@ -36,7 +36,7 @@ export const NotificationsList = ({ className }: NotificationsListProps) => {
   if (isUninitialized || !notifications) {
     return (
       <VStack className={classNames(styles.list, className)}>
-        <Text size="extra-small">{t('Notifications list is empty')}</Text>
+        <Text size="xs">{t('Notifications list is empty')}</Text>
       </VStack>
     );
   }

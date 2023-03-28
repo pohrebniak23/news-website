@@ -4,6 +4,8 @@ import { ArticlePageRecomendations } from 'features/ArticlePageRecomendations';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
+import { HStack } from 'shared/ui/Stack';
+import { VStack } from 'shared/ui/Stack/VStack/VStack';
 import { Text } from 'shared/ui/Text';
 import { PageWrapper } from 'widgets/PageWrapper/PageWrapper';
 import styles from './ArticlesDetailsPage.module.scss';
@@ -24,13 +26,15 @@ const ArticlesDetailsPage = () => {
 
   return (
     <PageWrapper>
-      <div className={styles.ariclesDetailsPage}>
-        <ArticleDetails id={id} />
+      <HStack className={styles.ariclesDetailsPage}>
+        <VStack className={styles.leftSide}>
+          <ArticleDetails id={id} />
 
-        <ArticlePageRecomendations />
+          <ArticlePageRecomendations />
 
-        <ArticleDetailsComments className={styles.comments} />
-      </div>
+          <ArticleDetailsComments className={styles.comments} />
+        </VStack>
+      </HStack>
     </PageWrapper>
   );
 };

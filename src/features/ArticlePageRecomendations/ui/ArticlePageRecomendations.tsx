@@ -13,7 +13,7 @@ export const ArticlePageRecomendations = ({
   className,
 }: ArticlePageRecomendationsProps) => {
   const { t } = useTranslation();
-  const { data: recomendations } = useGetArticleRecomedations('4');
+  const { data: recomendations } = useGetArticleRecomedations('3');
 
   return (
     <div className={classNames(styles.recomendations, className)}>

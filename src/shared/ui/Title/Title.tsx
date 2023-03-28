@@ -12,6 +12,7 @@ interface TitleProps {
   size?: TitleSize;
   children: ReactNode;
   variant?: TitleVariant;
+  id?: string;
 }
 
 export const Title = memo((props: TitleProps) => {
@@ -21,6 +22,7 @@ export const Title = memo((props: TitleProps) => {
     size = 'small',
     variant: Variant = 'h1',
     children,
+    id,
   } = props;
 
   return (
@@ -31,6 +33,7 @@ export const Title = memo((props: TitleProps) => {
         styles[theme],
         styles[size],
       )}
+      id={id}
     >
       {children}
     </Variant>

@@ -1,6 +1,7 @@
 import classNames from 'classnames';
-import { memo } from 'react';
+import { memo, useId } from 'react';
 import { Text, TextSize } from 'shared/ui/Text';
+import { Title } from 'shared/ui/Title';
 import { ArticleBlockText } from '../../model/types/article';
 import styles from './ArticleTextBlockComponent.module.scss';
 
@@ -18,12 +19,14 @@ export const ArticleTextBlockComponent = memo(
     withTitle = true,
     textSize,
   }: ArticleTextBlockComponentProps) => {
+    const id = useId();
+
     return (
       <div className={classNames(className, styles.articleTextBlockComponent)}>
         {block.title && withTitle && (
-          <Text className={styles.title} size="m">
+          <Title variant="h2" id={id} className={styles.title} size="m">
             {block.title}
-          </Text>
+          </Title>
         )}
 
         {block.paragraphs.map((paragraph) => (

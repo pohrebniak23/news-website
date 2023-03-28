@@ -20,7 +20,7 @@ export const NotificationsItem = ({
   const title = (
     <HStack gap="8" align="center">
       <Icon Svg={ErrorIcon} className={styles.icon} />
-      <Title size="small">{notification.title}</Title>
+      <Title size="s">{notification.title}</Title>
     </HStack>
   );
 
@@ -32,7 +32,7 @@ export const NotificationsItem = ({
         title
       )}
 
-      <Text size="small">{notification.description}</Text>
+      <Text size="s">{notification.description}</Text>
     </VStack>
   );
 };

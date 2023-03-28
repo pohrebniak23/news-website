@@ -1,6 +1,9 @@
 .article-details {
-  display: block;
-  width: 100%;
+  position: relative;
+}
+
+.article-content {
+  width: 800px;
 }
 
 .skeletonCircle {

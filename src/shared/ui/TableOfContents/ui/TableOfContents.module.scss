@@ -1,0 +1,26 @@
+.list {
+  list-style: disc;
+  margin-left: 40px;
+  position: sticky;
+  top: 40px;
+}
+
+.list-child {
+  list-style: circle;
+  padding-left: 20px;
+}
+
+.list-link {
+  margin-bottom: 16px;
+  color: rgb(var(--primary-color-rgb) / 60%);
+  font: var(--font-s);
+
+  &:hover {
+    opacity: 1;
+    color: var(--primary-color);
+  }
+}
+
+.active {
+  color: var(--primary-color);
+}

@@ -1,6 +1,6 @@
 import classNames from 'classnames';
-import { memo } from 'react';
-import { Text } from 'shared/ui/Text';
+import { memo, useId } from 'react';
+import { Title } from 'shared/ui/Title';
 import { ArticleBlockImage } from '../../model/types/article';
 import styles from './ArticleImageBlockComponent.module.scss';
 
@@ -11,11 +11,15 @@ interface ArticleImageBlockComponentProps {
 
 export const ArticleImageBlockComponent = memo(
   ({ className, block }: ArticleImageBlockComponentProps) => {
+    const id = useId();
+
     return (
       <div className={classNames(className, styles.articleImageBlockComponent)}>
         <img className={styles.image} src={block.src} alt={block.title} />
 
-        <Text className={styles.title}>{block.title}</Text>
+        <Title variant="h3" id={id} className={styles.title}>
+          {block.title}
+        </Title>
       </div>
     );
   },

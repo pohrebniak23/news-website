@@ -27,21 +27,23 @@ export const ArticleListItem = memo(
 
     if (view === ArticleView.TILE) {
       return (
-        <AppLink
+        <VStack
           className={classNames(
             className,
             styles.articleListItem,
             styles[view],
           )}
-          to={`${RoutePath.articles_details}${article.id}`}
         >
-          <div className={styles.imageBlock}>
+          <AppLink
+            to={`${RoutePath.articles_details}${article.id}`}
+            className={styles.imageBlock}
+          >
             <img
               src={article.image}
               alt={article.title}
               className={styles.image}
             />
-          </div>
+          </AppLink>
 
           <VStack className={styles.content}>
             <HStack gap="16" className={styles.category}>
@@ -53,7 +55,11 @@ export const ArticleListItem = memo(
                 ))}
             </HStack>
 
-            <Text className={styles.title}>{article.title}</Text>
+            <AppLink to={`${RoutePath.articles_details}${article.id}`}>
+              <Title size="l" className={styles.title}>
+                {article?.title}
+              </Title>
+            </AppLink>
 
             <HStack className={styles.bottomInfo} gap="16" align="center">
               <HStack
@@ -72,7 +78,7 @@ export const ArticleListItem = memo(
               <Text className={styles.date}>{article?.createdAt}</Text>
             </HStack>
           </VStack>
-        </AppLink>
+        </VStack>
       );
     }
 
@@ -94,9 +100,11 @@ export const ArticleListItem = memo(
               ))}
           </HStack>
 
-          <Title size="l" className={styles.title}>
-            {article?.title}
-          </Title>
+          <AppLink to={`${RoutePath.articles_details}${article.id}`}>
+            <Title size="l" className={styles.title}>
+              {article?.title}
+            </Title>
+          </AppLink>
 
           <HStack className={styles.bottomInfo} gap="32" align="center">
             <HStack

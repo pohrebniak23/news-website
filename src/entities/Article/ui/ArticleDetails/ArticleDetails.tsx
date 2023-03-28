@@ -12,6 +12,8 @@ import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Icon } from 'shared/ui/Icon/Icon';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { HStack, VStack } from 'shared/ui/Stack';
+import { TableOfContents } from 'shared/ui/TableOfContents';
 import { Text } from 'shared/ui/Text';
 import { Title } from 'shared/ui/Title';
 import {
@@ -62,7 +64,7 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
 
   if (isLoading) {
     return (
-      <div className={classNames(styles.articleDetails, className)}>
+      <VStack className={classNames(styles.articleDetails, className)}>
         <Skeleton
           className={styles.skeletonCircle}
           width="140px"
@@ -93,7 +95,7 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
           height="120px"
           borderRadius="4px"
         />
-      </div>
+      </VStack>
     );
   }
 
@@ -106,35 +108,39 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
   }
 
   return (
-    <div className={classNames(styles.articleDetails, className)}>
-      <AppLink className={styles.backLink} to={RoutePath.articles}>
-        <ArrowIcon className={styles.backArrow} />
-        <Text size="xs">{t('Back')}</Text>
-      </AppLink>
+    <HStack gap="32" className={classNames(styles.articleDetails, className)}>
+      <VStack className={styles.articleContent}>
+        <AppLink className={styles.backLink} to={RoutePath.articles}>
+          <ArrowIcon className={styles.backArrow} />
+          <Text size="xs">{t('Back')}</Text>
+        </AppLink>
 
-      <Avatar
-        className={styles.avatar}
-        src={data?.image}
-        widthSize="160px"
-        heightSize="160px"
-        radius="50%"
-      />
+        <Avatar
+          className={styles.avatar}
+          src={data?.image}
+          widthSize="160px"
+          heightSize="160px"
+          radius="50%"
+        />
 
-      <Title className={styles.title} size="m">
-        {data?.title}
-      </Title>
-      <Text className={styles.subtitle}>{data?.subtitle}</Text>
+        <Title className={styles.title} size="m">
+          {data?.title}
+        </Title>
+        <Text className={styles.subtitle}>{data?.subtitle}</Text>
 
-      <div className={styles.info}>
-        <Icon Svg={ViewsIcon} />
-        <Text>{data?.views}</Text>
-      </div>
-      <div className={styles.info}>
-        <Icon Svg={CalendarIcon} />
-        <Text>{data?.createdAt}</Text>
-      </div>
+        <div className={styles.info}>
+          <Icon Svg={ViewsIcon} />
+          <Text>{data?.views}</Text>
+        </div>
+        <div className={styles.info}>
+          <Icon Svg={CalendarIcon} />
+          <Text>{data?.createdAt}</Text>
+        </div>
 
-      {data?.blocks?.map(renderBlocks)}
-    </div>
+        {data?.blocks?.map(renderBlocks)}
+      </VStack>
+
+      <TableOfContents />
+    </HStack>
   );
 });

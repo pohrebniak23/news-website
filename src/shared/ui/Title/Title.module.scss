@@ -1,21 +1,26 @@
 .title {
   color: var(--primary-color);
+  font-family: var(--font-family-semi-bold);
 }
 
 .xs {
   font: var(--font-xs);
+  font-family: var(--font-family-medium);
 }
 
 .s {
   font: var(--font-s);
+  font-family: var(--font-family-medium);
 }
 
 .m {
   font: var(--font-m);
+  font-family: var(--font-family-semi-bold);
 }
 
 .l {
   font: var(--font-l);
+  font-family: var(--font-family-semi-bold);
 }
 
 .modal {

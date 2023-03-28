@@ -12,9 +12,8 @@ import { LangSwitcher } from 'widgets/LangSwitcher/ui/LangSwitcher';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { MenuLinkList } from './MenuLinksList/MenuLinkList';
 import styles from './Navbar.module.scss';
-import { UserMenu } from './UserMenu/UserMenu';
-import { NavbarMenu } from './NavbarMenu/NavbarMenu';
 import { NavbarNotifications } from './NavbarNotifications/NavbarNotifications';
+import { UserMenu } from './UserMenu/UserMenu';
 
 export const Navbar = memo(() => {
   const { t } = useTranslation();
