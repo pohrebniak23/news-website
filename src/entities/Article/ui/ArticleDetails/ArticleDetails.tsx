@@ -109,7 +109,7 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
     <div className={classNames(styles.articleDetails, className)}>
       <AppLink className={styles.backLink} to={RoutePath.articles}>
         <ArrowIcon className={styles.backArrow} />
-        <Text size="extra-small">{t('Back')}</Text>
+        <Text size="xs">{t('Back')}</Text>
       </AppLink>
 
       <Avatar
@@ -120,7 +120,7 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
         radius="50%"
       />
 
-      <Title className={styles.title} size="medium">
+      <Title className={styles.title} size="m">
         {data?.title}
       </Title>
       <Text className={styles.subtitle}>{data?.subtitle}</Text>

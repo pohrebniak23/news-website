@@ -3,7 +3,7 @@ import { memo, ReactNode } from 'react';
 import styles from './Title.module.scss';
 
 export type TitleTheme = 'default' | 'error' | 'modal';
-export type TitleSize = 'extra-small' | 'small' | 'medium' | 'large';
+export type TitleSize = 'xs' | 's' | 'm' | 'l';
 export type TitleVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
 interface TitleProps {

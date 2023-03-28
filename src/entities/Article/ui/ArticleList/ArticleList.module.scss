@@ -1,11 +1,12 @@
 .TILE {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  grid-gap: 24px 12px;
+  grid-template-columns: repeat(auto-fit, minmax(392px, 1fr));
+  grid-gap: 20px;
 
-  .skeleton-title {
-    margin-top: 16px;
+  .content {
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 
   .skeleton-item {

@@ -34,7 +34,7 @@ export const ArticleList = memo(
             ))}
 
         {!isLoading && articles.length === 0 && (
-          <Text>{t('There are currently no articles available')}</Text>
+          <Text size="m">{t('There are currently no articles available')}</Text>
         )}
       </div>
     );

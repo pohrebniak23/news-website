@@ -10,7 +10,7 @@ export type ButtonTheme =
   | 'outline-error'
   | 'square';
 
-export type ButtonSize = 'small' | 'medium' | 'large';
+export type ButtonSize = 's' | 'm' | 'l';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;

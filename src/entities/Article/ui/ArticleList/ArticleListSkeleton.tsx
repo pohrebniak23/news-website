@@ -16,25 +16,27 @@ export const ArticleListSkeleton = ({
   if (view === ArticleView.TILE) {
     return (
       <VStack className={classNames(className, styles.skeletonItem)}>
-        <Skeleton width="100%" height="180px" borderRadius="6px" />
-        <Skeleton
-          className={styles.skeletonTitle}
-          width="100%"
-          height="20px"
-          borderRadius="6px"
-        />
-        <Skeleton
-          className={styles.skeletonTitle}
-          width="100%"
-          height="20px"
-          borderRadius="6px"
-        />
-        <Skeleton
-          className={styles.skeletonTitle}
-          width="40%"
-          height="20px"
-          borderRadius="6px"
-        />
+        <Skeleton width="100%" height="250px" borderRadius="12px" />
+        <VStack className={styles.content} gap="8">
+          <Skeleton
+            className={styles.skeletonTitle}
+            width="100%"
+            height="20px"
+            borderRadius="12px"
+          />
+          <Skeleton
+            className={styles.skeletonTitle}
+            width="100%"
+            height="20px"
+            borderRadius="12px"
+          />
+          <Skeleton
+            className={styles.skeletonTitle}
+            width="40%"
+            height="20px"
+            borderRadius="12px"
+          />
+        </VStack>
       </VStack>
     );
   }

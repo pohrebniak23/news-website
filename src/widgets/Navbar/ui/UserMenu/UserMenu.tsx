@@ -11,9 +11,9 @@ import ExitIcon from 'shared/assets/exit-icon.svg';
 import ProfileIcon from 'shared/assets/profile-icon.svg';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Dropdown, DropdownItem } from 'shared/ui/Dropdown';
-import styles from './NavbarMenu.module.scss';
+import styles from './UserMenu.module.scss';
 
-export const NavbarMenu = () => {
+export const UserMenu = () => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const authData = useSelector(getUserAuthData);

@@ -6,9 +6,13 @@ import { useSelector } from 'react-redux';
 import { RoutePath } from 'shared/config/routes/routes';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { Button } from 'shared/ui/Button/Button';
+import { HStack } from 'shared/ui/Stack';
+import { Text } from 'shared/ui/Text';
 import { LangSwitcher } from 'widgets/LangSwitcher/ui/LangSwitcher';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
+import { MenuLinkList } from './MenuLinksList/MenuLinkList';
 import styles from './Navbar.module.scss';
+import { UserMenu } from './UserMenu/UserMenu';
 import { NavbarMenu } from './NavbarMenu/NavbarMenu';
 import { NavbarNotifications } from './NavbarNotifications/NavbarNotifications';
 
@@ -28,40 +32,65 @@ export const Navbar = memo(() => {
 
   const authUser = () => {
     return (
-      <nav data-testid="navbar" className={styles.navbar}>
+      <HStack
+        justify="between"
+        align="center"
+        data-testid="navbar"
+        className={styles.navbar}
+      >
         <AppLink to={RoutePath.home} className={styles.logo}>
-          {t('Logo')}
+          <Text size="s">{t('Logo')}</Text>
         </AppLink>
-        <div className={styles.rightContent}>
+
+        <MenuLinkList />
+
+        <HStack
+          w100={false}
+          align="center"
+          gap="16"
+          className={styles.rightContent}
+        >
           <LangSwitcher className={styles.langSwitcher} />
           <ThemeSwitcher className={styles.themeSwitcher} />
 
           <NavbarNotifications />
 
-          <NavbarMenu />
-        </div>
-      </nav>
+          <UserMenu />
+        </HStack>
+      </HStack>
     );
   };
 
   const notAuthUser = () => {
     return (
-      <nav data-testid="navbar" className={styles.navbar}>
+      <HStack
+        justify="between"
+        align="center"
+        data-testid="navbar"
+        className={styles.navbar}
+      >
         <AppLink to={RoutePath.home} className={styles.logo}>
-          {t('Logo')}
+          <Text size="s">{t('Logo')}</Text>
         </AppLink>
 
-        <div className={styles.rightContent}>
+        <MenuLinkList />
+
+        <HStack
+          w100={false}
+          align="center"
+          gap="16"
+          className={styles.rightContent}
+        >
           <LangSwitcher className={styles.langSwitcher} />
           <ThemeSwitcher className={styles.themeSwitcher} />
 
-          <Button size="small" onClick={onOpenModal}>
+          <Button size="s" onClick={onOpenModal}>
             {t('Log in')}
           </Button>
 
           <LoginModal isOpen={isModalOpen} onClose={onCloseModal} />
-        </div>
-      </nav>
+        </HStack>
+      </HStack>
     );
   };
 

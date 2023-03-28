@@ -1,4 +1,5 @@
 @import "reset";
+@import "./fonts/fonts.scss";
 @import "./variables/global.scss";
 @import "./themes/light.scss";
 @import "./themes/dark.scss";
@@ -20,4 +21,9 @@ body {
 .content {
   display: flex;
   height: 100%;
+  max-width: 1218px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  min-height: calc(100vh - var(--navbar-height));
 }

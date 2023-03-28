@@ -1,18 +1,13 @@
 import classNames from 'classnames';
 import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
 import ViewsIcon from 'shared/assets/views-icon.svg';
 import { RoutePath } from 'shared/config/routes/routes';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { Icon } from 'shared/ui/Icon/Icon';
+import { HStack, VStack } from 'shared/ui/Stack';
 import { Text } from 'shared/ui/Text';
-import {
-  Article,
-  ArticleView,
-  ArticleBlockType,
-  ArticleBlockText,
-} from '../../model/types/article';
-import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { Title } from 'shared/ui/Title';
+import { Article, ArticleView } from '../../model/types/article';
 import styles from './ArticleListItem.module.scss';
 
 interface ArticleListItemProps {
@@ -23,24 +18,12 @@ interface ArticleListItemProps {
 
 export const ArticleListItem = memo(
   ({ className, article, view }: ArticleListItemProps) => {
-    const { t } = useTranslation('articles');
-
-    const typesBlock = (
-      <Text size="small" className={styles.type}>
-        {article.type.join(', ')}
-      </Text>
-    );
-
     const viewsBlock = (
-      <div className={styles.viewsBlock}>
+      <HStack className={styles.viewsBlock}>
         <Text className={styles.views}>{article.views}</Text>
-        <Icon Svg={ViewsIcon} />
-      </div>
+        <Icon Svg={ViewsIcon} className={styles.viewsIcon} />
+      </HStack>
     );
-
-    const textInfoBlock = article.blocks.find(
-      (item) => item.type === ArticleBlockType.TEXT,
-    ) as ArticleBlockText;
 
     if (view === ArticleView.TILE) {
       return (
@@ -58,69 +41,77 @@ export const ArticleListItem = memo(
               alt={article.title}
               className={styles.image}
             />
-
-            <span className={styles.date}>{article.createdAt}</span>
           </div>
 
-          <div className={styles.info}>
-            {typesBlock}
-            {viewsBlock}
-          </div>
+          <VStack className={styles.content}>
+            <HStack gap="16" className={styles.category}>
+              {article?.type &&
+                article?.type.map((item) => (
+                  <Text size="xs" key={item} className={styles.categoryItem}>
+                    {item}
+                  </Text>
+                ))}
+            </HStack>
 
-          <Text className={styles.title}>{article.title}</Text>
+            <Text className={styles.title}>{article.title}</Text>
+
+            <HStack className={styles.bottomInfo} gap="16" align="center">
+              <HStack
+                w100={false}
+                className={styles.user}
+                gap="16"
+                align="center"
+              >
+                <img
+                  src={article.user.avatar}
+                  className={styles.avatar}
+                  alt=""
+                />
+                <Text className={styles.username}>{article.user.username}</Text>
+              </HStack>
+              <Text className={styles.date}>{article?.createdAt}</Text>
+            </HStack>
+          </VStack>
         </AppLink>
       );
     }
 
     return (
       <div
-        className={classNames(className, styles.articleListItem, styles[view])}
+        className={classNames(styles.articleListItem, className, styles[view])}
       >
-        <div className={styles.header}>
-          <div className={styles.user}>
-            <img src={article.user.avatar} alt="" className={styles.avatar} />
-
-            <Text className={styles.username}>{article.user.username}</Text>
-          </div>
-
-          <Text className={article.createdAt}>{article.createdAt}</Text>
+        <div className={styles.background}>
+          <img src={article?.image} alt="" />
         </div>
 
-        <div className={styles.info}>
-          <div className={styles.content}>
-            <Text className={styles.title} size="medium">
-              {article.title}
-            </Text>
+        <VStack className={styles.content}>
+          <HStack gap="16" className={styles.category}>
+            {article?.type &&
+              article?.type.map((item) => (
+                <Text size="xs" key={item} className={styles.categoryItem}>
+                  {item}
+                </Text>
+              ))}
+          </HStack>
 
-            {typesBlock}
+          <Title size="l" className={styles.title}>
+            {article?.title}
+          </Title>
 
-            {textInfoBlock && (
-              <ArticleTextBlockComponent
-                withTitle={false}
-                textSize="extra-small"
-                className={styles.text}
-                block={textInfoBlock}
-              />
-            )}
-          </div>
-
-          <img
-            src={article.image}
-            alt={article.title}
-            className={styles.image}
-          />
-        </div>
-
-        <div className={styles.bottom}>
-          <AppLink
-            to={`${RoutePath.articles_details}${article.id}`}
-            className={styles.link}
-          >
-            {t('Читать далее...')}
-          </AppLink>
-
-          {viewsBlock}
-        </div>
+          <HStack className={styles.bottomInfo} gap="32" align="center">
+            <HStack
+              w100={false}
+              className={styles.user}
+              gap="16"
+              align="center"
+            >
+              <img src={article.user.avatar} className={styles.avatar} alt="" />
+              <Text className={styles.username}>{article.user.username}</Text>
+            </HStack>
+            <Text className={styles.date}>{article?.createdAt}</Text>
+            {viewsBlock}
+          </HStack>
+        </VStack>
       </div>
     );
   },

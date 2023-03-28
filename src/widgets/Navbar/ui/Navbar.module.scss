@@ -1,20 +1,12 @@
 .navbar {
   height: var(--navbar-height);
-  display: flex;
-  align-items: center;
-  padding: 20px;
-  background: var(--additional-bg-color);
-  justify-content: space-between;
+  padding: 32px 0;
+  max-width: 1218px;
+  margin: 0 auto;
 }
 
 .logo {
   color: var(--primary-color);
   text-decoration: none;
   width: max-content;
-}
-
-.rightContent {
-  display: flex;
-  align-items: center;
-  grid-gap: 0 20px;
 }
