@@ -27,7 +27,7 @@ const ArticlesDetailsPage = () => {
   return (
     <PageWrapper>
       <HStack className={styles.ariclesDetailsPage}>
-        <VStack className={styles.leftSide}>
+        <VStack gap="32" className={styles.leftSide}>
           <ArticleDetails id={id} />
 
           <ArticlePageRecomendations />

@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { HStack } from 'shared/ui/Stack/HStack/HStack';
 import { Text } from 'shared/ui/Text';
 import { CommentType } from '../../model/types/comment';
 import { CommentItem } from '../CommentItem/CommentItem';
@@ -36,7 +37,7 @@ export const CommentList = memo(
     }
 
     return (
-      <div className={classNames(className, styles.commentList)}>
+      <HStack className={classNames(className, styles.commentList)}>
         {comments ? (
           comments.map((commentData) => (
             <CommentItem key={commentData.id} comment={commentData} />
@@ -44,7 +45,7 @@ export const CommentList = memo(
         ) : (
           <Text>{t('Comments not found')}</Text>
         )}
-      </div>
+      </HStack>
     );
   },
 );

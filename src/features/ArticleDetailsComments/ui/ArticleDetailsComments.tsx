@@ -6,6 +6,7 @@ import { getUserId } from 'entities/User/models/selectors/getUserAuthData';
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { HStack } from 'shared/ui/Stack';
 import { Text } from 'shared/ui/Text';
 import {
   useAddNewComment,
@@ -31,15 +32,6 @@ export const ArticleDetailsComments = ({
     isLoading,
     refetch,
   } = useGetArticleComments(articleId || skipToken);
-  // useDynamicReducerLoader(
-  //   {
-  //     articleDetailsComments: ArticleDetailsCommentsReducer,
-  //   },
-  //   false,
-  // );
-
-  // const comments = useSelector(getArticleDetailsComments.selectAll);
-  // const isLoading = useSelector(getArticleDetailsCommentsLoading);
 
   const onCommentChange = useCallback((value: string) => {
     setCommentText(value);
@@ -57,7 +49,7 @@ export const ArticleDetailsComments = ({
   }, [addNewComment, userId, articleId, commentText, refetch]);
 
   return (
-    <div className={classNames(className, styles.articleDetailsComments)}>
+    <HStack className={classNames(className, styles.articleDetailsComments)}>
       <Text className={styles.commentsTitle} size="m">
         {t('Comments')}
       </Text>
@@ -75,6 +67,6 @@ export const ArticleDetailsComments = ({
           comments={articleComments}
         />
       )}
-    </div>
+    </HStack>
   );
 };

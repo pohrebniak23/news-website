@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Button } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { HStack, VStack } from 'shared/ui/Stack';
 import { Text } from 'shared/ui/Text';
 import styles from './AddNewComment.module.scss';
 
@@ -42,16 +43,16 @@ export const AddNewComment = ({
   }
 
   return (
-    <div className={classNames(className, styles.addNewComment)}>
+    <VStack className={classNames(className, styles.addNewComment)}>
       <Text className={styles.title}>{t('Add new comment')}</Text>
 
-      <div className={styles.block}>
+      <HStack className={styles.block}>
         <Input value={commentText} onChange={onCommentChange} />
 
         <Button className={styles.btn} onClick={onSendComment}>
           {t('Add')}
         </Button>
-      </div>
-    </div>
+      </HStack>
+    </VStack>
   );
 };

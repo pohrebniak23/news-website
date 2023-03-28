@@ -1,29 +1,26 @@
 import classNames from 'classnames';
-import { getUserAuthData } from 'entities/User/models/selectors/getUserAuthData';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { VStack } from 'shared/ui/Stack';
 import { Text } from 'shared/ui/Text';
-import { useGetNotifications } from '../../api/notificationsApi';
 import { Notifications } from '../../model/types/notifications';
 import { NotificationsItem } from '../NotificationsItem/NotificationsItem';
 import styles from './NotificationsList.module.scss';
 
 interface NotificationsListProps {
   className?: string;
+  isLoading: boolean;
+  isUninitialized: boolean;
+  notifications?: Notifications[];
 }
 
-export const NotificationsList = ({ className }: NotificationsListProps) => {
+export const NotificationsList = ({
+  className,
+  isLoading,
+  isUninitialized,
+  notifications,
+}: NotificationsListProps) => {
   const { t } = useTranslation();
-  const userData = useSelector(getUserAuthData);
-  const {
-    data: notifications,
-    isLoading,
-    isUninitialized,
-  } = useGetNotifications(userData?.id, {
-    skip: !userData,
-  });
 
   if (isLoading) {
     return (
