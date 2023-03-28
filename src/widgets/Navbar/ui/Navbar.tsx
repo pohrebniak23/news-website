@@ -13,6 +13,8 @@ import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { MenuLinkList } from './MenuLinksList/MenuLinkList';
 import styles from './Navbar.module.scss';
 import { UserMenu } from './UserMenu/UserMenu';
+import { NavbarMenu } from './NavbarMenu/NavbarMenu';
+import { NavbarNotifications } from './NavbarNotifications/NavbarNotifications';
 
 export const Navbar = memo(() => {
   const { t } = useTranslation();
@@ -50,6 +52,8 @@ export const Navbar = memo(() => {
         >
           <LangSwitcher className={styles.langSwitcher} />
           <ThemeSwitcher className={styles.themeSwitcher} />
+
+          <NavbarNotifications />
 
           <UserMenu />
         </HStack>

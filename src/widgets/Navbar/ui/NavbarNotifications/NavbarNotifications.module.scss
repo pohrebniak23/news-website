@@ -1,0 +1,23 @@
+.button {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--primary-color);
+  background: transparent;
+  cursor: pointer;
+
+  svg {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.popover {
+  position: relative;
+  z-index: 20;
+}
+
+.content {
+  max-width: 600px;
+  width: 350px;
+}

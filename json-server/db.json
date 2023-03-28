@@ -1,4 +1,42 @@
 {
+  "notifications": [
+    {
+      "id": "1",
+      "title": "Hi Admin",
+      "description": "Hi, you are welcome!",
+      "userId": "0"
+    },
+    {
+      "id": "1",
+      "title": "Password change",
+      "description": "Hi, your password was changed yesterday",
+      "userId": "0"
+    },
+    {
+      "id": "1",
+      "title": "Hi User",
+      "description": "Hi, you are welcome!",
+      "userId": "1"
+    },
+    {
+      "id": "1",
+      "title": "Password change User 1",
+      "description": "Hi, your password was changed yesterday",
+      "userId": "1"
+    },
+    {
+      "id": "1",
+      "title": "Hi User 2",
+      "description": "Hi, you are welcome!",
+      "userId": "2"
+    },
+    {
+      "id": "1",
+      "title": "Password change User 2",
+      "description": "Hi, your password was changed yesterday",
+      "userId": "2"
+    }
+  ],
   "posts": [
     {
       "id": "1",
@@ -88,9 +126,7 @@
       "userId": "1",
       "createdAt": "22.11.2022",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
-      "type": [
-        "BUSINESS"
-      ],
+      "type": ["BUSINESS"],
       "blocks": [
         {
           "id": "1",
@@ -132,9 +168,7 @@
       "userId": "0",
       "createdAt": "22.11.2022",
       "image": "https://d1fmx1rbmqrxrr.cloudfront.net/zdnet/i/edit/ne/2021/09/logo_java.jpg",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -176,9 +210,7 @@
       "userId": "0",
       "createdAt": "22.11.2022",
       "image": "https://d1fmx1rbmqrxrr.cloudfront.net/zdnet/i/edit/ne/2021/09/logo_java.jpg",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -200,9 +232,7 @@
       "userId": "1",
       "createdAt": "22.11.2022",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -224,9 +254,7 @@
       "userId": "0",
       "createdAt": "22.11.2022",
       "image": "https://d1fmx1rbmqrxrr.cloudfront.net/zdnet/i/edit/ne/2021/09/logo_java.jpg",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -248,9 +276,7 @@
       "userId": "1",
       "createdAt": "22.11.2022",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -272,9 +298,7 @@
       "userId": "0",
       "createdAt": "22.11.2022",
       "image": "https://d1fmx1rbmqrxrr.cloudfront.net/zdnet/i/edit/ne/2021/09/logo_java.jpg",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -296,9 +320,7 @@
       "userId": "1",
       "createdAt": "22.11.2022",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -320,9 +342,7 @@
       "userId": "0",
       "createdAt": "22.11.2022",
       "image": "https://d1fmx1rbmqrxrr.cloudfront.net/zdnet/i/edit/ne/2021/09/logo_java.jpg",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -344,9 +364,7 @@
       "userId": "1",
       "createdAt": "22.11.2022",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -368,9 +386,7 @@
       "userId": "0",
       "createdAt": "22.11.2022",
       "image": "https://d1fmx1rbmqrxrr.cloudfront.net/zdnet/i/edit/ne/2021/09/logo_java.jpg",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -392,9 +408,7 @@
       "userId": "1",
       "createdAt": "22.11.2022",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -416,9 +430,7 @@
       "userId": "0",
       "createdAt": "22.11.2022",
       "image": "https://d1fmx1rbmqrxrr.cloudfront.net/zdnet/i/edit/ne/2021/09/logo_java.jpg",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -440,9 +452,7 @@
       "userId": "1",
       "createdAt": "22.11.2022",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -464,9 +474,7 @@
       "userId": "0",
       "createdAt": "22.11.2022",
       "image": "https://d1fmx1rbmqrxrr.cloudfront.net/zdnet/i/edit/ne/2021/09/logo_java.jpg",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -488,9 +496,7 @@
       "userId": "1",
       "createdAt": "22.11.2022",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -512,9 +518,7 @@
       "userId": "0",
       "createdAt": "22.11.2022",
       "image": "https://d1fmx1rbmqrxrr.cloudfront.net/zdnet/i/edit/ne/2021/09/logo_java.jpg",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -536,9 +540,7 @@
       "userId": "1",
       "createdAt": "22.11.2022",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
