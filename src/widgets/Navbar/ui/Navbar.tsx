@@ -30,7 +30,12 @@ export const Navbar = memo(() => {
 
   const authUser = () => {
     return (
-      <HStack justify="between" data-testid="navbar" className={styles.navbar}>
+      <HStack
+        justify="between"
+        align="center"
+        data-testid="navbar"
+        className={styles.navbar}
+      >
         <AppLink to={RoutePath.home} className={styles.logo}>
           <Text size="s">{t('Logo')}</Text>
         </AppLink>
@@ -49,11 +54,24 @@ export const Navbar = memo(() => {
 
   const notAuthUser = () => {
     return (
-      <nav data-testid="navbar" className={styles.navbar}>
+      <HStack
+        justify="between"
+        align="center"
+        data-testid="navbar"
+        className={styles.navbar}
+      >
         <AppLink to={RoutePath.home} className={styles.logo}>
-          {t('Logo')}
+          <Text size="s">{t('Logo')}</Text>
         </AppLink>
-        <div className={styles.rightContent}>
+
+        <MenuLinkList />
+
+        <HStack
+          w100={false}
+          align="center"
+          gap="16"
+          className={styles.rightContent}
+        >
           <LangSwitcher className={styles.langSwitcher} />
           <ThemeSwitcher className={styles.themeSwitcher} />
 
@@ -62,8 +80,8 @@ export const Navbar = memo(() => {
           </Button>
 
           <LoginModal isOpen={isModalOpen} onClose={onCloseModal} />
-        </div>
-      </nav>
+        </HStack>
+      </HStack>
     );
   };
 

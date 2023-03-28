@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button } from 'shared/ui/Button/Button';
+import { HStack } from 'shared/ui/Stack/HStack/HStack';
 import { Text } from 'shared/ui/Text';
 import { getProfileData } from '../../models/selectors/getProfileData/getProfileData';
 import { getProfileForm } from '../../models/selectors/getProfileForm/getProfileForm';
@@ -47,7 +48,10 @@ export const ProfileCardNavigation = ({
   }, [dispatch, profileData, profileForm]);
 
   return (
-    <div className={classNames(styles.ProfileCardNavigation, className)}>
+    <HStack
+      justify="between"
+      className={classNames(styles.ProfileCardNavigation, className)}
+    >
       <Text className={styles.profileText}>{t('Profile')}</Text>
 
       {isEditable && (
@@ -69,6 +73,6 @@ export const ProfileCardNavigation = ({
           )}
         </div>
       )}
-    </div>
+    </HStack>
   );
 };

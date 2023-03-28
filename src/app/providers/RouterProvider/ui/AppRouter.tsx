@@ -8,7 +8,7 @@ export const AppRouter = () => {
   const renderWithAuth = useCallback(
     ({ path, authOnly, element, roles = [] }: AppRouteProps) => {
       const resultElement = (
-        <Suspense fallback={<PageLoader />}>{element}</Suspense>
+        <Suspense fallback={<PageLoader center />}>{element}</Suspense>
       );
 
       return (
@@ -19,7 +19,7 @@ export const AppRouter = () => {
             authOnly ? (
               <RequireAuth roles={roles}>{resultElement}</RequireAuth>
             ) : (
-              element
+              resultElement
             )
           }
         />

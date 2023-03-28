@@ -42,6 +42,10 @@
   flex-direction: column;
 }
 
+.gapNone {
+  grid-gap: 0;
+}
+
 .gap4 {
   grid-gap: 4px;
 }

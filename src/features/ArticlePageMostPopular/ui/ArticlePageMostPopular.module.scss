@@ -53,12 +53,14 @@
   color: var(--bg-color);
   border-radius: 6px;
   padding: 4px 10px;
+  font-family: var(--font-family-medium);
 }
 
 .title {
   color: var(--bg-color);
   max-width: 720px;
   margin-bottom: 16px;
+  font-family: var(--font-family-semi-bold);
 }
 
 .avatar {

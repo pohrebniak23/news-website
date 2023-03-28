@@ -1,9 +1,14 @@
+import classNames from 'classnames';
 import { Loader } from 'shared/ui/Loader/Loader';
 import styles from './PageLoader.module.scss';
 
-export const PageLoader = () => {
+interface PageLoaderProps {
+  center?: boolean;
+}
+
+export const PageLoader = ({ center }: PageLoaderProps) => {
   return (
-    <div className={styles.pageLoader}>
+    <div className={classNames(styles.pageLoader, { [styles.center]: center })}>
       <Loader />
     </div>
   );

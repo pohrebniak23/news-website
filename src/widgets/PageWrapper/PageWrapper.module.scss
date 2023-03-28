@@ -3,7 +3,7 @@
   flex-direction: column;
   flex-grow: 1;
   width: 1218px;
-  height: calc(100vh - var(--navbar-height));
+  height: 100%;
   position: relative;
   z-index: 10;
 }

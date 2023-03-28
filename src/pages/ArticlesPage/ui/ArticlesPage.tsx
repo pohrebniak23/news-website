@@ -18,7 +18,7 @@ const ArticlesPage = () => {
   }, [dispatch]);
 
   return (
-    <PageWrapper endOfPageCallback={endOfPageCallback}>
+    <PageWrapper endOfPageCallback={endOfPageCallback} className={styles.page}>
       <VStack>
         <ArticlesPageFilters className={styles.filters} />
 
