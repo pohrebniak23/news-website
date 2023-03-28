@@ -1,0 +1,63 @@
+.wrapper {
+  position: relative;
+}
+
+.options {
+  position: absolute;
+  background: var(--bg-color);
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  margin-top: 4px;
+  width: 100%;
+  transition: 1s;
+  max-height: 300px;
+  min-width: 120px;
+  max-width: 300px;
+  padding: 8px;
+  z-index: 1000;
+  font: var(--font-s);
+  overflow-y: auto;
+}
+
+.enter-to {
+  transition: 0.3s;
+  opacity: 1;
+  z-index: 1000;
+}
+
+.enter-from {
+  transition: 0.3s;
+  opacity: 0;
+  z-index: 1000;
+}
+
+.leave-to {
+  transition: 0.3s;
+  opacity: 0;
+}
+
+.leave-from {
+  transition: 0.3s;
+  opacity: 1;
+}
+
+.bottom-left {
+  top: 100%;
+  left: 0;
+}
+
+.bottom-right {
+  top: 100%;
+  right: 0;
+}
+
+.top-left {
+  bottom: 100%;
+  left: 0;
+}
+
+.top-right {
+  bottom: 100%;
+  right: 0;
+}

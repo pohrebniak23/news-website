@@ -10,6 +10,7 @@ import { LangSwitcher } from 'widgets/LangSwitcher/ui/LangSwitcher';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import styles from './Navbar.module.scss';
 import { NavbarMenu } from './NavbarMenu/NavbarMenu';
+import { NavbarNotifications } from './NavbarNotifications/NavbarNotifications';
 
 export const Navbar = memo(() => {
   const { t } = useTranslation();
@@ -35,6 +36,8 @@ export const Navbar = memo(() => {
           <LangSwitcher className={styles.langSwitcher} />
           <ThemeSwitcher className={styles.themeSwitcher} />
 
+          <NavbarNotifications />
+
           <NavbarMenu />
         </div>
       </nav>
@@ -47,6 +50,7 @@ export const Navbar = memo(() => {
         <AppLink to={RoutePath.home} className={styles.logo}>
           {t('Logo')}
         </AppLink>
+
         <div className={styles.rightContent}>
           <LangSwitcher className={styles.langSwitcher} />
           <ThemeSwitcher className={styles.themeSwitcher} />
