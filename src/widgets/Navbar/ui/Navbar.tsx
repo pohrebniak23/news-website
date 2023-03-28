@@ -42,12 +42,17 @@ export const Navbar = memo(() => {
 
         <MenuLinkList />
 
-        <div className={styles.rightContent}>
+        <HStack
+          w100={false}
+          align="center"
+          gap="16"
+          className={styles.rightContent}
+        >
           <LangSwitcher className={styles.langSwitcher} />
           <ThemeSwitcher className={styles.themeSwitcher} />
 
           <UserMenu />
-        </div>
+        </HStack>
       </HStack>
     );
   };

@@ -1,7 +1,8 @@
 .navbar {
   height: var(--navbar-height);
-  padding: 20px;
-  background: var(--additional-bg-color);
+  padding: 32px 0;
+  max-width: 1218px;
+  margin: 0 auto;
 }
 
 .logo {
