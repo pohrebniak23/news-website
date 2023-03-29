@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import {
   ArticleBlockType,
-  ArticleType,
+  ArticleTag,
 } from 'entities/Article/model/types/article';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
@@ -26,7 +26,7 @@ const articleData = {
   createdAt: '22.11.2022',
   image:
     'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/800px-Unofficial_JavaScript_logo_2.svg.png',
-  type: [ArticleType.IT],
+  type: [ArticleTag.IT],
   blocks: [
     {
       id: '1',

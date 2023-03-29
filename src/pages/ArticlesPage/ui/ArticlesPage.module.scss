@@ -5,8 +5,15 @@
 
 .filters {
   margin-bottom: 24px;
+  width: 280px;
+  position: sticky;
+  top: 40px;
 }
 
 .popular {
   margin-bottom: 48px;
+}
+
+.content {
+  width: 900px;
 }

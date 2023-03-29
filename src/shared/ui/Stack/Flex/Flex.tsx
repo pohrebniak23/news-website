@@ -14,6 +14,7 @@ export interface FlexProps {
   align?: FlexAlign;
   direction?: FlexDirection;
   gap?: FlexGap;
+  wrap?: boolean;
   w100?: boolean;
 }
 
@@ -53,6 +54,7 @@ export const Flex = ({
   direction = 'row',
   gap = 'none',
   w100 = true,
+  wrap = false,
 }: FlexProps) => {
   return (
     <div
@@ -64,6 +66,7 @@ export const Flex = ({
         directionClasses[direction],
         gapClasses[gap],
         w100 && styles.w100,
+        { [styles.wrap]: wrap },
       )}
     >
       {children}

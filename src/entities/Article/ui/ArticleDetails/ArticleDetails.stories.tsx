@@ -3,7 +3,7 @@ import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'shared/contexts/themeContext/ThemeContext';
 import { ArticleDetailsReducer } from '../../model/slices/articleDetailsSlice';
-import { ArticleBlockType, ArticleType } from '../../model/types/article';
+import { ArticleBlockType, ArticleTag } from '../../model/types/article';
 import { ArticleDetails } from './ArticleDetails';
 
 export default {
@@ -24,7 +24,7 @@ const articleData = {
   createdAt: '22.11.2022',
   image:
     'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/800px-Unofficial_JavaScript_logo_2.svg.png',
-  type: [ArticleType.IT],
+  type: [ArticleTag.IT],
   blocks: [
     {
       id: '1',

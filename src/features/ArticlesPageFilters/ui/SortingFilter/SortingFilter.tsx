@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Select, SelectOption } from 'shared/ui/Select';
-import { HStack } from 'shared/ui/Stack';
+import { HStack, VStack } from 'shared/ui/Stack';
 import { Text } from 'shared/ui/Text';
 import { SortingOrder } from '../../../../shared/types/Sorting';
 import {
@@ -72,7 +72,7 @@ export const SortingFilter = () => {
   );
 
   return (
-    <HStack w100={false} gap="32">
+    <VStack w100={false} gap="32" align="start">
       <HStack w100={false} gap="4">
         <Text>{t('Sort by:')}</Text>
         <Select<ArticleSortingBy>
@@ -92,6 +92,6 @@ export const SortingFilter = () => {
           onChange={onChangeOrderHandler}
         />
       </HStack>
-    </HStack>
+    </VStack>
   );
 };

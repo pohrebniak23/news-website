@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { HTMLAttributes, ReactNode } from 'react';
+import { HTMLAttributes } from 'react';
 import styles from './TabItem.module.scss';
 
 export enum TabItemTheme {
@@ -7,20 +7,20 @@ export enum TabItemTheme {
   OUTLINE = 'OUTLINE',
 }
 
-export interface TabItemData {
-  value: string;
-  content: ReactNode;
-}
-
-export interface TabItemProps extends HTMLAttributes<HTMLDivElement> {
-  item: TabItemData;
+export interface TabItemProps<T extends string>
+  extends HTMLAttributes<HTMLDivElement> {
+  item: T;
   theme: TabItemTheme;
 }
 
-export const TabItem = ({ item, theme, ...otherProps }: TabItemProps) => {
+export const TabItem = <T extends string>({
+  item,
+  theme,
+  ...otherProps
+}: TabItemProps<T>) => {
   return (
     <div className={classNames(styles.tabItem, styles[theme])} {...otherProps}>
-      {item.content}
+      {item}
     </div>
   );
 };

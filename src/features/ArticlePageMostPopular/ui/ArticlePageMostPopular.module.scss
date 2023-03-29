@@ -1,6 +1,6 @@
 .article {
   display: flex;
-  height: 450px;
+  height: 380px;
   width: 100%;
   border-radius: 12px;
   position: relative;
@@ -46,14 +46,6 @@
 
 .category {
   margin-bottom: 16px;
-}
-
-.categoryItem {
-  background: var(--secondary-color);
-  color: var(--bg-color);
-  border-radius: 6px;
-  padding: 4px 10px;
-  font-family: var(--font-family-medium);
 }
 
 .content-title {

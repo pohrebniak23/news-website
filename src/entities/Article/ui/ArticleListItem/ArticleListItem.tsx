@@ -5,6 +5,7 @@ import { RoutePath } from 'shared/config/routes/routes';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { Icon } from 'shared/ui/Icon/Icon';
 import { HStack, VStack } from 'shared/ui/Stack';
+import { TagItem } from 'shared/ui/TagItem';
 import { Text } from 'shared/ui/Text';
 import { Title } from 'shared/ui/Title';
 import { Article, ArticleView } from '../../model/types/article';
@@ -48,11 +49,7 @@ export const ArticleListItem = memo(
           <VStack className={styles.content}>
             <HStack gap="16" className={styles.category}>
               {article?.type &&
-                article?.type.map((item) => (
-                  <Text size="xs" key={item} className={styles.categoryItem}>
-                    {item}
-                  </Text>
-                ))}
+                article?.type.map((item) => <TagItem key={item} text={item} />)}
             </HStack>
 
             <AppLink to={`${RoutePath.articles_details}${article.id}`}>
@@ -94,9 +91,12 @@ export const ArticleListItem = memo(
           <HStack gap="16" className={styles.category}>
             {article?.type &&
               article?.type.map((item) => (
-                <Text size="xs" key={item} className={styles.categoryItem}>
-                  {item}
-                </Text>
+                <TagItem
+                  className={styles.categoryItem}
+                  key={item}
+                  text={item}
+                  variant="dark"
+                />
               ))}
           </HStack>
 

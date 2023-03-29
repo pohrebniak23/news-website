@@ -4,14 +4,13 @@ import { useSelector } from 'react-redux';
 import { useDynamicReducerLoader } from 'shared/lib/hooks/useDynamicReducerLoader';
 import { HStack, VStack } from 'shared/ui/Stack';
 import { Text } from 'shared/ui/Text';
-import { Title } from 'shared/ui/Title';
 import { getFiltersError } from '../model/selectors/getArticlesPageFiltersSelector';
 import { ArticlesPageFiltersReducer } from '../model/slices/ArticlesPageFiltersSlice';
 import styles from './ArticlesPageFilters.module.scss';
 import { SearchFilter } from './SearchFilter/SearchFilter';
 import { SortingFilter } from './SortingFilter/SortingFilter';
-import { TabsFilter } from './TabsFilter/TabsFilter';
 import { ViewFilter } from './ViewFilter/ViewFilter';
+import { SearchWithTags } from './SerachWithTags/ui/SearchWithTags';
 
 interface ArticlesPageFiltersProps {
   className?: string;
@@ -39,13 +38,9 @@ export const ArticlesPageFilters = ({
   }
 
   return (
-    <VStack className={classNames(styles.filters, className)}>
-      <HStack justify="between" className={styles.nav}>
-        <Title className={styles.title} size="m">
-          {t('Articles')}
-        </Title>
-
-        <HStack
+    <VStack gap="16" className={classNames(styles.filters, className)}>
+      <VStack justify="between" className={styles.nav}>
+        <VStack
           justify="end"
           align="center"
           gap="32"
@@ -54,14 +49,12 @@ export const ArticlesPageFilters = ({
           <SortingFilter />
 
           <ViewFilter />
-        </HStack>
-      </HStack>
+        </VStack>
+      </VStack>
 
-      <HStack className={styles.search}>
-        <SearchFilter />
-      </HStack>
+      <SearchFilter />
 
-      <TabsFilter className={styles.tabs} />
+      <SearchWithTags />
     </VStack>
   );
 };

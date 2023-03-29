@@ -1,5 +1,5 @@
 import { EntityState } from '@reduxjs/toolkit';
-import { Article, ArticleType, ArticleView } from 'entities/Article';
+import { Article, ArticleTag, ArticleView } from 'entities/Article';
 import { SortingOrder } from 'shared/types/Sorting';
 
 export enum ArticleSortingBy {
@@ -20,7 +20,7 @@ export interface ArticlesPageFiltersSchema extends EntityState<Article> {
   search: string;
   order: SortingOrder;
   view: ArticleView;
-  type: ArticleType;
+  type: ArticleTag;
 
   _inited: boolean;
 }

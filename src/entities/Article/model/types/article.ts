@@ -28,7 +28,7 @@ export interface ArticleBlockImage extends ArticleBlockBase {
   title: string;
 }
 
-export enum ArticleType {
+export enum ArticleTag {
   ALL = 'ALL',
   IT = 'IT',
   SCIENCE = 'Science',
@@ -54,6 +54,6 @@ export interface Article {
   views: number;
   createdAt: string;
   image: string;
-  type: ArticleType[];
+  type: ArticleTag[];
   blocks: ArticleBlock[];
 }

@@ -1,0 +1,16 @@
+.tag {
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-family: var(--font-family-medium);
+  cursor: pointer;
+}
+
+.dark {
+  background: var(--secondary-color);
+  color: var(--bg-color);
+}
+
+.light {
+  background: rgb(var(--secondary-color-rgb) / 5%);
+  color: var(--secondary-color);
+}

@@ -6,7 +6,7 @@ import {
 import { ArticlesPageInfiniteList } from 'features/ArticlesPageInfiniteList';
 import { memo, useCallback } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { VStack } from 'shared/ui/Stack';
+import { HStack, VStack } from 'shared/ui/Stack';
 import { PageWrapper } from 'widgets/PageWrapper/PageWrapper';
 import styles from './ArticlesPage.module.scss';
 
@@ -19,13 +19,15 @@ const ArticlesPage = () => {
 
   return (
     <PageWrapper endOfPageCallback={endOfPageCallback} className={styles.page}>
-      <VStack>
+      <HStack justify="between">
+        <VStack className={styles.content}>
+          <ArticlePageMostPopular className={styles.popular} />
+
+          <ArticlesPageInfiniteList />
+        </VStack>
+
         <ArticlesPageFilters className={styles.filters} />
-
-        <ArticlePageMostPopular className={styles.popular} />
-
-        <ArticlesPageInfiniteList />
-      </VStack>
+      </HStack>
     </PageWrapper>
   );
 };

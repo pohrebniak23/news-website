@@ -4,7 +4,7 @@ import {
   createSlice,
 } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
-import { Article, ArticleType, ArticleView } from 'entities/Article';
+import { Article, ArticleTag, ArticleView } from 'entities/Article';
 import { ARTICLE_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
 import { SortingOrder } from 'shared/types/Sorting';
 import { fetchArticlesPageWithFilters } from '../services/fetchArticlesPageWithFilters/fetchArticlesPageWithFilters';
@@ -38,7 +38,7 @@ const ArticlesPageFiltersSlice = createSlice({
       search: '',
       sort: ArticleSortingBy.VIEWS,
       view: ArticleView.TILE,
-      type: ArticleType.ALL,
+      type: ArticleTag.ALL,
       _inited: false,
     }),
   reducers: {
@@ -54,7 +54,7 @@ const ArticlesPageFiltersSlice = createSlice({
     setPage: (state, action: PayloadAction<number>) => {
       state.page = action.payload;
     },
-    setType: (state, action: PayloadAction<ArticleType>) => {
+    setType: (state, action: PayloadAction<ArticleTag>) => {
       state.type = action.payload;
     },
     setView: (state, action: PayloadAction<ArticleView>) => {

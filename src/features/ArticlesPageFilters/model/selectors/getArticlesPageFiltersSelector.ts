@@ -1,5 +1,5 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { ArticleType, ArticleView } from 'entities/Article';
+import { ArticleTag, ArticleView } from 'entities/Article';
 import { ArticleSortingBy } from '../types/articlePageFiltersSchema';
 
 export const getFiltersError = (state: StateSchema) =>
@@ -37,5 +37,5 @@ export const getFiltersView = (state: StateSchema) => {
 };
 
 export const getFiltersType = (state: StateSchema) => {
-  return state.articlesPageFilters?.type ?? ArticleType.IT;
+  return state.articlesPageFilters?.type ?? ArticleTag.IT;
 };

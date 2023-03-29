@@ -1,12 +1,12 @@
 import classNames from 'classnames';
-import { memo, ReactNode } from 'react';
+import { memo, ReactNode, HTMLAttributes } from 'react';
 import styles from './Text.module.scss';
 
 export type TextTheme = 'default' | 'error' | 'modal';
 
 export type TextSize = 'xs' | 's' | 'm' | 'l' | 'xl';
 
-interface TextProps {
+interface TextProps extends HTMLAttributes<HTMLParagraphElement> {
   className?: string;
   theme?: TextTheme;
   size?: TextSize;
@@ -14,7 +14,13 @@ interface TextProps {
 }
 
 export const Text = memo(
-  ({ className, theme = 'default', size = 's', children }: TextProps) => {
+  ({
+    className,
+    theme = 'default',
+    size = 's',
+    children,
+    ...otherProps
+  }: TextProps) => {
     return (
       <p
         className={classNames(
@@ -23,6 +29,7 @@ export const Text = memo(
           styles[theme],
           styles[size],
         )}
+        {...otherProps}
       >
         {children}
       </p>
