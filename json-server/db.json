@@ -55,7 +55,7 @@
       "image": "https://www.netscribes.com/wp-content/uploads/2019/06/Technology-Watch.jpg",
       "type": [
         "IT",
-        "Technology"
+        "TECHNOLOGY"
       ],
       "blocks": [
         {
@@ -669,6 +669,12 @@
       "articleId": "0",
       "text": "Hi",
       "id": 13
+    },
+    {
+      "userId": "0",
+      "articleId": "0",
+      "text": "123",
+      "id": 14
     }
   ],
   "profile": [

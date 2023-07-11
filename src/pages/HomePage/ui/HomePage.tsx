@@ -1,21 +1,19 @@
-import { BugButton } from 'app/providers/ErrorBoundary';
-// import { Counter } from 'entities/Counter';
-import { useTranslation } from 'react-i18next';
-import { Text } from 'shared/ui/Text';
+import { ArticlePageMostPopular } from 'features/ArticlePageMostPopular';
+// import { ArticlesPageInfiniteList } from 'features/ArticlesPageInfiniteList';
+import { HStack, VStack } from 'shared/ui/Stack';
 import { PageWrapper } from 'widgets/PageWrapper/PageWrapper';
+import styles from './HomePage.module.scss';
 
 const HomePage = () => {
-  const { t } = useTranslation();
-
   return (
     <PageWrapper>
-      <div>
-        <Text>{t('Hi, its a home page')}</Text>
+      <HStack justify="between" className={styles.page}>
+        <VStack>
+          <ArticlePageMostPopular className={styles.popular} />
 
-        <BugButton />
-
-        {/* <Counter /> */}
-      </div>
+          {/* <ArticlesPageInfiniteList /> */}
+        </VStack>
+      </HStack>
     </PageWrapper>
   );
 };

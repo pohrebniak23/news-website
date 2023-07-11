@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import CloseIcon from 'shared/assets/close-icon.svg';
 import ErrorIcon from 'shared/assets/error.svg';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { Icon } from 'shared/ui/Icon/Icon';
@@ -18,21 +19,25 @@ export const NotificationsItem = ({
   notification,
 }: NotificationsItemProps) => {
   const title = (
-    <HStack gap="8" align="center">
+    <>
       <Icon Svg={ErrorIcon} className={styles.icon} />
       <Title size="s">{notification.title}</Title>
-    </HStack>
+    </>
   );
 
   return (
     <VStack gap="4" className={classNames(styles.item, className)}>
-      {notification.href ? (
-        <AppLink to={notification.href}>{title}</AppLink>
-      ) : (
-        title
-      )}
+      <HStack gap="8" align="center" className={styles.title}>
+        {notification.href ? (
+          <AppLink to={notification.href}>{title}</AppLink>
+        ) : (
+          title
+        )}
+      </HStack>
 
       <Text size="s">{notification.description}</Text>
+
+      <Icon Svg={CloseIcon} className={styles.closeIcon} />
     </VStack>
   );
 };

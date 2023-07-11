@@ -9,7 +9,6 @@ import { AxiosInstance } from 'axios';
 import { ArticleDetailsSchema } from 'entities/Article';
 import { CounterSchema } from 'entities/Counter';
 import { UserSchema } from 'entities/User';
-import { ArticlesPageFiltersSchema } from 'features/ArticlesPageFilters';
 import { LoginSchema } from 'features/AuthByUsername/models';
 import { ProfileSchema } from 'features/EditableProfileCard/models/types/ProfileSchema';
 import { newsApi } from 'shared/api/newsApi';
@@ -24,7 +23,6 @@ export interface StateSchema {
   profile?: ProfileSchema;
 
   // Articles
-  articlesPageFilters?: ArticlesPageFiltersSchema;
   articleDetails?: ArticleDetailsSchema;
 }
 

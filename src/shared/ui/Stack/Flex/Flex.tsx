@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { ReactNode } from 'react';
+import { ReactNode, HTMLAttributes } from 'react';
 import styles from './Flex.module.scss';
 
 export type FlexJustify = 'center' | 'start' | 'end' | 'between' | 'around';
@@ -7,7 +7,7 @@ export type FlexAlign = 'center' | 'start' | 'end';
 export type FlexDirection = 'column' | 'row';
 export type FlexGap = 'none' | '4' | '8' | '16' | '32' | '48';
 
-export interface FlexProps {
+export interface FlexProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;
   children: ReactNode;
   justify?: FlexJustify;
@@ -55,6 +55,7 @@ export const Flex = ({
   gap = 'none',
   w100 = true,
   wrap = false,
+  ...otherProps
 }: FlexProps) => {
   return (
     <div
@@ -68,6 +69,7 @@ export const Flex = ({
         w100 && styles.w100,
         { [styles.wrap]: wrap },
       )}
+      {...otherProps}
     >
       {children}
     </div>

@@ -1,7 +1,7 @@
 .button {
   background: var(--secondary-color);
   color: var(--additional-primary-color);
-  padding: 5px 60px;
+  padding: 6px 40px;
   border-radius: 4px;
   border: 1px solid transparent;
   font: var(--font-xs);
@@ -11,7 +11,6 @@
   align-items: center;
   transition: 0.4s;
   cursor: pointer;
-  height: 48px;
 
   &:hover {
     opacity: 0.9;

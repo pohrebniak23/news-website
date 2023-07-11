@@ -15,7 +15,7 @@ export const NavbarNotifications = () => {
     isUninitialized,
   } = useGetNotifications(userData?.id, {
     skip: !userData,
-    pollingInterval: 30000,
+    pollingInterval: 300000,
   });
 
   const triggerButton = (

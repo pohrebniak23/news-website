@@ -6,3 +6,30 @@
     fill: var(--error-color);
   }
 }
+
+.title {
+  max-width: calc(100% - 24px);
+}
+
+.item {
+  position: relative;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--additional-bg-color);
+  }
+}
+
+.close-icon {
+  position: absolute;
+  right: 6px;
+  top: 4px;
+  width: 16px;
+  height: auto;
+  z-index: 10;
+
+  path {
+    width: 16px;
+    height: auto;
+  }
+}
