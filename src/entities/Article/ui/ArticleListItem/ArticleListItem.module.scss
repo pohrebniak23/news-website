@@ -136,6 +136,7 @@
     padding: 5px;
     overflow: hidden;
     line-height: 25px;
+    /* stylelint-disable-next-line value-no-vendor-prefix */
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
