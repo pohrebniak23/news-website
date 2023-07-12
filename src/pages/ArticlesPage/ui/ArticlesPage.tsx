@@ -1,38 +1,25 @@
-import { ArticleList, ArticleView } from 'entities/Article';
-import { ArticlePageMostPopular } from 'features/ArticlePageMostPopular';
-import { ArticlesFilters } from 'features/ArticlesFilters';
-import { useGetArticlesWithFiltersQuery } from 'features/ArticlesFilters/api/articlesFilters';
-import { memo, useState } from 'react';
+import { ArticlesWithFilters } from 'features/ArticlesWithFilters';
+import { memo } from 'react';
 import { HStack, VStack } from 'shared/ui/Stack';
 import { PageWrapper } from 'widgets/PageWrapper/PageWrapper';
 import styles from './ArticlesPage.module.scss';
 
 const ArticlesPage = () => {
-  const [pageLimit, setPageLimit] = useState(10);
+  // const [page, setPage] = useState<number>(1);
 
-  const { data: articles, isLoading } = useGetArticlesWithFiltersQuery({});
-
-  const endOfPageCallback = () => {
-    // setPageLimit((limit) => limit + 10);
-    console.log(pageLimit);
-  };
+  // const endOfPageCallback = () => {
+  //   setPage((prev: number) => prev + 1);
+  //   console.log(page);
+  // };
 
   return (
-    <PageWrapper endOfPageCallback={endOfPageCallback} className={styles.page}>
+    <PageWrapper className={styles.page}>
       <HStack justify="between">
         <VStack className={styles.content}>
-          <ArticlePageMostPopular className={styles.popular} />
-
-          <ArticleList
-            className={styles.list}
-            isLoading={isLoading}
-            articles={articles || []}
-            view={ArticleView.LIST}
-          />
+          {/* <ArticlePageMostPopular className={styles.popular} /> */}
         </VStack>
-
-        <ArticlesFilters className={styles.filters} />
       </HStack>
+      <ArticlesWithFilters />
     </PageWrapper>
   );
 };

@@ -5,7 +5,7 @@ import { SortingOrder } from 'shared/types/Sorting';
 export enum ArticleSortingBy {
   VIEWS = 'views',
   TITLE = 'title',
-  CREATED = 'created',
+  CREATED = 'createdAt',
 }
 
 interface ArticlesFiltersProps {
@@ -37,7 +37,7 @@ const articlesFiltersApi = newsApi.injectEndpoints({
           _page: page,
           _limit: limit,
           _sort: sort,
-          order,
+          _order: order,
           q: search,
           _expand: 'user',
         },

@@ -11,7 +11,7 @@
   background: var(--bg-color);
   color: var(--primary-color);
   border: 1px solid var(--primary-color);
-  padding: 4px 8px;
+  padding: 8px 10px;
   border-radius: 4px;
   font: var(--font-xs);
   width: 100%;
@@ -46,7 +46,7 @@
 
 .item {
   font: var(--font-xs);
-  padding: 6px 8px;
+  padding: 8px 10px;
   cursor: pointer;
 
   &:hover {

@@ -1,6 +1,12 @@
-import { MutableRefObject, useRef, useCallback } from 'react';
+import {
+  MutableRefObject,
+  useRef,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react';
 
-export const useDebounce = (
+export const useDebounceCallback = (
   callback: (...args: any[]) => void,
   delay = 300,
 ) => {
@@ -18,4 +24,20 @@ export const useDebounce = (
     },
     [callback, delay],
   );
+};
+
+export const useDebounceValue = (value: string, delay = 300) => {
+  const [debouncedValue, setDebouncedValue] = useState(value);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedValue(value);
+    }, delay);
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [value, delay]);
+
+  return debouncedValue;
 };

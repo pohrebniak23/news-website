@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { ArticleView } from 'entities/Article';
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'react-router-dom';
 import ListIcon from 'shared/assets/list-view-icon.svg';

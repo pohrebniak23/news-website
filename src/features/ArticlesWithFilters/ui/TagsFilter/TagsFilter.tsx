@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import { ArticleTag } from 'entities/Article';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSearchParams } from 'react-router-dom';
 import { HStack } from 'shared/ui/Stack';
 import { VStack } from 'shared/ui/Stack/VStack/VStack';
 import { TagItem } from 'shared/ui/TagItem';
@@ -20,7 +21,7 @@ export const TagsFilter = ({
   setActiveTag,
 }: TagsFilterProps) => {
   const { t } = useTranslation();
-  // const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const TabsList: ArticleTag[] = useMemo(
     () => [
@@ -34,7 +35,10 @@ export const TagsFilter = ({
   );
 
   const onTabsChangeHandler = (value: ArticleTag) => {
+    const newSearchParams = new URLSearchParams(searchParams.toString());
     setActiveTag(value);
+    newSearchParams.set('tag', value);
+    setSearchParams(newSearchParams);
   };
 
   return (

@@ -26,13 +26,7 @@ export const PageWrapper = memo(
         className={classNames(className, styles.pageWrapper)}
       >
         {children}
-        <div
-          style={{
-            height: '10px',
-            background: 'black',
-          }}
-          ref={triggerRef}
-        />
+        <div ref={triggerRef} />
       </section>
     );
   },
